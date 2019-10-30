@@ -1,0 +1,34 @@
+.contents
+  .contents__wrapper
+    .contents__header
+      %img.contents__header__image1{src: "https://i.gyazo.com/d7b0084595431afdb51a69225cdb593b.jpg"}
+      %img.contents__header__image2{src: "https://i.gyazo.com/ded9b9586e150e941ebdad8f05923e36.jpg"}
+      #button.contents__header__button--left
+      #button.contents__header__button--right
+    .contents__middle
+      %h2.contents__middle__logo
+        人気のカテゴリー
+      .contents__middle__category
+        %ul.contents__middle__category__names
+          %li.contents__middle__category__names__list
+            %a.contents__middle__category__names__list{href: "#"}
+              レディース
+          %li.contents__middle__category__names__list
+            %a.contents__middle__category__names__list{href: "#"}
+              メンズ
+          %li.contents__middle__category__names__list
+            %a.contents__middle__category__names__list{href: "#"}
+              家電・スマホ・カメラ
+          %li.contents__middle__category__names__list
+            %a.contents__middle__category__names__list{href: "#"}
+              おもちゃ・ホビー・グッズ
+    .contents__main
+      .contents__main__logo
+        カテゴリーネーム
+      %a.contents__main__more{href: "#"}
+        もっとみる ＞
+      .contents__main__product
+        = render 'shared/product_block'
+
+        
+  
