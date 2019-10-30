@@ -1,0 +1,44 @@
+.sign-up-header{
+  &--logo{
+    margin: 40px 0 0;
+    display: inline-block;
+    a{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      img{
+        width: 185px;
+        height: 49px;
+        vertical-align: middle;
+      }
+    }
+  }
+  &__root{
+    padding: 40px 0 0 44px;
+    border: 0;
+    display: inline-block;
+    vertical-align: top;
+    
+    &__container{
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      li{
+        float: left;
+        width: 50px;
+        position: relative;
+        text-align: center;
+      }
+      li.active{
+        background: #ea352d;
+      }
+      li.progress-status{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+      }
+    }
+  }
+}

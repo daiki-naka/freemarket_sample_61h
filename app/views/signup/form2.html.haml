@@ -1,0 +1,19 @@
+= render "form-header"
+.form2
+  .form2__container
+    %h2.form2__container--title 電話番号の確認
+    %form.form2__container__form
+      %input{:name => "after_save_callback", :type => "hidden", :value => "/jp/"}
+      .form2__container__form--recode
+        .form2__container__form--recode--group1
+          %label{:for => "phone_number"} 
+          %h4 携帯電話の番号
+          %input.input-default{:name => "phone_number", :placeholder => "携帯電話の番号を入力", :type => "tel", :value => ""}
+          %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        %button.submit-btn{:type => "submit"} SMSを送信する
+        %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .form2__container__form--recode--group2
+          %a{:href => "/jp/help_center/article/244/", :target => "_blank"} 電話番号の確認が必要な理由>
+  = render "devise/shared/footer"
+
+

@@ -1,0 +1,85 @@
+= render "form-header"
+.signup-form
+  .signup-form__section
+    .signup-form__section--title
+      %h2 会員情報入力
+    .signup-form__section--inner
+      .signup-form__section--inner--content
+        .pack-label
+          %span.text ニックネーム
+          %span.required-i 必須
+        %input.form-field{name: "nickname", placeholder:  "例）メルカリ太郎", type: "text"}
+
+        .pack-label
+          %span.text メールアドレス
+          %span.required-i 必須
+        %input.form-field{name: "email", placeholder:  "例）メールアドレス", type: "text"}
+
+        .pack-label
+          %span.text パスワード
+          %span.required-i 必須
+        %input.form-field{name: "password", placeholder:  "例）７文字以上", type: "password"}
+
+        .pack-label
+          %span.text パスワード(確認)
+          %span.required-i 必須
+        %input.form-field{name: "encrypted_password", placeholder:  "例）７文字以上", type: "password"}
+        
+        %span.identification 本人確認
+        %br
+        %a 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+        .pack-label
+          %span.text お名前(全角)
+          %span.required-i 必須
+        .pack-name
+          %input.l-name-field{name: "last_name", placeholder:  "例）山田", type: "text"}
+          %input.name-field{name: "name", placeholder:  "例）彩", type: "text"}
+        
+        .pack-label
+          %span.text お名前カナ(全角)
+          %span.required-i 必須
+        .pack-name
+        %input.l-name-field{name: "last-name-f", placeholder:  "例）ヤマダ", type: "text"}
+        %input.name-field{name: "name-f", placeholder:  "例）アヤ", type: "text"}
+
+        .pack-label
+          %span.text 生年月日
+          %span.required-i 必須
+
+        = date_select :date, Date.today, use_month_numbers: true
+        .cp_ipselect.cp_sl01
+          %select{:required => "--"}
+            %option{:value => ""} --
+            %option{:value => "1"} 1
+            %option{:value => "2"} 2
+            %option{:value => "3"} 3
+            %option{:value => "4"} 4
+            %option{:value => "5"} 5
+            %option{:value => "6"} 6
+            %option{:value => "7"} 7
+            %option{:value => "8"} 8
+            %option{:value => "9"} 9
+            %option{:value => "10"} 10
+            %option{:value => "11"} 11
+            %option{:value => "12"} 
+            %option{:value => "13"}
+            %option{:value => "14"}
+            %option{:value => "15"}
+
+
+
+        %a 日
+        %a ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        %a「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+        
+        %input.submit{type: "submit", value: "次へ進む"}
+
+        
+  = render "devise/shared/footer"
+
+
+
+
+
+

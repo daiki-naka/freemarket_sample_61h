@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#index'
-  # # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+    collection do
+      get 'signup/form1'
+      get 'signup/form2'
+      get 'signup/form3'
+      get 'signup/form4'
+      get 'signup/complete'
+    end
+  end
 end
