@@ -6,16 +6,71 @@
     .form3__container__inner
       .form3__container__inner__form
         .form3__container__inner__form__pack-label
-          %span.form3__container__inner__form__text 
+          %span.form3__container__inner__form__pack-label__text 
             お名前
-          %span.form3__container__inner__form__required-i 
+          %span.form3__container__inner__form__pack-label__required-i 
             必須
-        %input.form3__container__inner__form__field{name: "nickname", placeholder:  "例）メルカリ太郎", type: "text"}
+        %input.form3__container__inner__form__field{name: "last_name", placeholder:  "例）山田", type: "text"}
+        %input.form3__container__inner__form__field{name: "name", placeholder:  "例）彩", type: "text"}
       .form3__container__inner__form
         .form3__container__inner__form__pack-label
-          %span.form3__container__inner__form__text 
+          %span.form3__container__inner__form__pack-label__text 
             お名前カナ
-          %span.form3__container__inner__form__required-i 
+          %span.form3__container__inner__form__pack-label__required-i 
             必須
-        %input.form3__container__inner__form__field{name: "nickname", placeholder:  "例）メルカリ太郎", type: "text"}
+        %input.form3__container__inner__form__field{name: "last_name_f", placeholder:  "例）ヤマダ", type: "text"}
+        %input.form3__container__inner__form__field{name: "name_f", placeholder:  "例）アヤ", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text 
+            郵便番号
+          %span.form3__container__inner__form__pack-label__required-i 
+            必須
+        %input.form3__container__inner__form__field{name: "postal_code", placeholder:  "例）123-4567", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text 
+            都道府県
+          %span.form3__container__inner__form__pack-label__required-i  
+            必須
+        %input.form3__container__inner__form__field{name: "prefecture", placeholder:  "例）北海道", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text 
+            市区町村
+          %span.form3__container__inner__form__pack-label__required-i 
+            必須
+        %input.form3__container__inner__form__field{name: "city", placeholder:  "例）横浜市緑区", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text 
+            番地
+          %span.form3__container__inner__form__pack-label__required-i 
+            必須
+        %input.form3__container__inner__form__field{name: "address", placeholder:  "例）青山1-1-1", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text  
+            建物名
+          %span.form3__container__inner__form__required-i--gray
+            任意
+        %input.form3__container__inner__form__field{name: "building_name", placeholder:  "例）柳ビル103", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text  
+            電話
+          %span.form3__container__inner__form__required-i--gray
+            任意
+        %input.form3__container__inner__form__field{name: "phone_number", placeholder:  "例）09012345678", type: "text"}
+      %input.submit{type: "submit", value: "次へ進む"}
+
+
+
+
+
+
+
+  
+
+
 
