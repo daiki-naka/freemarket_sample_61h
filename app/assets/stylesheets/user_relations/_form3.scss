@@ -3,44 +3,68 @@
 }
 
 .form3{
-  background-color: red;
+  background-color: rgb(245, 245, 245);
   width: 100%;
   height: auto;
   &__container{
     width: 700px;
-    background-color: yellow;
     margin: 0 auto;
     display: block;
+    background-color: #fff;
     &__title{
       text-align: center;
       font-size: 22px;
       padding: 32px;
       line-height: 1.5;
-      border-bottom-style: solid;
-      border-bottom-width: 0.1px;
     }
-    &__inner{
-      background-color: green;
-      padding: 24px 16px 40px;
-      display: inline-block;
-      margin-left: 25%;
-      &__form{
-        background-color: purple;
-        margin-bottom: 20px;
-        &__pack-label{
-          background-color: pink;
-          &__text{
-            font-weight: 600;
+    &__main{
+      border-top: 1px solid #f5f5f5;
+      .form3__container__inner{
+        padding: 24px 16px 40px;
+        margin-left: 25%;
+        width: 50%;
+        border-top: 1px;
+        border-top-style: solid;
+        border-top-color: #f5f5f5;
+        max-width: 343px;
+        &__form{
+          margin-bottom: 24px;
+          &__pack-label{
+            &__text{
+              font-weight: 600;
+              font-size: 14px;
+              color: #333;
+            }
+            &__required-i{
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              color: #fff;
+              font-size: 12px;
+              border-radius: 2px;
+              vertical-align: center;
+            }
           }
-          &__required-i{
-            background-color: #ea352d;
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            color: #fff;
-            font-size: 12px;
-            border-radius: 2px;
-            vertical-align: center;
+          &__field{
+            height: 28px;
+            padding: 10px 16px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            line-height: 1.5;
+            font-size: 16px;
+            min-height: 1.5em;
+            margin: 8px 0 0;
+            width: calc(100% - 30px);
           }
+        }
+        &__submit{
+          margin: 24px 0 0;
+          border-style: none;
+          background-color: #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
         }
       }
     }
