@@ -42,6 +42,16 @@
               font-size: 12px;
               border-radius: 2px;
               vertical-align: center;
+              background: #ea352d;
+            }
+            &__required-i--gray{
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              color: #fff;
+              font-size: 12px;
+              border-radius: 2px;
+              vertical-align: center;
+              background: #ccc;
             }
           }
           &__field{
@@ -58,15 +68,30 @@
             outline-width: 2px;
           }
           &__select{
-            height: 28px;
+            position: relative;
+            &__icon{
+              position: absolute;
+              right: 20px;
+              top: 24px; 
+              color: #ccc;
+              font-size: 20px;
+              pointer-events: none;
+            }
+            &__prefecture{
+            height: 48px;
+            padding: 0 16px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
             line-height: 1.5;
             margin: 8px 0 0;
-            width: calc(100% - 30px);
+            width: 100%;
             outline-color: rgb(0, 149, 238);
             outline-width: 2px;
+            -webkit-appearance: none;
+            background: 0;
+            color: gray;
+            }
           }
         }
         &__submit{

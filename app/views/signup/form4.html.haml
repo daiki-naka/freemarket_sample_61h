@@ -1,2 +1,13 @@
-%h1 Signup#form4
-%p Find me in app/views/signup/form4.html.haml
+= render "form-header"
+.form3__container
+  %h2.form3__container__title
+    クレジットカード情報入力
+  .form3__container__main
+    .form3__container__inner
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__pack-label__text 
+            カード番号
+          %span.form3__container__inner__form__pack-label__required-i 
+            必須
+        %input.form3__container__inner__form__field{name: "last_name", placeholder:  "半角数字のみ", type: "text"}
