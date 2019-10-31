@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
-set :application, "my_app_name"
+set :application, "freemarket_sample_61h"
 set :repo_url,  'git@github.com:daiki-naka/freemarket_sample_61h.git'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
