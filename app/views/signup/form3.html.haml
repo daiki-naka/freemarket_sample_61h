@@ -1,2 +1,21 @@
-%h1 Signup#form3
-%p Find me in app/views/signup/form3.html.haml
+= render "form-header"
+.form3
+  .form3__container
+    %h2.form3__container__title
+      住所入力
+    .form3__container__inner
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__text 
+            お名前
+          %span.form3__container__inner__form__required-i 
+            必須
+        %input.form3__container__inner__form__field{name: "nickname", placeholder:  "例）メルカリ太郎", type: "text"}
+      .form3__container__inner__form
+        .form3__container__inner__form__pack-label
+          %span.form3__container__inner__form__text 
+            お名前カナ
+          %span.form3__container__inner__form__required-i 
+            必須
+        %input.form3__container__inner__form__field{name: "nickname", placeholder:  "例）メルカリ太郎", type: "text"}
+
