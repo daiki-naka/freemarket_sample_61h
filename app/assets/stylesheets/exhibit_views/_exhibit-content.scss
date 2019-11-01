@@ -348,6 +348,7 @@ select{
           @include btn-form;
         }
         .btn-return{
+          text-decoration: none;
           width: 45%;
           margin: 24px auto 0;
           @include btn-form(#aaa, #aaa);
