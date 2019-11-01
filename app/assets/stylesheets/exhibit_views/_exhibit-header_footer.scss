@@ -1,0 +1,40 @@
+.exhibit-header{
+  height: 145px;
+  text-align: center;
+  background-color: $off-white;
+  .eh-logo{
+    margin: 41px 0 0 21px;
+    height: 69px;
+  }
+}
+
+.exhibit-footer{
+  background-color: $off-white;
+  width: 100%;
+  &__content{
+    height: 220px;
+    margin: 0 auto;
+    width: 470px;
+    padding-top: 40px; 
+    li{
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 14px;
+      .terms{
+        display: block;
+        color: $font-color;
+        text-decoration: none;
+      }
+    }
+    .ef-logo{
+      height: 95px;
+      margin: 40px 0 0 40%;
+      
+    }
+    p{
+      margin: 8px 0 0;
+      font-size: 13px;
+      text-align: center;
+    }
+  }
+}

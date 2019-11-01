@@ -73,10 +73,12 @@ gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.4.1'
 gem 'counter_culture'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'active_hash'
 group :production do
   gem 'unicorn', '5.4.1'
 end
