@@ -1,123 +1,54 @@
-*{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-}
-
-.signup-form{
-  width: 100%;
-  padding-bottom: 60px;
-  background-color: rgb(245, 245, 245);
-  &__section{
-    width: 778px;
-    margin: 0 auto;
-    background-color: #fff;
-    &--title{
-      font-size: 24.5px;
-      padding: 36px;
-      line-height: 1.5;
-      text-align: center;
+.signup-form__container__inner__form{
+  &__identification{
+    &--h3{
+      font-size: 16px;
+      font-weight: bold;
+      margin: 24px 0 0;
     }
-    &--inner{
-      padding: 44px 40px 60px;
-      border-top: 1px solid #f5f5f5;
-      &--content{
-        width: 348px;
-        margin: 0 auto;
-        box-sizing: border-box;
-        .pack-label{
-          font-weight: bold;
-          font-size: 14px;
-          margin-top: 24px;
-          .required-i{
-            border: 1px solid #ea352d;
-            background-color: #ea352d;
-            color: #fff;
-            padding: 2px;
-            border-radius: 3px;
-            margin-left:5px;
-          }
-        }
-      }
-
+    &--p{
+      font-size: 14px;
     }
   }
+  &__select{
+    width: 31%;
+    display: inline-block;
+    padding:2px;
+    &__icon{
+      position: absolute;
+      left:60px;
+      top: 24px; 
+      color: #888;
+      font-size: 20px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    &__date{
+      height: 48px;
+      padding: 0 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      line-height: 1.5;
+      outline-color: rgb(0, 149, 238);
+      outline-width: 2px;
+      -webkit-appearance: none;
+      color: gray;
+      width: 83%;
+      position: relative;
+      background: 0;
+      margin: 8px 0 0;
+      margin-right: 2px;
+    }
+  }
+  &__atention{
+    color: #888;
+    line-height: 1.5;
+    font-size: 14px;
+  }
 }
-
-.identification{
-  font-size: 16px;
-  font-weight: bold;
-}
-
-@mixin form-box{
-  margin-top: 8px;
-  min-height: 1.5em;
-  width: 100%;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
+.signup-form__container__inner__agree{
   line-height: 1.5;
+  text-align: center;
+  color: black;
   font-size: 16px;
-  box-sizing: border-box;
-}
-
-input[class="form-field"] {
-  @include form-box;
-}
-
-input[class="l-name-field"] {
-  @include form-box;
-  width: calc(50% - 6px);
-  margin-right: 7px;
-}
-
-input[class="name-field"] {
-  @include form-box;
-  width: calc(50% - 6px);
-}
-
-.cp_ipselect {
-	overflow: hidden;
-	width: 20%;
-	margin: 2em auto;
-	text-align: center;
-}
-.cp_ipselect select {
-	width: 100%;
-	padding-right: 1em;
-	cursor: pointer;
-	text-indent: 0.01px;
-	text-overflow: ellipsis;
-	border: none;
-	outline: none;
-	background: transparent;
-	background-image: none;
-	box-shadow: none;
-	-webkit-appearance: none;
-	appearance: none;
-}
-.cp_ipselect select::-ms-expand {
-    display: none;
-}
-.cp_ipselect.cp_sl01 {
-	position: relative;
-	border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-}
-.cp_ipselect.cp_sl01::before {
-	position: absolute;
-	top: 0.8em;
-	right: 0.9em;
-	width: 0;
-	height: 0;
-	padding: 0;
-	content: '';
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	border-top: 6px solid #666666;
-	pointer-events: none;
-}
-.cp_ipselect.cp_sl01 select {
-	padding: 8px 38px 8px 8px;
-	color: #666666;
 }

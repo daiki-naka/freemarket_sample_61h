@@ -2,7 +2,7 @@
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
-.form3{
+.signup-form{
   background-color: rgb(245, 245, 245);
   width: 100%;
   height: auto;
@@ -19,7 +19,7 @@
     }
     &__main{
       border-top: 1px solid #f5f5f5;
-      .form3__container__inner{
+      .signup-form__container__inner{
         padding: 24px 16px 40px;
         margin-left: 25%;
         width: 50%;
@@ -73,7 +73,7 @@
               position: absolute;
               right: 20px;
               top: 24px; 
-              color: #ccc;
+              color: #888;
               font-size: 20px;
               pointer-events: none;
             }
@@ -103,6 +103,9 @@
           line-height: 48px;
           font-size: 14px;
           text-align: center;
+          outline-color: rgb(0, 149, 238);
+          outline-width: 2px;
+          -webkit-appearance: none;
         }
       }
     }

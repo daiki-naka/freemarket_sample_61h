@@ -1,0 +1,42 @@
+.form4__container__inner__form__image{
+  &__ul{
+    &__li{
+      width: 45px;
+      height: 20px;
+      margin-top: 10px;
+    }
+  }
+}
+.form4__container__inner__form__select{
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: calc(50% - 2px);
+  margin-bottom: 24px;
+  color: #333;
+  &__icon{
+    position: absolute;
+    right: 50px;
+    top: 24px; 
+    color: #888;
+    font-size: 20px;
+    pointer-events: none;
+  }
+  &__creditcard{
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+  outline-color: rgb(0, 149, 238);
+  outline-width: 2px;
+  -webkit-appearance: none;
+  color: gray;
+  background: 0;
+  margin-right: 5px;
+  width: 80%;
+  }
+}
+
