@@ -1,8 +1,12 @@
 = render "form-header"
-.form2
-  .form2__container
-    %h2.form2__container--title 電話番号の確認
-    %form.form2__container__form
+.signup-form
+  .signup-form__container
+    %h2.signup-form__container__title
+      電話番号の確認
+    .signup-form__container__main
+      .signup-form__container__inner
+        .signup-form__container__inner__form
+          .signup-form__container__inner__form__pack-label
       %input{:name => "after_save_callback", :type => "hidden", :value => "/jp/"}
       .form2__container__form--recode
         .form2__container__form--recode--group1
