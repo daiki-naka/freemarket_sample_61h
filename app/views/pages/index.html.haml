@@ -1,2 +1,81 @@
-%h1 Pages#index
-%p Find me in app/views/pages/index.html.haml
+%html#mypage-all
+  %body#mypage-show
+    .header
+    .main
+      .l-content
+        .mypage__user--icon
+          = link_to "#", class: "mypage__user--icon--content" do 
+            .figure
+              = image_tag '8e315ba2cbcce728cf0bf8f71f2e5818.png', height: '60px', width: '60px'
+              %h2 
+                %text daiki nakamura
+              .mypage__number
+                評価
+                %span 0
+                出品数
+                %span 0
+        .mypage__tab--container
+          %ul.mypage-tabs
+            .active
+              %li.active-left
+                %h3
+                  = link_to "#", class: "active-text" do
+                    お知らせ
+            %li.active-right
+              %h3
+                = link_to "#", class: "active-text" do
+                  やることリスト
+          .tab-content
+            %ul.mypage__item-list
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.icon-time
+                      %span ５時間前
+                    %i.icon-arrow-right
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.icon-time
+                      %span ５時間前
+                    %i.icon-arrow-right
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.icon-time
+                      %span ５時間前
+                    %i.icon-arrow-right
+              %li.mypage-item-link-list
+                = link_to "#" do
+                  一覧を見る
+          .tab-content-under
+            %h2.mypage-tab-head 
+              購入した商品
+            %ul.mypage-tabs
+              .active
+                %li.active-left
+                  %h3
+                    = link_to "#", class: "active-text" do
+                      お知らせ
+              %li.active-right
+                %h3
+                  = link_to "#", class: "active-text" do
+                    やることリスト
+      .l-side
+
+
