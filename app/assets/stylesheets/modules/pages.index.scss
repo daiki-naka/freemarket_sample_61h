@@ -152,6 +152,7 @@ body {
             display: block;
             padding: 16px;
             border-bottom: 2px solid #eee;
+            text-decoration: none;
 
             .figure{
               height: 48px;
@@ -169,12 +170,15 @@ body {
               color: #333333;
               font-size:12px;
               text-align: left;
+              
               .mypage__item--text{
                 // float: left;
                 margin-top:5px;
+                text-decoration: none;
               }
               time{
                 // float: left;
+                opacity: 0.8;
               }
             }
           }
