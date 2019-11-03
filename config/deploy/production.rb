@@ -27,7 +27,7 @@ server '54.168.98.247', user: 'ec2-user', roles: %w{app db web}
 # =============
 # You can set any configuration variable like in config/deploy.rb
 # These variables are then only loaded and set in this stage.
-# For available Capistrano configuration variables see the documentation content.
+# For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
