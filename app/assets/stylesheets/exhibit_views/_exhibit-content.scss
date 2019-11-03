@@ -1,0 +1,359 @@
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.margin-top-40{
+  margin-top: 40px;
+}
+
+i{
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  z-index: 5;
+  color: #888;
+  font-size: 8px;
+  transform: translate(0, -50%);
+  pointer-events: none;
+}
+
+select{
+  -webkit-appearance: none;
+}
+
+
+@mixin require{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: $white;
+  font-size: 15px;
+  vertical-align: top;
+  background: #ea352d;
+}
+
+@mixin head-title{
+  float: left;
+  color: #888;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+@mixin question{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: $white;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
+@mixin btn-form($bg-color: #ea352d, $color: #ea352d) {
+  background: $bg-color;
+  border: 1px solid $color;
+  color: $white;
+  display: block;
+  line-height: 48px;
+  font-size: 16px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+@mixin text-form{
+  margin: 8px 0 0;
+  border: 1px solid #ccc;
+  background: $white;
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: initial;
+}
+
+.exhibit{
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $off-white;
+  &__container{
+    background-color: $white;
+    width: 780px;
+    margin:0 auto;
+    .inner-head{
+      padding: 32px 16px;
+      font-size: 26px;
+      line-height: 2;
+      text-align: center;
+      font-weight: bold;
+    }
+    .exhibit-product{
+      border-top: 1px solid #eee;
+      &__view{
+        width: 620px;
+        padding: 40px;
+        &--title{
+          font-size: 19px;
+          font-weight: bold;
+          .require{
+            @include require;
+          }
+        }
+        &--text{
+          margin: 8px 0 0;
+          line-height: 1.5;
+        }
+        &--img{
+          display: block;
+          width: 113%;
+          margin: 16px auto 0;
+          &__box{
+            padding: 40px;
+            position: relative;
+            min-height: 180px;
+            background: $off-white;
+            border: 1px dashed #ccc;
+            text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
+            .visible-pc{
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              right: 16px;
+              text-align: center;
+              font-size: 17px;
+              line-height: 1.5;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+            }
+          }
+        }
+      }
+      &__name{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &--title{
+          font-weight: 600;
+          .require{
+            @include require;
+          }
+          .input-name{
+            width: 95%;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            @include text-form;
+          }
+        }
+        &--explanation{
+          font-weight: 600;
+          margin: 40px 0 0;
+          .require{
+            @include require;
+          }
+          .input-explanation{           
+            display: block;
+            width: 97%;
+            min-height: 104px;
+            padding: 10px;
+            @include text-form;
+          }
+        }
+      }
+      &__detail{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &--head{
+          @include head-title;
+        }
+        &__box{
+          float: right;
+          width: 450px;
+          margin: 0;
+          &--group{
+            label{
+              font-weight: 600;
+              display: inline-block;
+              .require{
+                @include require;
+              }
+            }
+            .select-box{
+              margin: 8px 0 0;
+              position: relative;
+              background: $white;
+              &--icon{
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 8px;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+              }
+              &--menu{
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 55px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                font-weight: initial;
+              }
+            }
+          }
+        }
+      }
+      &__delivery{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &--head{
+          @include head-title
+        }
+        .question{
+          @include question
+        }
+        &__box{
+          float: right;
+          width: 450px;
+          margin: 0;
+          &__group{
+            font-weight: 600;
+
+            .require{
+              @include require;
+            }
+            .select-box{
+              margin: 8px 0 0;
+              position: relative;
+              background: $white;
+              select{
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 55px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                font-weight: initial;
+              }
+            }
+          }
+        }
+      }
+      &__price{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &--head{
+          @include head-title;
+        }
+        .question{
+          @include question
+        }
+        &__box{
+          float: right;
+          width: 450px;
+          margin: 0;
+          .product-price{
+            list-style: none;
+            &--form{
+              padding: 0 0 24px;
+              border: 0;
+              &--head{
+                width: 50%;
+                line-height: 48px;
+                font-weight: 600;
+                float: left;
+                .require{
+                  @include require;
+                }
+              }
+              &--mark{
+                width: 50%;
+                text-align: right;
+                float: right;
+                div{
+                  display: inline-block;
+                  width: 80%;
+                  margin: 0 0 0 5%;
+                  .input-price{
+                    box-sizing: border-box;
+                    text-align: right;
+                    width: 100%;
+                    height: 55px;
+                    padding: 10px 16px 8px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    background: $white;
+                    line-height: 1.5;
+                    font-size: 16px;
+                    font-weight: initial;
+                  }
+                }
+              }
+            }
+            &--fee{
+              padding: 24px 0;
+              border-top: 1px solid #ccc;
+              .p-left{
+                float: left;
+              }
+              .p-right{
+                float: right;
+              }
+            }
+            &--profit{
+              padding: 24px 0;
+              border-top: 1px solid #ccc;
+              font-weight: 600;
+              .p-left{
+                float: left;
+                font-weight: bold;
+                font-size: 16px;
+              }
+              .p-right{
+                float: right;
+                font-size: 34px;
+              }
+            }
+          }
+        }
+      }
+      &__confirmation{
+        padding: 40px;
+        border-top: 1px solid #eee;
+        p{
+          line-height: 1.5;
+          a{
+            color: #0099e8;
+            text-decoration: none;
+          }
+        }
+        .btn-submit{   
+          width: 100%;
+          margin: 40px 0 0;
+          @include btn-form;
+        }
+        .btn-return{
+          text-decoration: none;
+          width: 45%;
+          margin: 24px auto 0;
+          @include btn-form(#aaa, #aaa);
+        }
+      }
+    }
+  }
+}
