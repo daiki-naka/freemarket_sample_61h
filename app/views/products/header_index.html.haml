@@ -1,0 +1,53 @@
+.header
+  .header-inner
+    .header-inner__top
+      .header-inner__top__logo
+        %a{href:'https://www.mercari.com/jp/'} 
+          = image_tag "mercari_toppage_logo.svg", size:"134x36"  
+      .header-inner__top__form
+        %form{action: "https://www.mercari.com/jp/search/"}
+          %input.form_search{placeholder: "  何かお探しですか？"}
+            %label.header-inner__top__form__search-icon_r
+              = fa_icon 'search',class:'submit'
+          
+    .header-inner__bottom
+      .header-inner__bottom__left
+        %li.header-inner__bottom__left__category 
+          = render partial: 'categories'
+          -# %h2#header-nav__parent__root
+          -#   %a{href:'https://www.mercari.com/jp/category/'}
+          -#     %label.header-inner__bottom__left__list-icon_r
+          -#       = fa_icon 'list-ul',class:'icon'
+          -#     %span.c_root カテゴリーから探す
+           
+
+        %li.header-inner__bottom__left__brand
+          %h2
+            %a{href:'https://www.mercari.com/jp/brand/',class:'image_tag'}
+              %label.header-inner__bottom__left__tag-icon_r
+                = image_tag "tag-icon.png", size: "30x18", alt: "タグ",class:'tag'
+              %span.b_root ブランドから探す
+      .header-inner__bottom__right
+        %li.header-inner__bottom__right__favitems
+          %a{href:'https://www.mercari.com/jp/mypage/like/history/',class:'hover'}
+            %label.header-inner__bottom__right__heart-icon_r
+              = fa_icon 'heart',class:'icon_r fa-lg'
+              -# %i.far.fa-heart.icon_r
+            %span.r いいね！一覧
+        %li.header-inner__bottom__right__notice
+          %a{href:'https://www.mercari.com/jp/mypage/like/history/'}
+            %label.header-inner__bottom__right__notice__bell-icon_r
+            = fa_icon 'bell',class:'icon_r fa-lg'
+            %span.r お知らせ
+        %li.header-inner__bottom__right__todolist
+          %a{href:'https://www.mercari.com/jp/mypage/todo/'}
+            %label.header-inner__bottom__right__todolist__check-icon_r
+            = fa_icon 'check',class:'icon_r fa-lg'
+            %span.r やることリスト
+        %li.header-inner__bottom__right__mypage
+          %a{href:'https://www.mercari.com/jp/mypage/',class:'image_tag'}
+            %label.header-inner__bottom__right__mypage__icon
+              = image_tag "mypage.png", size: "32x32", alt: "タグ",class:'tag'
+            %span.r マイページ
+      
+         
