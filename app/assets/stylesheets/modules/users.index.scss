@@ -29,9 +29,6 @@ span{
 body {
   margin: 0;
   padding: 0;
-  
-  
-
 header{
   height: 150px;
   width: 1020px;
@@ -60,6 +57,7 @@ header{
       .figure:hover{
         opacity: 0.8;
       
+
       text:hover{
         border-bottom: 2px solid #333333;
         opacity: 0.8;
@@ -154,6 +152,7 @@ header{
             opacity: 0.8;
           }
         
+
       }
       .tab-content{
         display: inline-block;
@@ -190,6 +189,7 @@ header{
               font-size:12px;
               text-align: left;
               
+
               .mypage__item--text{
                 margin-top:5px;
                 text-decoration: none;
@@ -230,6 +230,7 @@ header{
       }
     }
     
+
     .tab-content-under{
       height: 331px;
       width: 700px;
@@ -357,6 +358,7 @@ header{
           }
         }
         
+
       }
       .mypage__nav--list--top:hover{
         background-color: rgba(238, 238, 238, 0.6);
@@ -382,3 +384,4 @@ header{
   aside{
     height: 260px;
   }
+  
