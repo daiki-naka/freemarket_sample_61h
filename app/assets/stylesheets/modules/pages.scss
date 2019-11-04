@@ -1,0 +1,75 @@
+.mypage__user--edit--header{
+  height: 5%;
+  background-color: white;
+  &--title{
+    line-height: 50px;
+    font-size: 20px;
+  }
+}
+
+.mypage__user--edit--form{
+  height: 180px;
+  background-image: url('/images/rectangle_large_type_2_46ffcfccf4f8a9fb448290dafd69d2c1.jpg');
+  text-align: center;
+  .mypage__user--edit--form--content{
+    padding: 90px;
+    .mypage__user--edit--icon{
+      float: left;
+      margin-left:130px;
+    }
+    .mypage__user--edit--form--content--input{
+      height: 48px;
+      width:200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      float:right;
+      margin-right:110px;
+      margin-top:10px;
+      padding:10px;
+      outline: 0;
+    }
+    .mypage__user--edit--form--content--input:hover{
+      border: 1px solid #4C98E2;
+    }
+  }
+}
+
+.tab-content-edit{
+  display: inline-block;
+  height: 360px;
+  widows: 700px;
+  background-color:white;
+
+.mypage__tab--mypageedit{
+  display: block;
+  height: 216px;
+  width: 668px;
+  margin: 0 auto;
+  margin-top:40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: 0;
+}
+.mypage__tab--mypageedit:hover{
+  border: 1px solid #4C98E2;
+}
+
+.mypage-item-link-list-edit {
+  margin: 0 auto;
+  margin-top:15px;
+  margin-right: 20px;
+  margin-left:20px;
+  line-height: 50px;
+  width: 668px;
+  height: 50px;
+  font-size:12px;
+  color: white;
+  background-color:rgba(228, 30, 30, 0.9);
+  cursor: pointer;
+  outline: 0;
+}
+.mypage-item-link-list-edit:hover{
+  background-color:rgba(228, 30, 30, 1);
+  outline: 0;
+}
+}
