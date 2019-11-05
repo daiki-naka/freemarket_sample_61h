@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'products#header_index'
+  root to: 'products#index'
   resources :products
-  resources :users
+  # # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
