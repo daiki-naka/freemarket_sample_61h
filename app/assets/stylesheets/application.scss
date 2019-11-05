@@ -8,5 +8,9 @@
 @import "modules/footer";
 @import "modules/categories";
 @import "reset";
+@import "./modules/users.scss";
+@import "./modules/users_creditcard.scss";
+@import "./modules/pages.scss";
 @import "./exhibit_views/_exhibit-header_footer.scss";
 @import "./exhibit_views/_exhibit-content.scss";
+@import "./products";
