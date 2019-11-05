@@ -3,142 +3,78 @@ box-sizing: border-box;
 }
 
 h2#header-nav__parent__root{
-position: relative;
-// h2#header-nav__parent__root a:hover {
-// color: skyblue;            /* メニュー項目にマウスが載ったときの文字色 */
-// }
-  ul.header-nav__parent{
-  display: none;      /* ★標準では非表示にする */
-  position: absolute; /* ★絶対配置にする */
-  top:24px;
-  background-color:white;
-  border:solid thin lightpink;
-    li.header-nav__parent__detail {
-    width: 220px;               /* サブメニュー1項目の横幅(135px) */
-    }
-      li.header-nav__parent__detail a {
-      line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-      text-align: left;    /* 文字列の配置(左寄せ) */
-      padding-left: 5px;   /* 文字列前方の余白(5px) */
-      font-weight: normal; /* 太字にはしない */
-      text-decoration: none;
-      color:black;
-      }  
-      li.header-nav__parent__detail a:hover {
-      background-color:red; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
-      color: white;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
-      }
+position: relative; 
+  .h-deco{
+  text-decoration: none;
   }
-        ul.header-nav__child{
-        position:absolute;
-        top:15px;
-        left:240px;
-          li.header-nav__child__detail{
-          display: none;      /* ★標準では非表示にする */
-          width:240px;     
-          }
-            li.header-nav__child__detail a{
-            line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-            text-align: left;    /* 文字列の配置(左寄せ) */
-            padding-left: 10px;   /* 文字列前方の余白(5px) */
-            font-weight: normal; /* 太字にはしない */
-            text-decoration: none;
-            width:220px;
-            border:solid thin lightpink;
+    .h-link{
+    color:black;
+    font-weight: bold;
+    font-size:15px;
+    }
+    .h-link:hover{
+    opacity: 0.7;
+    color:blue;
+    }
+ 
+    ul.header-nav__parent{
+    display: none;      /* ★標準では非表示にする */
+    position: absolute; /* ★絶対配置にする */
+    top:24px;
+    background-color:white;
+    border:solid thin lightpink;
+      li.header-nav__parent__detail {
+      width: 220px;               /* サブメニュー1項目の横幅(135px) */
+      }
+        li.header-nav__parent__detail a {
+        line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
+        text-align: left;    /* 文字列の配置(左寄せ) */
+        padding-left: 5px;   /* 文字列前方の余白(5px) */
+        font-weight: normal; /* 太字にはしない */
+        text-decoration: none;
+        color:black;
+        }  
+        li.header-nav__parent__detail a:hover {
+        background-color:red; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
+        color: white;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
+        }
+    }
+          ul.header-nav__child{
+          position:absolute;
+          top:15px;
+          left:240px;
+            li.header-nav__child__detail{
+            display: none;      /* ★標準では非表示にする */
+            width:240px;     
             }
-            li.header-nav__child__detail a:hover {
-            background-color:lightpink; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
-            }
-          }
-              li.header-nav__grand-child__detail{
-              display: none;      /* ★標準では非表示にする */
-              position: absolute; /* ★絶対配置にする */
-              left: 100%;         /* ★基準位置からの距離を親ボックスの幅100％にする */
+              li.header-nav__child__detail a{
+              line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
+              text-align: left;    /* 文字列の配置(左寄せ) */
+              padding-left: 10px;   /* 文字列前方の余白(5px) */
+              font-weight: normal; /* 太字にはしない */
               text-decoration: none;
+              width:220px;
+              border:solid thin lightpink;
               }
-              li.header-nav__grand-child__detail a{
-                line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-                text-align: left;    /* 文字列の配置(左寄せ) */
-                padding-left: 5px;   /* 文字列前方の余白(5px) */
-                font-weight: normal; /* 太字にはしない */
-                text-decoration: none;
-                }
-              li.header-nav__grand-child__detail a:hover {
+              li.header-nav__child__detail a:hover {
               background-color:lightpink; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
               }
             }
+                li.header-nav__grand-child__detail{
+                display: none;      /* ★標準では非表示にする */
+                position: absolute; /* ★絶対配置にする */
+                left: 100%;         /* ★基準位置からの距離を親ボックスの幅100％にする */
+                text-decoration: none;
+                }
+                li.header-nav__grand-child__detail a{
+                  line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
+                  text-align: left;    /* 文字列の配置(左寄せ) */
+                  padding-left: 5px;   /* 文字列前方の余白(5px) */
+                  font-weight: normal; /* 太字にはしない */
+                  text-decoration: none;
+                  }
+                li.header-nav__grand-child__detail a:hover {
+                background-color:lightpink; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
+                }
+}
             
-.icon{
-color:red; 
-}
-  
-span.c_root{  
-color:black;
-font-weight: bold;
-padding-left:3px;
-}
-
-a:hover{
-  color: skyblue; 
-  text-decoration: none;
-}
-
-//   line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-// text-align: left;    /* 文字列の配置(左寄せ) */
-// padding-left: 5px;   /* 文字列前方の余白(5px) */
-// font-weight: normal; /* 太字にはしない */
-
-
-// %h3.header-nav__parent__detail__link:hover {
-// background-color: #ffff80; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
-// color: #005500;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
-// }
-
-// font-weight: 400;
-// font-size: 14px;
-
-// %a {
-//   padding: 0 16px;
-//   line-height: 44px;
-// }
-
-// .pc-header-nav-parent-wrap a {
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-//   font-size: 14px;
-// }
-
-
-
-// position: absolute;
-//   top: 0;
-//   left: 224px;
-//   bottom: 0;
-//   background: #fff;
-//   box-shadow: 1px 0 0 0 #eee inset;
-
-// .header-nav__child__detail {
-//   display: none;
-//  width: 224px;
-// }
-
-// %a {
-//   padding: 8px 16px;
-// }
-
-// position: absolute;
-//   top: 0;
-//   left: 224px;
-//   bottom: 0;
-//   background: #fff;
-//   box-shadow: 1px 0 0 0 #eee inset;
-
-// .header-nav__grand-child__detail {
-//   display: none;
-//   width: 320px;
-// }
-
-// %a {
-//   padding: 8px 16px;
-// }
