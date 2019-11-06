@@ -7,5 +7,5 @@ Rails.application.routes.draw do
       get 'card'
     end
   end
-  resources :pages, only: [:index]
+  resources :pages, only: [:index, :new]
 end
