@@ -9,6 +9,7 @@
 .f-container{
 display:block;
 width:100%;
+height:100%;
 background-color:#212121;
 
   .app-banner{
@@ -53,7 +54,6 @@ background-color:#212121;
         position:absolute;
         top:225px;
         left:0;
-        height: 200px;
         width: 300px;
         
         }
@@ -110,6 +110,13 @@ background-color:#212121;
           font-weight: normal;
           font-size: 12px;
           line-height:2.5;
+          }
+          p.f{ 
+          text-decoration: none;
+          color: white;
+          font-weight: normal;
+          font-size: 12px;
+          line-height:1.5;
           }
         
         .global-footer__cell-3__inner-right{
