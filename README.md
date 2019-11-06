@@ -80,6 +80,8 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :category
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :grand_category
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -107,6 +109,8 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |profile|text|null: false|
+|keyword1|text|null: false|
+|keyword2|text|null: false|
 ### Association
 - has_many :products
 
