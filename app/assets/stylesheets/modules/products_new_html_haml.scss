@@ -1,12 +1,11 @@
 #mypage-all{
-  background-color: #f5f5f5;
+  background-color:$color-body;
 }
 .products__header--buy{
   width: 100%;
   text-align: center;
   padding: 50px;
 }
-
 .products__content--buy{
   height: 768px;
   width:100%;
@@ -27,7 +26,6 @@
         font-size:20px;
       }
     }
-  
   .products__content--buy--item{
     height: 100px;
     width: 680px;
@@ -44,7 +42,6 @@
     font-size:15px;
     float: right;
   }
-  
     }
   .products__content--buy--form{
     height: 252px;
@@ -176,7 +173,6 @@
       &--text{
         font-weight: 600;
       }
+      }
     }
-    
-  }
   }
