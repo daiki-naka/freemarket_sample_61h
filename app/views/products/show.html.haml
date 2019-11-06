@@ -4,13 +4,15 @@
     %header
 
     %section.item
-      %h1.item__name ARMANI/CASA アルマーニカーザ ARPA カトラリーセット
-      %p.item__wording.p-item-detail
-        『ARMANI/CASA アルマーニカーザ ARPA カトラリーセット』は、45回の取引実績を持つ
-        = link_to 'もっちん', "#", class: "item__wording__link link-item-detail"
-        さんから出品されました。
-        = link_to "カトラリー(スプーン等)/インテリア・住まい・小物", "#", class: "item__wording__link link-item-detail"
-        の商品で、東京都から2~3日で発送されます。
+      %h1.item__name 
+       = @product.name
+        -# ARMANI/CASA アルマーニカーザ ARPA カトラリーセット
+      -# %p.item__wording.p-item-detail
+      -#   『ARMANI/CASA アルマーニカーザ ARPA カトラリーセット』は、45回の取引実績を持つ
+      -#   = link_to 'もっちん', "#", class: "item__wording__link link-item-detail"
+      -#   さんから出品されました。
+      -#   = link_to "カトラリー(スプーン等)/インテリア・住まい・小物", "#", class: "item__wording__link link-item-detail"
+      -#   の商品で、東京都から2~3日で発送されます。
       .item__main-content.clearfix-item-detail
         .item__main-content__photo
           .item__main-content__photo__frame
@@ -18,7 +20,8 @@
               .item__main-content__photo__frame__stage-outer__stage
                 .item__main-content__photo__frame__stage-outer__stage__item
                   .item__main-content__photo__frame__stage-outer__stage__item__inner
-                    = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
+                    -# = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
+                    = @image.product_id.picture                
             .item__main-content__photo__frame__dots
               = render 'shared/product-image'
         %table.item__main-content__detail-table
@@ -26,11 +29,14 @@
             %th.item__main-content__detail-table__row__header 出品者
             %td.item__main-content__detail-table__row__data
               %div
-                = link_to 'もっちん', "#", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
+                -# = link_to 'もっちん', "#", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
+                = link_to {"@product.user_id.nickname"},'users/#{@user.id}',class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
               %div.item__main-content__detail-table__row__data__rate
                 .item__main-content__detail-table__row__data__rate__user-ratings
+                  = link_to  
                   %i.fa.fa-grin.icon-item-detail
                   %span 45
+                  = @product.user_id.
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-meh.icon-item-detail
                   %span 0
