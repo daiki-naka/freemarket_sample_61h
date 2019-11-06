@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'products#index'
-  resources :products
-  
+  resources :users, only: [:index, :edit] do
+    collection do
+      get 'card'
+    end
+  end
+  resources :pages, only: [:index, :new]
   resources :products do 
     collection do
       get 'children_category', defaults: { format: 'json' }
@@ -12,3 +16,4 @@ Rails.application.routes.draw do
     end
   end
 end
+

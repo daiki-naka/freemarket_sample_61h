@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 
-
   def index
   end
 
@@ -72,5 +71,9 @@ class ProductsController < ApplicationController
       :brand_id
       ).merge(user_id: current_user.id)
   end
+
+  def show
+  end
+
   
 end
