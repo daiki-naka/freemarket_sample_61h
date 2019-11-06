@@ -5,80 +5,78 @@
       %h2.global-footer__about__title
         メルカリについて
         %li
-          %a{href: '#'}会社概要（運営会社）
+          = link_to "会社概要（運営会社)",root_path, class: 'a'
         %li
-          %a{href: '#'}採用情報
+          = link_to "採用情報",root_path,class: 'a'
         %li
-          %a{href: '#'}プレスリリース
+          = link_to "プレスリリース",root_path,class: 'a'
         %li
-          %a{href: '#'}公式ブログ
+          = link_to "公式ブログ",root_path,class: 'a'
         %li
-          %a{href: '#'}メルカリロゴ利用ガイドライン
-        %li.social-link-f
-          %a{href: '#'}     
-            = fa_icon 'twitter',class:'icon_f fa-3x'
-          
-        %li.social-link-f
-          %a{href: '#'}
-            = fa_icon 'facebook-square',class:'icon_f fa-3x'
-          
+          = link_to "メルカリロゴ利用ガイドライン",class: 'a'
+        %li.social-link-f1
+          = link_to "#" do
+            %i.fab.fa-twitter.icon_f.fa-3x
+        %li.social-link-f2
+          = link_to "#",class:"a" do
+            %i.fab.fa-facebook-square.icon_f.fa-3x
+
     .global-footer__cell-2
       %h2.global-footer__help-guide__title
         ヘルプ＆ガイド
         %li
-          %a{href: '#'}メルカリガイド
+          = link_to "メルカリガイド",root_path,class: 'a'
         %li
-          %a{href: '#'}らくらくメルカリ便
+          = link_to "らくらくメルカリ便",root_path,class: 'a'
         %li
-          %a{href: '#'}ゆうゆうメルカリ便
+          = link_to "ゆうゆうメルカリ便",root_path,class: 'a'
         %li
-          %a{href: '#'}大型メルカリ便
+          = link_to "大型メルカリ便",root_path,class: 'a'
         %li
-          %a{href: '#'}車体取引ガイド
+          = link_to "車体取引ガイド",root_path,class: 'a'
         %li
-          %a{href: '#'}メルカリあんしん・あんぜん宣言！
+          = link_to "メルカリあんしん・あんぜん宣言！",root_path,class: 'a'
         %li
-          %a{href: '#'}偽ブランド品撲滅への取り組み
+          = link_to "偽ブランド品撲滅への取り組み",root_path,class: 'a'
         %li
-          %a{href: '#'}メルカリボックス
+          = link_to "メルカリボックス",root_path,class: 'a'
 
     .global-footer__cell-3
       %h2.global-footer__cell-3__title
         プライバシーと利用規約
       .global-footer__cell-3__inner-left
         %li
-          %a{href: '#'}プライバシーポリシー
+          = link_to "プライバシーポリシー",root_path,class: 'a'
         %li
-          %a{href: '#'}メルカリ利用規約
+          = link_to "メルカリ利用規約",root_path,class: 'a'
         %p.f
-          %a{href: '#'}あんしんスマホサポート制度に関する
+          = link_to "あんしんスマホサポート制度に関する",root_path,class: 'a'
         %p.f  
-          %a{href: '#'}利用特約
+          = link_to "利用特約",root_path,class: 'a'
         %li
-          %a{href: '#'}コンプライアンスポリシー 
+          = link_to "コンプライアンスポリシー",root_path,class: 'a'
       .global-footer__cell-3__inner-right
         %p.f
-          %a{href: '#'}個人データの安全管理に係る
+          = link_to "個人データの安全管理に係る",root_path,class: 'a'
         %p.f  
-          %a{href: '#'}基本方針
+          = link_to "基本方針",root_path,class: 'a'
         %li
-          %a{href: '#'}特定商取引に関する表記
+          = link_to "特定商取引に関する表記",root_path,class: 'a'
         %li
-          %a{href: '#'}資金決済法に基づく表示
+          = link_to "資金決済法に基づく表示",root_path,class: 'a'
         %li
-          %a{href: '#'}法令順守と犯罪抑止のために
-
+          = link_to "法令順守と犯罪抑止のために",root_path,class: 'a'
     .global-footer__language
       %h2.global-footer__language__title
         国
         %li
-          %a{href: '#'}日本
+          = link_to "日本",root_path,class: 'a'
         %li
-          %a{href: '#'}United States
+          = link_to "United States",root_path,class: 'a'
   .footer-bottom
-    %a.mercari-footer-i{href: "/www.mercari.com/jp/"}
+    .mercari-f-icon
+      = link_to "", root_path, class:'mercari-footer-i'
     .copyright-i
-   
 
 
 
