@@ -18,25 +18,25 @@ position: relative;
     }
  
     ul.header-nav__parent{
-    display: none;      /* ★標準では非表示にする */
-    position: absolute; /* ★絶対配置にする */
+    display: none;
+    position: absolute;
     top:24px;
     background-color:white;
     border:solid thin lightpink;
       li.header-nav__parent__detail {
-      width: 220px;               /* サブメニュー1項目の横幅(135px) */
+      width: 220px;
       }
         li.header-nav__parent__detail a {
-        line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-        text-align: left;    /* 文字列の配置(左寄せ) */
-        padding-left: 5px;   /* 文字列前方の余白(5px) */
-        font-weight: normal; /* 太字にはしない */
+        line-height: 35px;
+        text-align: left;
+        padding-left: 5px;
+        font-weight: normal;
         text-decoration: none;
         color:black;
         }  
         li.header-nav__parent__detail a:hover {
-        background-color:red; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
-        color: white;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
+        background-color:red;
+        color: white;
         }
     }
           ul.header-nav__child{
@@ -44,37 +44,36 @@ position: relative;
           top:15px;
           left:240px;
             li.header-nav__child__detail{
-            display: none;      /* ★標準では非表示にする */
-            width:240px;     
+            display: none;
+            width:240px;
             }
               li.header-nav__child__detail a{
-              line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-              text-align: left;    /* 文字列の配置(左寄せ) */
-              padding-left: 10px;   /* 文字列前方の余白(5px) */
-              font-weight: normal; /* 太字にはしない */
+              line-height: 35px;
+              text-align: left;
+              padding-left: 10px;
+              font-weight: normal;
               text-decoration: none;
               width:220px;
               border:solid thin lightpink;
               }
               li.header-nav__child__detail a:hover {
-              background-color:lightpink; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
+              background-color:lightpink; 
               }
             }
                 li.header-nav__grand-child__detail{
-                display: none;      /* ★標準では非表示にする */
-                position: absolute; /* ★絶対配置にする */
-                left: 100%;         /* ★基準位置からの距離を親ボックスの幅100％にする */
+                display: none;
+                position: absolute; 
+                left: 100%;
                 text-decoration: none;
                 }
                 li.header-nav__grand-child__detail a{
-                  line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
-                  text-align: left;    /* 文字列の配置(左寄せ) */
-                  padding-left: 5px;   /* 文字列前方の余白(5px) */
-                  font-weight: normal; /* 太字にはしない */
+                  line-height: 35px;
+                  text-align: left;
+                  padding-left: 5px;
+                  font-weight: normal;
                   text-decoration: none;
                   }
                 li.header-nav__grand-child__detail a:hover {
-                background-color:lightpink; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
+                background-color:lightpink;
                 }
 }
-            
