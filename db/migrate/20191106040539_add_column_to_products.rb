@@ -12,5 +12,7 @@ class AddColumnToProducts < ActiveRecord::Migration[5.2]
     add_column :products, :user_id, :integer,	null: false, foreign_key: true
     add_column :products, :brand_id,:integer,	null: false, foreign_key: true
     add_column :products, :product_size,:string	
+    remove_column :products, :nickname
+
   end
 end
