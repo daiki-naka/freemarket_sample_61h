@@ -1,0 +1,26 @@
+%h2#header-nav__parent__root
+  = link_to root_path,class:"h-deco" do
+    %i.fa.fa-list-ul.h-link-icon.fa-lg
+    %span.h-link カテゴリから探す
+  %ul.header-nav__parent
+    %li.header-nav__parent__detail
+      =link_to "レディース","#",class:'a'
+      %ul.header-nav__child
+        %li.header-nav__child__detail
+          =link_to "トップス","#",class:'a'
+          %ul.header-nav__grand-child
+            %li.header-nav__grand-child__detail
+              =link_to "Tシャツカットソー(半袖袖なし)","#",class:'a'
+            %li.header-nav__grand-child__detail
+              =link_to "Tシャツカットソー(七分長袖)","#",class:'a'
+        %li.header-nav__child__detail
+          =link_to "ジャケット・アウター","#",class:'a'
+          %ul.header-nav__grand-child
+            %li.header-nav__grand-child__detail
+              =link_to "テーラードジャケット","#",class:'a'
+            %li.header-nav__grand-child__detail
+              =link_to "ノーカラージャケット","#",class:'a'
+    %li.header-nav__parent__detail
+      =link_to "メンズ","#",class:'a'
+    %li.header-nav__parent__detail
+      =link_to "ベビー・キッズ","#",class:'a'

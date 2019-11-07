@@ -18,7 +18,8 @@
               .item__main-content__photo__frame__stage-outer__stage
                 .item__main-content__photo__frame__stage-outer__stage__item
                   .item__main-content__photo__frame__stage-outer__stage__item__inner
-                    = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
+                    -# = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
+                    = @image.product_id.picture
             .item__main-content__photo__frame__dots
               = render 'shared/product-image'
         %table.item__main-content__detail-table
@@ -28,15 +29,18 @@
               %div
                 = link_to 'もっちん', "#", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
               %div.item__main-content__detail-table__row__data__rate
-                .item__main-content__detail-table__row__data__rate__user-ratings
+                .item__main-content__detail-table__row__data__rate__user-ratings 
                   %i.fa.fa-grin.icon-item-detail
-                  %span 45
+                  %span
+                  = @product.user_id.v_good
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-meh.icon-item-detail
-                  %span 0
+                  %span 
+                  = @product.user_id.v_accept
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-frown.icon-item-detail
-                  %span 0
+                  %span
+                  = @product.user_id.v_bad
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header カテゴリー
             %td.item__main-content__detail-table__row__data

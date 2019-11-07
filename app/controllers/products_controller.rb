@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+   @product = Product.find(params[:id])
+   render controller:  "ImageController", action:  "show"
   end
 
   
