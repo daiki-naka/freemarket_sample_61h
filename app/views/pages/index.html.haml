@@ -1,7 +1,10 @@
 %html#mypage-all
   %body#mypage-show
-    -# %header
-    .main
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :user_update
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user
       .l-content
         .mypage__user--edit--header
           %h2.mypage__user--edit--header--title
