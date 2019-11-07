@@ -29,15 +29,18 @@
               %div
                 = link_to 'もっちん', "#", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
               %div.item__main-content__detail-table__row__data__rate
-                .item__main-content__detail-table__row__data__rate__user-ratings
+                .item__main-content__detail-table__row__data__rate__user-ratings 
                   %i.fa.fa-grin.icon-item-detail
-                  %span 45
+                  %span
+                  = @product.user_id.v_good
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-meh.icon-item-detail
-                  %span 0
+                  %span 
+                  = @product.user_id.v_accept
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-frown.icon-item-detail
-                  %span 0
+                  %span
+                  = @product.user_id.v_bad
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header カテゴリー
             %td.item__main-content__detail-table__row__data
