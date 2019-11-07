@@ -5,6 +5,22 @@
   box-sizing: border-box;
 }
 
+@mixin basic-font-style{
+  text-decoration: none;
+  color:$main-color;
+  font-size: $main-font-size;
+  line-height:1.5;
+  font-weight: normal;
+}
+
+@mixin second-fond-style{
+  text-decoration: none;
+  color:$main-color;
+  font-weight: normal;
+  font-size: $main-font-size;
+  line-height:2.5;
+}
+
 $main-color: white;
 $main-font-size: 12px;
 $main-backgrounf-color:#212121;
@@ -18,6 +34,7 @@ $main-backgrounf-color:#212121;
     background-image:url("/images/app.banner.png");
     height:258px;
     width:100%;
+    z-index:5000;
   }
   .global-footer{
     height:302px;
@@ -26,14 +43,14 @@ $main-backgrounf-color:#212121;
     margin:auto;
     display:flex;
     align-items: flex-start;
-    .global-footer__cell-1{
+    &__cell-1{
       width:20%;  
       list-style:none;
       color:$main-color;
       display:flex;
       flex-direction: column;
       position:relative;
-      h2{
+      &__title{
         font-size:16px;
         line-height:2;
         font-weight: bolder;
@@ -41,12 +58,9 @@ $main-backgrounf-color:#212121;
         padding-top:12px;
       } 
       li a{ 
-        text-decoration: none;
-        color:$main-color;
-        word-break: normal;
-        font-size: $main-font-size;
-        line-height:1.5;
-        font-weight: normal;
+        @include basic-font-style;
+      }
+       
       }
       .social-link-f1{
         position:absolute;
@@ -59,11 +73,10 @@ $main-backgrounf-color:#212121;
         top:225px;
         left:50px;
       }
-    }
-    .global-footer__cell-2{
+    &__cell-2{
       list-style: none;
       width:24%;
-      h2{
+      &__title{
         font-size:16px;
         line-height:2;
         font-weight: bolder;
@@ -71,70 +84,52 @@ $main-backgrounf-color:#212121;
         padding-top:12px;
       } 
       li a{ 
-        text-decoration: none;
-        color:$main-color;
-        word-break: normal;
-        font-size: $main-font-size;
-        line-height:1.5;
-        font-weight: normal;
+        @include basic-font-style;
       }
     }
-    .global-footer__cell-3{
+    &__cell-3{
       list-style: none;
       width:44%;
       position: relative;
-      h2.global-footer__cell-3__title{
+      &__title{
         width:100%;
         height:30px;
         padding-top:13px;
         color:$main-color;
         font-weight:bolder;
       }
-      .global-footer__cell-3__inner-left{
+      &__inner-left{
         width:50%;
         float:left;
         padding-top:17px;
         li a{ 
-          text-decoration: none;
-          color:$main-color;
-          font-weight: normal;
-          font-size: $main-font-size;
-          line-height:2.5;
+          @include second-fond-style;
         }
-        p.f{ 
-          text-decoration: none;
-          color:$main-color;
-          font-weight: normal;
-          font-size: $main-font-size;
-          line-height:1.5;
-        }
+        // p.f{ 
+        //   @include basic-font-style;
+        // }
       }
-      .global-footer__cell-3__inner-right{
+      &__inner-right{
         width:50%;
         padding-top:11px;
         display:inline-block;
         padding-top:17px;
         li a{ 
-          text-decoration: none;
-          color:$main-color;
-          word-break: normal;
-          font-size: $main-font-size;
-          line-height:2.5;
-          font-weight: normal;
+          @include second-fond-style;
         }
-        p.f{ 
-          text-decoration: none;
-          color:$main-color;
-          font-weight: normal;
-          font-size: $main-font-size;
-          line-height:1.5;
-        }
+        // p.f{ 
+        //   text-decoration: none;
+        //   color:$main-color;
+        //   font-weight: normal;
+        //   font-size: $main-font-size;
+        //   line-height:1.5;
+        // }
       }
     }
-    .global-footer__language{
+    &__language{
       list-style: none;
       width:12%;
-      .global-footer__language__title{
+      &__title{
         text-decoration: none;
         color:$main-color;
         padding-top:8px;
@@ -142,9 +137,7 @@ $main-backgrounf-color:#212121;
         line-height:2;
         font-weight: bolder;
         li{ 
-          font-weight: normal;
-          font-size: $main-font-size;
-          line-height:2.5;
+          @include second-fond-style;
           a{
             color:$main-color;
             text-decoration: none;
@@ -153,47 +146,43 @@ $main-backgrounf-color:#212121;
       }
     }
   }
-}
-.footer-bottom{
-  height:60px;
-  width:100%;
-  background-color:$main-backgrounf-color;
-  bottom:0;
-  position:relative;
-  .mercari-footer-i{
-    background:url("/images/mercari_black_white.png");
-    position:absolute;
-    top:0px;
-    left:80px;
-    z-index:3;
-    width:145px;
-    height:40px;
-  }  
-  .copyright-i{
-    background-image:url("/images/mercari_copyright.png");
-    background-repeat:no-repeat;
-    width:90px;
-    height:25px;
-    position:absolute;
-    top:0;
-    right:0;
+  .footer-bottom{
+    height:60px;
+    width:100%;
+    background-color:$main-backgrounf-color;
     bottom:0;
-    left:0;
-    margin:auto;
-  }
-}
+    position:relative;
+    .mercari-footer-i{
+      background:url("/images/mercari_black_white.png");
+      position:absolute;
+      top:0px;
+      left:80px;
+      z-index:3;
+      width:145px;
+      height:40px;
+     }  
+    &__copyright-i{
+      background-image:url("/images/mercari_copyright.png");
+      background-repeat:no-repeat;
+      width:90px;
+      height:25px;
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      margin:auto;
+    } 
+   }
+ }
 .icon_f{
   color:$main-color;
-}
-
-.social-link-f{
-  display:inline-block;
-  padding-right:5px;
 }
 
 p.f a{
 font-size: $main-font-size;
 line-height:1.5;
 text-decoration: none;
+font-weight:normal;
 color:$main-color;
 }

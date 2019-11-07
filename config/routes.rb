@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'products#index'
+  root to: 'products#_footer'
   resources :products
   resources :users, only: [:index, :edit] do
     collection do

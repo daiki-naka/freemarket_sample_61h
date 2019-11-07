@@ -2,7 +2,7 @@
   .app-banner
   .global-footer
     .global-footer__cell-1
-      %h2.global-footer__about__title
+      %h2.global-footer__cell-1__title
         メルカリについて
         %li
           = link_to "会社概要（運営会社)",root_path, class: 'a'
@@ -22,7 +22,7 @@
             %i.fab.fa-facebook-square.icon_f.fa-3x
 
     .global-footer__cell-2
-      %h2.global-footer__help-guide__title
+      %h2.global-footer__cell-2__title
         ヘルプ＆ガイド
         %li
           = link_to "メルカリガイド",root_path,class: 'a'
@@ -74,6 +74,6 @@
         %li
           = link_to "United States",root_path,class: 'a'
   .footer-bottom
-    .mercari-f-icon
+    .footer-bottom__mercari-f-icon
       = link_to "", root_path, class:'mercari-footer-i'
-    .copyright-i
+    .footer-bottom__copyright-i
