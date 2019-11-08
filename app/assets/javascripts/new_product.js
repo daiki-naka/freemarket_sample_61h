@@ -344,17 +344,98 @@ $(function(){
 
   $('#delivery_form').on('change', function(){
     $('#method_box').remove();
-    var deliveryId = document.getElementById('delivery_form').value;
+    var deliveryName = document.getElementById('delivery_form').value;
     var method = "";
-    if (deliveryId == 1 ){
+    if (deliveryName == "送料込み(出品者負担)" ){
       appendMethod_1(method)
-    }else if (deliveryId == 2 ){
+    }else if (deliveryName == "着払い(購入者負担)" ){
       appendMethod_2(method)
     };
   });
 
-  $('form').submit(function() {
-    $(this).attr('action', '/products');
- 
+  var p_num = 1
+  $(document).on("change", ".file", function () {
+    var front_img = $(this).parent().parent();
+    var img_num = (($('.exhibit-product__view--img__box').children().length) + 1);
+    var num = 0;
+    var display = "";
+    var fileprop = $(this).prop('files')[0];
+    var find_img = $(this).parent().find('img');
+    var filereader = new FileReader();
+    var view_box = $(this).parent(".view_box");
+    if(find_img.length){
+      find_img.nextAll().remove();
+    }
+    if ( img_num == 2 ){
+      num = 542
+    }else if  ( img_num == 3 ){
+      num = 404
+    }else if  ( img_num == 4 ){
+      num = 266 
+    }else if  ( img_num == 5 ){
+      num = 128
+      $(".explanatory_text").css('bottom', "38%");
+    }else {
+      num = 128
+      display = "none";
+      $(".explanatory_text").css('display', "none");
+    }
+    var img = `<div class="img_view">
+                <img alt="" class="img">
+                <div class="view_option">
+                  <div class="view_option--edit">
+                    編集
+                  </div>
+                  <div class="view_option--delete">
+                    <div class="img_del">削除</a>
+                  </div>
+                </div>
+              </div>`;
+    view_box.append(img);
+    filereader.onload = function() {
+    view_box.find('img').attr('src', filereader.result);
+    }
+    filereader.readAsDataURL(fileprop);
+    $(front_img).css('width', '128px');
+    var img_box = `<div class="img-box" style="width:${num}px; display:${display};">
+                    <div class="view_box">
+                      <input class="file" type="file" name="product[images_attributes][${p_num}][picture]">
+                    </div>
+                  </div>`;
+    $(".exhibit-product__view--img__box").append(img_box);
+    $(".explanatory_text").css('width', num +"px");
+    p_num += 1
+  });
+  
+  $(document).on("click", ".img_del", function () {
+      var d_num = 0
+      var img_delete = ($('.exhibit-product__view--img__box').children().length);
+      var parentBox = $(this).parent().parent().parent().parent().parent();
+      var last_box = $('.exhibit-product__view--img__box').children().last();
+      console.log(img_delete)
+      console.log(last_box)
+      if ( img_delete == 2 ){
+        d_num = 700
+        $(".explanatory_text").css('width', d_num +"px");
+      }else if  ( img_delete == 3 ){
+        d_num = 542
+        $(".explanatory_text").css('width', d_num +"px");
+      }else if  ( img_delete == 4 ){
+        d_num = 404
+        $(".explanatory_text").css('width', d_num +"px");
+      }else if  ( img_delete == 5 ){
+        d_num = 266
+        $(".explanatory_text").css('width', d_num +"px");
+        $(".explanatory_text").css('bottom', "44%" );
+      }else {
+        console.log("show")
+        d_num = 128
+        $(last_box).css("display", "block");
+        $(".explanatory_text").css("display", "block");
+        $(".explanatory_text").css('bottom', "38%" );
+      }
+      parentBox.remove();
+      $(last_box).css('width', d_num);
+      return false;
   });
 });

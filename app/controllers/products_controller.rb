@@ -5,13 +5,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.images.build
   end
 
   def create
     @product = Product.new(product_params)
-    binding.pry
     if @product.save
-      redirext_to root_path, notice: "出品が完了しました"
+      redirect_to root_path, notice: "出品が完了しました"
     else
       render action: :new , alert: "商品出品に失敗しました"
     end
@@ -68,7 +68,8 @@ class ProductsController < ApplicationController
       :price,
       :product_size,
       :category_id,
-      :brand_id
+      :brand_id,
+      images_attributes:[:picture]
       ).merge(user_id: current_user.id)
   end
 

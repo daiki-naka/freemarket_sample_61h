@@ -10,16 +10,20 @@
               %h3.exhibit-product__view--title
                 出品画像
                 %span.require 必須
-              %p.exhibit-product__view--text 最大10枚までアップロードできます
+              .exhibit-product__view--text 最大5枚までアップロードできます
               .exhibit-product__view--img
                 .sell-upload-items-container
                   .sell-upload-items.have-item-0
-                    %ul
+                    %ul               
                 .exhibit-product__view--img__box
-                  %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}
-                  %pre.visible-pc
-                    ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード       
+                  = f.fields_for :images do |i|
+                    #image-contents.img-box
+                      .view_box
+                        = i.file_field :picture, class:"file", required: true
+                .explanatory_text 
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックでファイルをアップロード
             .exhibit-product__name
               .exhibit-product__name--title
                 %label
@@ -112,6 +116,3 @@
               = f.submit "出品する", class: "btn-submit", id: "product-create-btn"
               = link_to "もどる", root_path, class: "btn-return"
 = render "exhibit-footer"
-%form
-  %input{:type => "text"}/
-  %input{:type => "submit", :value => "送信"}/
