@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    render controller:  "ImageController", action:  "show"
   end
 
   def new
@@ -19,7 +21,6 @@ class ProductsController < ApplicationController
       render :new 
     end
   end
-
 
   def children_category
     @children_category = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
