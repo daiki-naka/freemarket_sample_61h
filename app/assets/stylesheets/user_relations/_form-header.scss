@@ -1,0 +1,104 @@
+.signup-header{
+  &__wrapper{
+    text-align: center;
+    background: $off_white;
+    font-size: 12px;
+    &__logo{
+      padding: 11px 0 12px;
+      background-repeat: no-repeat;
+      &__link{
+        width: 120px;
+        height: 33px;
+        margin: 0 8px 0 0;
+        &__image{
+          width: 120px;
+          height: 33px;
+        }
+      }
+    }
+    &__root{
+      padding: 16px 0;
+      border-top: 1px solid #eee;
+      color: $dark_gray;
+      &__ol{
+        position: relative;
+        &__li{
+          font-weight: 600;
+          color: #888;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          position: relative;
+          &--point{
+            @include pointer;
+            background: #ccc;
+            z-index: 4;
+          }
+          .point--1{
+            &::after{
+              @include pointer_line;
+              background: #ccc;
+              left: 30px;
+            }
+          }
+          .point--2,.point--3,.point--4{
+            &::before{
+              @include pointer_line;
+              background: #ccc;
+              right: 30px;
+            }
+            &::after{
+              @include pointer_line;
+              background: #ccc;
+              left: 30px;
+            }
+          }
+          .point--5{
+            &::before{
+              @include pointer_line;
+              background: #ccc;
+              right: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.signup-footer{
+  height: 250px;
+  position: absolute;
+  width: 100%;
+  padding: 40px 0;
+  background: $off_white;
+  &__section{
+    text-align: center;
+    &__ul{
+      text-decoration: none;
+      &__li{
+        font-size: 12px;
+        &__link{
+          text-decoration: none;
+          color: $dark_gray;
+          display: block;
+        }
+      }
+      &__li2{
+        font-size: 12px;
+        margin: 16px 0 0;
+      }
+    }
+    &__homepage{
+      &__image{
+        margin: 40px auto 0;
+        width: 80px;
+        height: 65px;
+      }
+    }
+    &__copyright{
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: $dark_gray;
+    }
+  }
+}

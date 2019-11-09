@@ -1,7 +1,10 @@
 @import "./reset";
+@import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "./colors";
+@import "colors2";
+@import "mixin";
 @import "modules/products_index";
 @import "modules/product_block";
 @import "modules/header";
@@ -14,3 +17,12 @@
 @import "./exhibit_views/_exhibit-header_footer.scss";
 @import "./exhibit_views/_exhibit-content.scss";
 @import "./products";
+@import "./user_relations/registrations";
+@import "./user_relations/session";
+@import "./user_relations/signup";
+@import "./user_relations/form1";
+@import "./user_relations/form2";
+@import "./user_relations/form3";
+@import "./user_relations/form4";
+@import "./user_relations/form-header";
+
