@@ -1,0 +1,85 @@
+.mypage__user--card--header{
+  height: 5%;
+  background-color: white;
+  border-bottom: 2px solid;
+  border-bottom-color: rgba(204, 204, 204, 0.4);
+  margin-left: 40px;
+
+  &--title{
+    line-height: 50px;
+    font-size: 20px;
+  }
+}
+
+.mypage__user--card--content{
+  height: 318px;
+  background-color: white;
+  margin-left:40px;
+  text-align: left;
+  padding: 90px;
+
+  .mypage__user--card--content-section{
+    height: 150px;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(204, 204, 204, 0.4);
+  
+    .mypage__user--card--content--title{
+      font-weight: 600;
+      font-size:14px;
+      margin-left: 60px;
+    }
+    .setting-card-content {
+      height: 117px;
+      width: 572px;
+      margin-top:-100px;
+      margin-left: 60px;
+
+      .setting-card-content-list{
+        margin-top:100px;
+
+        .setting-card-logo{
+          padding-top:20px;
+          margin-bottom: -10px;
+          margin-left:-10px;
+        }
+
+      .setting-card-content-button{
+        height: 20px;
+        width: 70px;
+        border-radius: 2px;
+        margin-right: 250px;
+        margin-top:-50px;
+        float: right;
+        color: red;
+        border-color: red;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+  .mypage__user--card--content-under-text{
+    text-align: right;
+    margin-top: 35px;
+    .mypage__user--card--content-under-text-link{
+    text-decoration: none;
+    font-size:12px;
+    text-align: right;
+    padding-top: 20px;
+    color:#1C8FE9;
+    .mypage__user--card--content-under-text-link-text{
+      pointer-events : none;
+      
+      .user-card-small-text{
+        pointer-events : auto;
+    }
+  }
+    .mypage__user--card--content-under-text-link-text:hover{
+      opacity: 0.7;
+    .user-card-small-text:hover{
+      border-bottom: 1px solid;
+    }
+  }
+    }
+  }
+}

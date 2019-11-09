@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -79,6 +80,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'jquery-rails'
 gem 'active_hash'
+gem 'payjp'
 group :production do
   gem 'unicorn', '5.4.1'
 end
