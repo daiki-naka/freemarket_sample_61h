@@ -1,0 +1,30 @@
+%html#mypage-all
+  %body#mypage-show
+    -# %header
+    .main
+      .l-content
+        .mypage__user--card--header
+          %h2.mypage__user--card--header--title
+            支払い方法
+        .mypage__user--card--content
+          %section.mypage__user--card--content-section
+            .mypage__user--card--content--title
+              クレジットカード一覧
+            %ul.setting-card-content
+              %li.setting-card-content-list
+                = form_with url: card_path(@card.id), method: :delete, local: true, id: 'card-form' do |f|
+                  = render 'card_logo'
+                  .setting-card-logo-num
+                    = "*****************" + @card_information.last4
+                  .setting-card-logo-num
+                    - exp_month = @card_information.exp_month.to_s
+                    - exp_year = @card_information.exp_year.to_s.slice(2,2)
+                    = exp_month + "/" + exp_year
+                  %button{onclick: "location.href='./_register.html'", class: 'setting-card-content-button'}
+                    削除する
+          .mypage__user--card--content-under-text
+            = link_to "#", class: "mypage__user--card--content-under-text-link" do
+              .mypage__user--card--content-under-text-link-text
+                %small.user-card-small-text 支払い方法について
+                %i.fas.fa-chevron-right
+      = render 'shared/user-mypage-lsidebar'

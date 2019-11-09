@@ -57,6 +57,8 @@ Things you may want to cover:
 - has_many :comments
 - has_many :likes
 - has_many :claims
+- has_many :cards
+
 
 ## productsテーブル
 |Column|Type|Options|
@@ -140,4 +142,13 @@ Things you may want to cover:
 |comment_id|integer|null: false, foreign_key: true|
 ### Association
 - bolongs_to :comment
+- belongs_to :user
+
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
+### Association
 - belongs_to :user

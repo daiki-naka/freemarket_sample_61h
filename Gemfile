@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -80,7 +81,10 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'ancestry'
+gem 'payjp'
 gem 'gretel'
+gem 'dotenv-rails'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
