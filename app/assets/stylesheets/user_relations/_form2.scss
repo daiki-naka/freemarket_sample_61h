@@ -1,0 +1,24 @@
+.signup-form__container__inner{
+  &__form{
+    &__text{
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: #333;
+    }
+  }
+  &__privacy{
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #333;
+  }
+  &__confirmation{
+    display: inline-block;
+    float: right;
+    margin: 24px 0 0;
+    &__link{
+      color: #0099E8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  }
+}
