@@ -38,7 +38,6 @@ class CardsController < ApplicationController
   end
   
   def new   # カード登録画面
-    card = Card.find_by(user_id: current_user.id)
     redirect_to action: "index" if card.present?
   end
 

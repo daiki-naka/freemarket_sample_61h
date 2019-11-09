@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   require 'payjp'
+  before_action :set_card, only: [:buy, :pay]
 
   def index
   end
@@ -13,12 +14,10 @@ class ProductsController < ApplicationController
   end
 
   def buy # 購入確認
-    @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
     set_card_information
   end
 
   def pay # 決済処理
-    @card = Card.find_by(user_id: current_user.id)
     set_card_information
 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
@@ -30,6 +29,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_card
+    @card = current_user.cards.first if current_user.cards.present?
+  end  
 
   def set_card_information
     if @card.present?
