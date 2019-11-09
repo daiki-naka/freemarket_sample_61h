@@ -2,18 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'products#index'
   resources :products
-  resources :users, only: [:index, :edit,:card] do
+  resources :users do
     collection do
       get 'card'
-    end
-  end
-  resources :signup do
-    collection do
-      get 'form1'
-      get 'form2'
-      get 'form3'
-      get 'form4'
-      get 'complete'
+      gets 'signup/form1'
+      get 'signup/form2'
+      get 'signup/form3'
+      get 'signup/form4'
+      get 'signup/complete'
     end
   end
   resources :pages, only: [:index, :new]
