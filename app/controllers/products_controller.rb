@@ -13,12 +13,12 @@ class ProductsController < ApplicationController
   end
 
   def buy # 購入確認
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
     set_card_information
   end
 
   def pay # 決済処理
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
     set_card_information
 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
