@@ -82,6 +82,7 @@ gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'payjp'
 gem 'gretel'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

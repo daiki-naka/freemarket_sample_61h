@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first
     set_card_information
 
-    Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     Payjp::Charge.create(
       amount: 1000, # 値段
       customer: @card.customer_id,
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
   def set_card_information
     if @card.present?
-      Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
 

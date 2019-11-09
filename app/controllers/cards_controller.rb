@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 
   def index   # カード確認画面
     if @card.present?
-      Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
 
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
   end
 
   def destroy   # カード情報削除
-    Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     @card.delete
@@ -43,7 +43,8 @@ class CardsController < ApplicationController
   end
 
   def create  # カード登録処理
-    Payjp.api_key = 'sk_test_096c8614c90cca98d1e32da1' #秘密鍵
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
