@@ -58,6 +58,7 @@ class ProductsController < ApplicationController
     else
       @brands = @brand_key2
     end
+  end
     
   def buy # 購入確認
     set_card_information
