@@ -5,7 +5,7 @@
 
     %section.item
       %h1.item__name 
-        = @product.name
+        ARMANI/CASA アルマーニカーザ ARPA カトラリーセット
       %p.item__wording.p-item-detail
         『ARMANI/CASA アルマーニカーザ ARPA カトラリーセット』は、45回の取引実績を持つ
         = link_to 'もっちん', "#", class: "item__wording__link link-item-detail"
@@ -27,20 +27,19 @@
             %th.item__main-content__detail-table__row__header 出品者
             %td.item__main-content__detail-table__row__data
               %div
-                = link_to "#{@product.user.nickname}",user_path, class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
+                = link_to 'もっちん', "#", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
+                -# = link_to {"@product.user_id.nickname"},'users/#{@user.id}',class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
               %div.item__main-content__detail-table__row__data__rate
                 .item__main-content__detail-table__row__data__rate__user-ratings
+                  = link_to  
                   %i.fa.fa-grin.icon-item-detail
-                  %span
-                    = @product.user.v_good
+                  %span 45
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-meh.icon-item-detail
-                  %span
-                    = @product.user.v_accept
+                  %span 0
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-frown.icon-item-detail
-                  %span
-                    = @product.user.v_bad
+                  %span 0
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header カテゴリー
             %td.item__main-content__detail-table__row__data
@@ -55,76 +54,61 @@
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header ブランド
             %td.item__main-content__detail-table__row__data
-              = @product.brand_id
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header 商品の状態
-            %td.item__main-content__detail-table__row__data
-              = @product.status
+            %td.item__main-content__detail-table__row__data 目立った傷や汚れなし
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header 配送料の負担
-            %td.item__main-content__detail-table__row__data
-              = @product.d_charge
+            %td.item__main-content__detail-table__row__data 送料込み(出品者負担)
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header 配送の方法
-            %td.item__main-content__detail-table__row__data 
-              = @product.d_method
+            %td.item__main-content__detail-table__row__data ゆうゆうメルカリ便
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header 配送元地域
             %td.item__main-content__detail-table__row__data
               %div
-                = link_to "#{@product.d_origin}","#",class: "link-item-detail link-blue-color"
+                = link_to '東京都', "#", class: "link-item-detail link-blue-color"
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header 発送日の目安
-            %td.item__main-content__detail-table__row__data
-              = @product.d_interval
+            %td.item__main-content__detail-table__row__data 2~3日で発送
       .item__price-box
-        %span.item__price-box__price
-          = number_to_currency(@product.price,unit: "￥",strip_insignificant_zeros: true)
+        %span.item__price-box__price ¥13,000
         %span.item__price-box__tax (税込)
-        %span.item__price-box__shipping-fee
-          = @product.d_charge.sub!(/\(.*/, "")
+        %span.item__price-box__shipping-fee 送料込み
       %div
         = link_to '購入画面に進む', "#", class: "item__buy-btn link-item-detail"
       %p.item__shipping-not-allowed-message.p-item-detail
-        = @product.d_method == 'ゆうゆうメルカリ便' ? "この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。" : ""
-        -# "この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。"
+        この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
       .item__description
         %p.item__description-inner.p-item-detail
-          = @product.introduction
-          -# 【商品説明】
-          -# ARMANI/CASA アルマーニ/カーザのARPAシリーズのカトラリーセットです。スプーン2本、フォーク2本、ナイフ2本の計6本セットになります。定価だと29,808円になるセットです。
-          -# それぞれの商品詳細は以下の通りです。
+          【商品説明】
+          ARMANI/CASA アルマーニ/カーザのARPAシリーズのカトラリーセットです。スプーン2本、フォーク2本、ナイフ2本の計6本セットになります。定価だと29,808円になるセットです。
+          それぞれの商品詳細は以下の通りです。
           
-          -# ・テーブルスプーン
-          -# サイズ：20.6X4.4X2.4H CM
-          -# 価格(1本)：¥3,348
-          -# ・ディナーフォーク
-          -# サイズ：20.8X2.5X2.2H CM
-          -# 価格(1本)：¥3,348
-          -# ・テーブルナイフ
-          -# サイズ：24.4X2.2X0.6H CM
-          -# 価格(1本)：¥8,208
+          ・テーブルスプーン
+          サイズ：20.6X4.4X2.4H CM
+          価格(1本)：¥3,348
+          ・ディナーフォーク
+          サイズ：20.8X2.5X2.2H CM
+          価格(1本)：¥3,348
+          ・テーブルナイフ
+          サイズ：24.4X2.2X0.6H CM
+          価格(1本)：¥8,208
           
-          -# 【状態】
-          -# 一時期、時々使用してましたが、それ以外はインテリア雑貨として、ガラス扉付きの棚の中に飾っていました。細かい傷はありますが、状態はいいです。箱等はありません。
+          【状態】
+          一時期、時々使用してましたが、それ以外はインテリア雑貨として、ガラス扉付きの棚の中に飾っていました。細かい傷はありますが、状態はいいです。箱等はありません。
           
-          -# 【その他】
-          -# 中古品であることをご理解いただいた上でのご購入をお願いいたします。
-          -# ご相談応じます。
-          -# 簡易包装にて発送予定です。
-          -# よろしくお願いします(*^^*)
+          【その他】
+          中古品であることをご理解いただいた上でのご購入をお願いいたします。
+          ご相談応じます。
+          簡易包装にて発送予定です。
+          よろしくお願いします(*^^*)
       .item__button-container.clearfix-item-detail
         .item__button-container__button-left
           .item__button-container__button-left__button-like.link-item-detail
             %i.fa.fa-heart.icon-item-detail
             %span.item__button-container__button-left__button-like__letter いいね!
-            %span.item__button-container__button-left__button-like__letter
-              -# - user_signed_in? 
-              -# = 
-            
-            -# ログイン/していないの分岐（ここまでここに書く）
-            -# ログインしていたらpress でいいね→カウントアップ（jQuery)
-            -# ログインしていなければpress でredirect_to サインインページ。 
+            %span.item__button-container__button-left__button-like__letter 3
             = link_to "#"
           .item__button-container__button-left__button-report.link-item-detail.clearfix-item-detail
             %i.fa.fa-flag.icon-item-detail
