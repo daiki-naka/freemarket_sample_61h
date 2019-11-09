@@ -1,6 +1,7 @@
 $(function(){
   $(document).on('click','#product-create-btn',function(){
     var picture = ($('.exhibit-product__view--img__box').children().length),
+        name = $(".input-name").val(),
         introduction = $(".input-explanation").val(),
         p_category = $("#parent-form").val(),
         c_category = $("#child_category").val(),
@@ -80,7 +81,7 @@ $(function(){
       $("#gc-error").text("");
       g_cat = 0;
     }
-     if (product_size == "") {
+     if (product_size == "---") {
       pro = 1;
       if (($("#error-log-product_size").text()) == ""){
         $("#error-log-product_size").append("選択してください");
@@ -107,7 +108,7 @@ $(function(){
       $("#error-log-d_charge").text("");
       d_c = 0;
     }     
-    if (d_method == "") {
+    if (d_method == "---") {
       d_m = 1;
       if (($("#error-log-d_method").text()) == ""){
         $("#error-log-d_method").append("選択してください");

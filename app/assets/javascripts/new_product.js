@@ -15,6 +15,7 @@ $(function(){
                             ${insertHTML}
                           <select>           
                         </div>
+                        <div id="cc-error" class="error"></div>
                       </div>`;
     $('.exhibit-product__detail__box--form').append(childSelectHtml);
   }
@@ -29,6 +30,7 @@ $(function(){
                                   ${insertHTML}
                                 </select>
                               </div>
+                              <div id="gc-error" class="error"></div>
                             </div>`;
     $('.exhibit-product__detail__box--form').append(grandchildSelectHtml);
   }
@@ -56,6 +58,7 @@ $(function(){
                           <option value="FREE SIZE">FREE SIZE</option>
                         </select>
                       </div>
+                      <div id="error-log-product_size" class="error"></div>
                       <div class ='margin-top-40 width-92'>
                         <label>ブランド
                           <span class="any">任意
@@ -99,6 +102,7 @@ $(function(){
                           <option value="29.5cm以上">29.5cm以上</option>
                         </select>
                       </div>
+                      <div id="error-log-product_size" class="error"></div>
                       <div class ='margin-top-40 width-92'>
                         <label>ブランド
                           <span class="any">任意
@@ -145,7 +149,7 @@ $(function(){
                     </label>
                     <div class='select-box'>
                       <i class='fa fa-angle-down fa-2x icon-deco'></i>
-                      <select class="select-box--menu choosing" name="product[d_method]">
+                      <select id="input-method" class="select-box--menu choosing" name="product[d_method]">
                         <option value="---">---</option>
                         <option value="未定">未定</option>
                         <option value="らくらくメルカリ">らくらくメルカリ</option>
@@ -158,6 +162,7 @@ $(function(){
                         <option value="ゆうパケット">ゆうパケット</option>
                       </select>
                     </div>
+                    <div id="error-log-d_method" class="error"></div>
                   </div>`
     $(".exhibit-product__delivery__box__delivery").append(method);
   }
@@ -170,7 +175,7 @@ $(function(){
                     </label>
                     <div class='select-box'>
                       <i class='fa fa-angle-down fa-2x icon-deco'></i>
-                      <select class="select-box--menu choosing" name="product[d_method]">
+                      <select id="input-method" class="select-box--menu choosing" name="product[d_method]">
                         <option value="---">---</option>
                         <option value="未定">未定</option>
                         <option value="クロネコヤマト">クロネコヤマト</option>
@@ -178,6 +183,7 @@ $(function(){
                         <option value="ゆうメール">ゆうメール</option>
                       </select>
                     </div>
+                    <div id="error-log-d_method" class="error"></div>
                   </div>`
     $(".exhibit-product__delivery__box__delivery").append(method);
   }

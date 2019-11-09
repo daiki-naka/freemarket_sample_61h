@@ -1,5 +1,6 @@
 = render "exhibit-header"
-= form_for(@product, url: products_path, method: :post) do |f|
+= form_with model: @product do |f|
+  #error
   .exhibit
     .exhibit__container
       %div
@@ -19,11 +20,12 @@
                   = f.fields_for :images do |i|
                     #image-contents.img-box
                       .view_box
-                        = i.file_field :picture, class:"file", required: true
+                        = i.file_field :picture, class:"file"
                 .explanatory_text 
                   ドラッグアンドドロップ
                   %br
                   またはクリックでファイルをアップロード
+                #error-log-picture.error
             .exhibit-product__name
               .exhibit-product__name--title
                 %label
@@ -31,11 +33,13 @@
                   %span.require 必須
                 %div
                   = f.text_field :name, class: "input-name choosing", placeholder: "商品名（必須 40文字まで)", value: ""
+              #error-log-name.error
               .exhibit-product__name--explanation
                 %label
                   商品の説明
                   %span.require 必須
                 = f.text_area :introduction, class: "input-explanation choosing", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",  rows: "5"
+              #error-log-introduction.error
             .exhibit-product__detail.clearfix
               %h3.exhibit-product__detail--head 商品の詳細
               .exhibit-product__detail__box
@@ -47,13 +51,15 @@
                     .select-box
                       %i.icon-deco.fa.fa-angle-down.fa-2x
                       = f.collection_select :category, Category.all.order("id ASC").limit(13), :name, :name,{prompt: "---"}, class: "select-box--menu choosing", id: "parent-form"
+                #error-log-category.error
                 .exhibit-product__detail__box--group.margin-top-40
                   %label
                     商品の状態
                     %span.require 必須
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
-                    = f.select :status, [['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'],['目立った傷や汚れなし', '目立った傷や汚れなし'], ['やや傷や汚れあり', 'やや傷や汚れあり'],['傷や汚れあり', '傷や汚れあり'], ['全体的に状態が悪い', '全体的に状態が悪い']], {prompt: "---"}, { id: "", class: "select-box--menu choosing" }
+                    = f.select :status, [['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'],['目立った傷や汚れなし', '目立った傷や汚れなし'], ['やや傷や汚れあり', 'やや傷や汚れあり'],['傷や汚れあり', '傷や汚れあり'], ['全体的に状態が悪い', '全体的に状態が悪い']], {prompt: "---"}, { id: "input-status", class: "select-box--menu choosing" }
+                #error-log-status.error
             .exhibit-product__delivery.clearfix
               %h3.exhibit-product__delivery--head 配送について
               = link_to "?", "https://www.mercari.com/jp/help_center/article/68/", class: "question"
@@ -65,20 +71,23 @@
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
                     = f.select :d_charge, [['送料込み(出品者負担)', '送料込み(出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {prompt: "---"}, { id: "delivery_form", class: "select-box--menu choosing" }
+                #error-log-d_charge.error
                 .exhibit-product__delivery__box__group.margin-top-40
                   %label
                     発送元の地域
                     %span.require 必須
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
-                    = f.collection_select :d_origin, Prefecture.all, :name, :name, {prompt: "---"}, { id: "", class: "select-box--menu choosing" }
+                    = f.collection_select :d_origin, Prefecture.all, :name, :name, {prompt: "---"}, { id: "input-origin", class: "select-box--menu choosing" }
+                #error-log-d_origin.error
                 .exhibit-product__delivery__box__group.margin-top-40
                   %label
                     発送までの日数
                     %span.require 必須
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
-                    = f.select :d_interval, [['1~2日で発送', '1~2日で発送'], ['2~3日で発送', '2~3日で発送'], ['4~7日で発送', '4~7日で発送']], {prompt: "---"}, { id: "", class: "select-box--menu choosing" }
+                    = f.select :d_interval, [['1~2日で発送', '1~2日で発送'], ['2~3日で発送', '2~3日で発送'], ['4~7日で発送', '4~7日で発送']], {prompt: "---"}, { id: "input-interval", class: "select-box--menu choosing" }
+                #error-log-d_interval.error
             .exhibit-product__price.clearfix
               %h3.exhibit-product__price--head 販売価格(300〜9,999,999)
               = link_to "?", "https://www.mercari.com/jp/help_center/article/64/", class: "question"
@@ -92,6 +101,7 @@
                       ¥
                       %div
                         = f.text_field :price, class: "choosing input-price", placeholder: "例）300",value: "", id: "price-form"
+                  #error-log-price.error
                   %li.product-price--fee.clearfix
                     .p-left 販売手数料 (10%)
                     #fee.p-right -

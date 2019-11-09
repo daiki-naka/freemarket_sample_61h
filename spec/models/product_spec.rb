@@ -57,30 +57,6 @@ describe Product do
       expect(product.errors[:price]).to include("can't be blank")
     end
 
-    it "商品の値段が¥300以上だと登録できること" do
-      product = build(:product, price: "300")
-      product.valid?
-      expect { is_expected.to cover 300 }
-    end
-
-    it "商品の値段が¥9,999,999以上だと登録できること" do
-      product = build(:product, price: "9999999")
-      product.valid?
-      expect { is_expected.to cover 9999999 }
-    end
-
-    it "商品の値段が¥299以下では登録できないこと" do
-      product = build(:product, price: "299")
-      product.valid?
-      expect { is_expected.not_to cover 299 }
-    end
-
-    it "商品の値段が¥10,000,000以上では登録できないこと" do
-      product = build(:product, price: "10000000")
-      product.valid?
-      expect { is_expected.not_to cover 10000000 }.to include("can't be blank")
-    end
-
   end
 
 end
