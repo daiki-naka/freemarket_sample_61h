@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get 'card'
+    end
+    collection do
       get 'signup/form1'
       get 'signup/form2'
       get 'signup/form3'
@@ -12,5 +14,6 @@ Rails.application.routes.draw do
       get 'signup/complete'
     end
   end
+
   resources :pages, only: [:index, :new]
 end
