@@ -66,7 +66,7 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
+    @card = current_user.cards.first if current_user.cards.present?
   end
 
 end
