@@ -190,12 +190,12 @@ $(function(){
 
   $('#parent-form').on('change', function(){
     var parentCategory = document.getElementById('parent-form').value;
-    var url = "/products/children_category"
     if (parentCategory != ""){
       $.ajax({
-        url: url,
+        url: "products/children_category",
         type: "GET",
         data: { parent_name: parentCategory },
+        dataType: 'json'
       })
       .done(function(children){
         $('#children_wrapper').remove();
@@ -223,7 +223,7 @@ $(function(){
     var childId = $('#child_category').val();
     if (childId != "---"){
       $.ajax({
-        url: 'grandchild_category',
+        url: "products/grandchild_category",
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -254,7 +254,7 @@ $(function(){
     var gcName = $('#grandchild_category option:selected').text();
     if ( gcName != "---"){
       $.ajax({
-        url: 'product_size_brand',
+        url: "products/product_size_brand",
         type: 'GET',
         data: { category_name: gcName },
         dataType: 'json'
@@ -315,8 +315,8 @@ $(function(){
     var input = $("#brands-search-form").val();
     if (input !== preWord){
       $.ajax({
+        url: "products/brand_search",
         type: 'GET',
-        url: 'brand_search',
         data: {keyword: input},
         dataType: 'json'
       }) 

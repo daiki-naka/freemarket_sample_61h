@@ -5,22 +5,26 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :card] 
   resources :pages, only: [:index, :new]
   resources :cards, only: [:index, :new, :create, :destroy]
+  resources :products
 
   resources :products do
     collection do
       get 'buy'
       post 'pay'
+      get 'products/children_category', defaults: { format: 'json' }
+      get 'products/grandchild_category', defaults: { format: 'json' }
+      get 'products/product_size_brand', defaults: { format: 'json' }
+      get 'products/brand_search', defaults: { format: 'json' }
     end
   end
-  resources :pages, only: [:index, :new]
-  resources :products do 
+
+  resources :users, only: [:index, :edit,:card] do
     collection do
-      get 'children_category', defaults: { format: 'json' }
-      get 'grandchild_category', defaults: { format: 'json' }
-      get 'product_size_brand', defaults: { format: 'json' }
-      get 'brand_search', defaults: { format: 'json' }
+      get 'card'
     end
   end
   
   # # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :pages, only: [:index, :new]
+
 end
