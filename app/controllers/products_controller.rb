@@ -14,6 +14,24 @@ class ProductsController < ApplicationController
 
   def buy # 購入確認
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    set_card_information
+  end
+
+  def pay # 決済処理
+    @card = Card.where(user_id: current_user.id).first
+    set_card_information
+
+    Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
+    Payjp::Charge.create(
+      amount: 1000, # 値段
+      customer: @card.customer_id,
+      currency: 'jpy',
+    )
+  end
+
+  private
+
+  def set_card_information
     if @card.present?
       Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -35,16 +53,6 @@ class ProductsController < ApplicationController
         @card_logo = "discover.svg"
       end  
     end
-  end
-
-  def pay # 決済
-    card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_096c8614c90cca98d1e32da1" #秘密鍵
-    Payjp::Charge.create(
-      amount: 1000, # 値段
-      customer: card.customer_id,
-      currency: 'jpy',
-    )
   end
   
   

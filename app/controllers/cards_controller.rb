@@ -24,7 +24,8 @@ class CardsController < ApplicationController
       when "Discover"
         @card_logo = "discover.svg"
       end 
-      
+    else
+      redirect_to action: "new" 
     end
   end
 

@@ -8,7 +8,7 @@
           %h2.products__content--buy--container--header--title
             購入内容の確認
         .products__content--buy--item
-          -# = image_tag 'ded1780646232db305465370e1eeff4e_t.jpeg', alt: 'bag', height: '64px', width: '64px', class: 'products__content--buy--item--photo'
+          = image_tag 'ded1780646232db305465370e1eeff4e_t.jpeg', alt: 'bag', height: '64px', width: '64px', class: 'products__content--buy--item--photo'
           %tt.products__content--buy--item--text 
             トートバッグ
         .products__content--buy--form
@@ -26,7 +26,7 @@
             = form_tag(pay_products_path, method: :post) do
               %button.products__content--buy--select 購入する
           - else
-            %button.products__content--buy--select 購入する
+            .products__content--buy--no-select 購入する
         .products__content--buy--address
           .products__content--buy--address--inner
             %p.products__content--buy--address--inner--title

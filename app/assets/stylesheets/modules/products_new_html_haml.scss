@@ -100,6 +100,19 @@
       font-weight: normal;
       color: white;
     }  
+
+    .products__content--buy--no-select{
+      height: 48px;
+      width:320px;
+      padding:12px;
+      margin-top:20px;
+      background-color:grey;
+      text-align: center;
+      outline: 0;
+      font-size:14px;
+      font-weight: normal;
+      color: white;
+    }  
   }
 
   .products__content--buy--address{
