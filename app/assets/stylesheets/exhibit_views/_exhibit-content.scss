@@ -331,6 +331,11 @@ select{
       &__price{
         padding: 40px;
         border-top: 1px solid #eee;
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
         &--head{
           @include head-title;
         }
@@ -499,8 +504,6 @@ select{
   }
 }
 
-
-
 .img_view{
   width: 100%;
   .img {
@@ -544,5 +547,10 @@ select{
   }
 }
 
-
+.error{
+  color: #ea352d;
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: 100;
+}
 

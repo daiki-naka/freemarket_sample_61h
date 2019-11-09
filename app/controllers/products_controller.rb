@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     @product = Product.new
     @product.images.build
@@ -13,7 +16,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path, notice: "出品が完了しました"
     else
-      render action: :new , alert: "商品出品に失敗しました"
+      render :new 
     end
   end
 
@@ -72,9 +75,5 @@ class ProductsController < ApplicationController
       images_attributes:[:picture]
       ).merge(user_id: current_user.id)
   end
-
-  def show
-  end
-
   
 end

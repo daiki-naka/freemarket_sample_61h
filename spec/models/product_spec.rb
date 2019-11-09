@@ -1,5 +1,86 @@
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Product do
+
+  describe '#create-product' do
+    it "商品名が空では登録できないこと" do
+      product = build(:product, name: "")
+      product.valid?
+      expect(product.errors[:name]).to include("can't be blank")
+    end
+
+    it "商品の紹介文が空では登録できないこと" do
+      product = build(:product, introduction: "")
+      product.valid?
+      expect(product.errors[:introduction]).to include("can't be blank")
+    end
+
+    it "商品の状態が未選択では登録できないこと" do
+      product = build(:product, status: "")
+      product.valid?
+      expect(product.errors[:status]).to include("can't be blank")
+    end
+
+    it "発送料金負担が未選択では登録できないこと" do
+      product = build(:product, d_charge: "")
+      product.valid?
+      expect(product.errors[:d_charge]).to include("can't be blank")
+    end
+
+    it "発送方法が未選択では登録できないこと" do
+      product = build(:product, d_method: "")
+      product.valid?
+      expect(product.errors[:d_method]).to include("can't be blank")
+    end
+
+    it "発送元が未選択では登録できないこと" do
+      product = build(:product, d_origin: "")
+      product.valid?
+      expect(product.errors[:d_origin]).to include("can't be blank")
+    end
+
+    it "発送までの期間が未選択では登録できないこと" do
+      product = build(:product, d_interval: "")
+      product.valid?
+      expect(product.errors[:d_interval]).to include("can't be blank")
+    end
+
+    it "カテゴリーが未選択では登録できないこと" do
+      product = build(:product, category_id: "")
+      product.valid?
+      expect(product.errors[:category_id]).to include("can't be blank")
+    end
+
+    it "商品の値段が空では登録できないこと" do
+      product = build(:product, price: "")
+      product.valid?
+      expect(product.errors[:price]).to include("can't be blank")
+    end
+
+    it "商品の値段が¥300以上だと登録できること" do
+      product = build(:product, price: "300")
+      product.valid?
+      expect { is_expected.to cover 300 }
+    end
+
+    it "商品の値段が¥9,999,999以上だと登録できること" do
+      product = build(:product, price: "9999999")
+      product.valid?
+      expect { is_expected.to cover 9999999 }
+    end
+
+    it "商品の値段が¥299以下では登録できないこと" do
+      product = build(:product, price: "299")
+      product.valid?
+      expect { is_expected.not_to cover 299 }
+    end
+
+    it "商品の値段が¥10,000,000以上では登録できないこと" do
+      product = build(:product, price: "10000000")
+      product.valid?
+      expect { is_expected.not_to cover 10000000 }.to include("can't be blank")
+    end
+
+  end
+
 end
