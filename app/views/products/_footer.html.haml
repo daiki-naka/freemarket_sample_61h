@@ -1,0 +1,79 @@
+.f-container
+  .app-banner
+  .global-footer
+    .global-footer__cell-1
+      %h2.global-footer__cell-1__title
+        メルカリについて
+        %li
+          = link_to "会社概要（運営会社)",root_path, class: 'a'
+        %li
+          = link_to "採用情報",root_path,class: 'a'
+        %li
+          = link_to "プレスリリース",root_path,class: 'a'
+        %li
+          = link_to "公式ブログ",root_path,class: 'a'
+        %li
+          = link_to "メルカリロゴ利用ガイドライン",class: 'a'
+        %li.social-link-f1
+          = link_to "#" do
+            %i.fab.fa-twitter.icon_f.fa-3x
+        %li.social-link-f2
+          = link_to "#",class:"a" do
+            %i.fab.fa-facebook-square.icon_f.fa-3x
+
+    .global-footer__cell-2
+      %h2.global-footer__cell-2__title
+        ヘルプ＆ガイド
+        %li
+          = link_to "メルカリガイド",root_path,class: 'a'
+        %li
+          = link_to "らくらくメルカリ便",root_path,class: 'a'
+        %li
+          = link_to "ゆうゆうメルカリ便",root_path,class: 'a'
+        %li
+          = link_to "大型メルカリ便",root_path,class: 'a'
+        %li
+          = link_to "車体取引ガイド",root_path,class: 'a'
+        %li
+          = link_to "メルカリあんしん・あんぜん宣言！",root_path,class: 'a'
+        %li
+          = link_to "偽ブランド品撲滅への取り組み",root_path,class: 'a'
+        %li
+          = link_to "メルカリボックス",root_path,class: 'a'
+
+    .global-footer__cell-3
+      %h2.global-footer__cell-3__title
+        プライバシーと利用規約
+      .global-footer__cell-3__inner-left
+        %li
+          = link_to "プライバシーポリシー",root_path,class: 'a'
+        %li
+          = link_to "メルカリ利用規約",root_path,class: 'a'
+        %p.f
+          = link_to "あんしんスマホサポート制度に関する",root_path,class: 'a'
+        %p.f  
+          = link_to "利用特約",root_path,class: 'a'
+        %li
+          = link_to "コンプライアンスポリシー",root_path,class: 'a'
+      .global-footer__cell-3__inner-right
+        %p.f
+          = link_to "個人データの安全管理に係る",root_path,class: 'a'
+        %p.f  
+          = link_to "基本方針",root_path,class: 'a'
+        %li
+          = link_to "特定商取引に関する表記",root_path,class: 'a'
+        %li
+          = link_to "資金決済法に基づく表示",root_path,class: 'a'
+        %li
+          = link_to "法令順守と犯罪抑止のために",root_path,class: 'a'
+    .global-footer__language
+      %h2.global-footer__language__title
+        国
+        %li
+          = link_to "日本",root_path,class: 'a'
+        %li
+          = link_to "United States",root_path,class: 'a'
+  .footer-bottom
+    .footer-bottom__mercari-f-icon
+      = link_to "", root_path, class:'mercari-footer-i'
+    .footer-bottom__copyright-i

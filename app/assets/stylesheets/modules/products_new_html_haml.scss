@@ -1,5 +1,5 @@
 #mypage-all{
-  // background-color:$color-body;
+  background-color:$color-body;
 }
 .products__header--buy{
   width: 100%;
@@ -47,66 +47,61 @@
     height: 252px;
     width:320px;
     margin: 0 auto;
-  .products__content--buy--price{
-    margin-top:10px;
-    text-align: center;
-    &--text{
-      font-size: 12px;
-      padding: 2px;
-      &--main{
-        font-size: 18px;
-        margin-left:20px;
+    .products__content--buy--price{
+      margin-top:10px;
+      text-align: center;
+      &--text{
+        font-size: 12px;
         padding: 2px;
-        font-weight:bold;
+        &--main{
+          font-size: 18px;
+          margin-left:20px;
+          padding: 2px;
+          font-weight:bold;
+        }
       }
     }
-  }
-  .products__content--buy--point{
-    height: 48px;
-    width:320px;
-    padding:12px;
-    margin-top:20px;
-    background-color: #ccc;
-    text-align: center;
-    &--text{
+    .products__content--buy--point{
+      height: 48px;
+      width:320px;
+      padding:12px;
+      margin-top:20px;
+      background-color: #ccc;
+      text-align: center;
+      &--text{
+        font-size:14px;
+        font-weight: normal;
+      }
+    }
+    .products__content--buy--pay{
+      height: 48px;
+      width:320px;
+      margin-top:20px;
+      &--left{
+        margin-top:5px;
+        float: left;
+        font-size:15px;
+      }
+      &--right {
+        float: right;
+        font-size:20px;
+      }
+    }
+    .products__content--buy--select{
+      height: 48px;
+      width:320px;
+      padding:12px;
+      margin-top:20px;
+      background-color:red;
+      text-align: center;
+      outline: 0;
+      cursor: pointer;
       font-size:14px;
       font-weight: normal;
-    }
+      color: white;
+    }  
   }
-  .products__content--buy--pay{
-    height: 48px;
-    width:320px;
-    margin-top:20px;
-    &--left{
-      margin-top:5px;
-      float: left;
-      font-size:15px;
-    }
-    &--right {
-      float: right;
-      font-size:20px;
-    }
-  }
-  .products__content--buy--select{
-    height: 48px;
-    width:320px;
-    padding:12px;
-    margin-top:20px;
-    background-color:red;
-    text-align: center;
-    outline: 0;
-    cursor: pointer;
-    font-size:14px;
-    font-weight: normal;
-    color: white;
-  }
-  .products__content--buy--select--text{
-    font-size:14px;
-    font-weight: normal;
-    color: white;
-  }
-  
-  }
+
   .products__content--buy--address{
     height: 128px;
     width: 680px;
@@ -179,4 +174,4 @@
       }
       }
     }
-  }
+}

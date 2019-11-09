@@ -1,0 +1,27 @@
+%html#mypage-all
+  %body#mypage-show
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :user_update
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user
+      .l-content
+        .mypage__user--edit--header
+          %h2.mypage__user--edit--header--title
+            プロフィール
+        %form.mypage__user--edit--form
+          .mypage__user--edit--form--content
+            = image_tag '8e315ba2cbcce728cf0bf8f71f2e5818.png', height: '60px', width: '60px', class: 'mypage__user--edit--icon'
+            %input{value: 'daiki nakamura', class: 'mypage__user--edit--form--content--input'}
+        .mypage__tab--container
+          .tab-content-edit
+            %textarea{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: 'mypage__tab--mypageedit'}
+            %ul.mypage__item-list
+              %button{onclick: "location.href='#'", class: 'mypage-item-link-list-edit'}
+                変更する
+      = render 'shared/user-mypage-lsidebar'
+    :javascript
+      $('.mypage-item-link-list-edit').on('click', function() {
+        $('.mypage-item-link-list-edit').css('background-color', '#767676');
+      });
+

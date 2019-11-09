@@ -1,0 +1,35 @@
+%html#mypage-all
+  %body#mypage-show
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :pay
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user
+      .l-content
+        .mypage__user--card--header
+          %h2.mypage__user--card--header--title
+            支払い方法
+        .mypage__user--card--content
+          %section.mypage__user--card--content-section
+            .mypage__user--card--content--title
+              クレジットカード一覧
+            %ul.setting-card-content
+              %li
+                %form{class:'setting-card-content-list', action: '#', method: 'post'}
+                  %figure
+                    = image_tag 'jcb-emblem-logo.svg', alt: 'JCB', height: '50px', width: '50px', class: 'setting-card-logo'
+                  .setting-card-logo-num
+                    %p
+                      *****************5141
+                    %p 
+                      11/21
+                  %button{onclick: "location.href='#'", class: 'setting-card-content-button'}
+                    削除する
+          .mypage__user--card--content-under-text
+            = link_to "#", class: "mypage__user--card--content-under-text-link" do
+              .mypage__user--card--content-under-text-link-text
+                %small.user-card-small-text 支払い方法について
+                %i.fas.fa-chevron-right
+      = render 'shared/user-mypage-lsidebar'
+    
+

@@ -1,0 +1,141 @@
+%html#mypage-all
+  %body#mypage-show
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :users
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user
+      .l-content
+        .mypage__user--icon
+          = link_to "#", class: "mypage__user--icon--content" do 
+            .figure
+              = image_tag '8e315ba2cbcce728cf0bf8f71f2e5818.png', height: '60px', width: '60px'
+              %h2 
+                %text daiki nakamura
+              .mypage__number
+                評価
+                %span 0
+                出品数
+                %span 0
+        .mypage__tab--container
+          %ul.mypage-tabs
+            .box
+              %li.active-left
+                .active-text-left
+                  お知らせ
+            %li.active-right
+              .active-text-right
+                やることリスト
+            .active
+              .box-after
+                %li.active-left-after
+                  .active-text-left-after
+                    お知らせ
+              %li.active-right-after
+                .active-text-right-after
+                  やることリスト
+          .tab-content
+            %ul.mypage__item-list
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.far.fa-clock
+                      5時間前
+                    %i.fas.fa-chevron-right
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.far.fa-clock
+                      ５時間前
+                    %i.far.fa-heart
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.far.fa-clock
+                      ５時間前
+                    %i.fas.fa-chevron-right
+              %li 
+                = link_to "#", class: "mypage-item-link" do
+                  .figure 
+                    = image_tag '95750e8a4355cdb0592222e962c61f99.png', height: '48px', width: '48px'
+                  .mypage__item--body
+                    .mypage__item--text
+                      事務局から個別メッセージ
+                    %time
+                      %i.far.fa-clock
+                      ５時間前
+                    %i.fas.fa-chevron-right
+              %li.mypage-item-link-list
+                = link_to "#" do
+                  一覧を見る
+          .tab-content-after
+            %ul
+              %li.tab-content-after-content
+                
+          .tab-content-under
+            %h2.mypage-tab-head 
+              購入した商品
+            %ul.mypage-tabs-under
+              .box-under
+                %li.active-left-under
+                  %h3
+                    .active-text-left-under
+                      取引中
+              %li.active-right-under
+                %h3
+                  .active-text-right-under
+                    過去の取引
+              .active-under
+                .box-after
+                  %li.active-left-after
+                    .active-text-left-after
+                      取引中
+                %li.active-right-after
+                  .active-text-right-after
+                    過去の取引
+      = render 'shared/user-mypage-lsidebar'
+    :javascript
+      $('.active-text-right').on('click',function(){
+      $('.tab-content').hide();
+      $('.box').hide();
+      $('.active-right').hide();
+      $('.active').show();
+      $('.tab-content-after').show();
+      });
+      $('.active-text-left-after').on('click',function(){
+      $('.active').hide();
+      $('.tab-content-after').hide();
+      $('.tab-content').show();
+      $('.box').show();
+      $('.active-right').show();
+      });
+      $('.active-text-right-under').on('click',function(){
+      $('.box-under').hide();
+      $('.active-right-under').hide();
+      $('.active-under').show();
+      });
+      $('.active-text-left-after').on('click',function(){
+      $('.active-under').hide();
+      $('.box-under').show();
+      $('.active-right-under').show();
+      });
+
+
+
+
+

@@ -1,0 +1,178 @@
+*{
+  font-family: Arial, Helvetica, sans-serif; 
+  }
+*{
+  box-sizing: border-box;
+}
+
+@mixin basic-font-style{
+  text-decoration: none;
+  color:$main-color;
+  font-size: $main-font-size;
+  line-height:1.5;
+  font-weight: normal;
+}
+
+@mixin second-fond-style{
+  text-decoration: none;
+  color:$main-color;
+  font-weight: normal;
+  font-size: $main-font-size;
+  line-height:2.5;
+}
+
+$main-color: white;
+$main-font-size: 12px;
+$main-backgrounf-color:#212121;
+
+.f-container{
+  display:block;
+  width:100%;
+  height:100%;
+  background-color:$main-backgrounf-color;
+  .app-banner{
+    background-image:url("/images/app.banner.png");
+    height:258px;
+    width:100%;
+    z-index:5000;
+  }
+  .global-footer{
+    height:302px;
+    width:80%;
+    background-color:$main-backgrounf-color;
+    margin:auto;
+    display:flex;
+    align-items: flex-start;
+    &__cell-1{
+      width:20%;  
+      list-style:none;
+      color:$main-color;
+      display:flex;
+      flex-direction: column;
+      position:relative;
+      &__title{
+        font-size:16px;
+        line-height:2;
+        font-weight: bolder;
+        color:$main-color;
+        padding-top:12px;
+      } 
+      li a{ 
+        @include basic-font-style;
+      }
+       
+      }
+      .social-link-f1{
+        position:absolute;
+        top:225px;
+        left:0;
+        width: 300px;
+      }   
+      .social-link-f2{
+        position:absolute;
+        top:225px;
+        left:50px;
+      }
+    &__cell-2{
+      list-style: none;
+      width:24%;
+      &__title{
+        font-size:16px;
+        line-height:2;
+        font-weight: bolder;
+        color:$main-color;
+        padding-top:12px;
+      } 
+      li a{ 
+        @include basic-font-style;
+      }
+    }
+    &__cell-3{
+      list-style: none;
+      width:44%;
+      position: relative;
+      &__title{
+        width:100%;
+        height:30px;
+        padding-top:13px;
+        color:$main-color;
+        font-weight:bolder;
+      }
+      &__inner-left{
+        width:50%;
+        float:left;
+        padding-top:17px;
+        li a{ 
+          @include second-fond-style;
+        }
+      }
+      &__inner-right{
+        width:50%;
+        padding-top:11px;
+        display:inline-block;
+        padding-top:17px;
+        li a{ 
+          @include second-fond-style;
+        }
+      }
+    }
+    &__language{
+      list-style: none;
+      width:12%;
+      &__title{
+        text-decoration: none;
+        color:$main-color;
+        padding-top:8px;
+        font-size:16px;
+        line-height:2;
+        font-weight: bolder;
+        li{ 
+          @include second-fond-style;
+          a{
+            color:$main-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom{
+    height:60px;
+    width:100%;
+    background-color:$main-backgrounf-color;
+    bottom:0;
+    position:relative;
+    .mercari-footer-i{
+      background:url("/images/mercari_black_white.png");
+      position:absolute;
+      top:0px;
+      left:80px;
+      z-index:3;
+      width:145px;
+      height:40px;
+     }  
+    &__copyright-i{
+      background-image:url("/images/mercari_copyright.png");
+      background-repeat:no-repeat;
+      width:90px;
+      height:25px;
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      margin:auto;
+    } 
+   }
+ }
+.icon_f{
+  color:$main-color;
+}
+
+p.f a{
+font-size: $main-font-size;
+line-height:1.5;
+text-decoration: none;
+font-weight:normal;
+color:$main-color;
+}
