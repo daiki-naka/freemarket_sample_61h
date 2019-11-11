@@ -105,42 +105,6 @@ class SignupController < ApplicationController
     render :form3 unless @user.valid?(:validates_form3)
   end
 
-  # def form1
-  #   @user = User.new
-  # end
-
-  # def form2
-  #   birthday = birthday_join(params[:birthday])
-  #   session[:nickname] = user_params[:nickname]
-  #   session[:email] = user_params[:email]
-  #   session[:password] = user_params[:password]
-  #   session[:last_name] = user_params[:last_name]
-  #   session[:name] = user_params[:name]
-  #   session[:last_name_f] = user_params[:last_name_f]
-  #   session[:name_f] = user_params[:name_f]
-  #   session[:birthday] = birthday
-  #   @user = User.new
-  # end
-
-  # def form3
-  #   session[:phone_number] = user_params[:phone_number]
-  #   @user = User.new
-  # end
-
-  # def form4
-  #   session[:d_last_name] = user_params[:d_last_name]
-  #   session[:d_name] = user_params[:d_name]
-  #   session[:d_last_name_f] = user_params[:d_last_name_f]
-  #   session[:d_name_f] = user_params[:d_name_f]
-  #   session[:postal_code] = user_params[:postal_code]
-  #   session[:prefecture] = user_params[:prefecture]
-  #   session[:city] = user_params[:city]
-  #   session[:address] = user_params[:address]
-  #   session[:building_name] = user_params[:building_name]
-  #   session[:d_phone_number] = user_params[:d_phone_number]
-  #   @user = User.new
-  # end
-
   def complete
     @user = User.new(
       nickname:       session[:nickname],
