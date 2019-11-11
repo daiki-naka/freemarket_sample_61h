@@ -80,6 +80,7 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'gretel'
+gem 'rails-i18n'
 
 group :production do
   gem 'unicorn', '5.4.1'
