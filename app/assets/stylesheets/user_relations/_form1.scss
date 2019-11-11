@@ -10,57 +10,35 @@
     }
   }
   &__select__birthday{
-    width: 100%;
+    width: 31%;
     display: inline-block;
-    padding: 2px;
+    padding:2px;
     position: relative;
     &__icon{
       position: absolute;
-      left: 55px;
+      left:60px;
       top: 24px; 
       color: #888;
       font-size: 20px;
       pointer-events: none;
       z-index: 1;
     }
-    &__icon2{
-      position: absolute;
-      left: 164px;
-      top: 24px; 
-      color: #888;
-      font-size: 20px;
-      pointer-events: none;
-      z-index: 1;
-    }
-    &__icon3{
-      position: absolute;
-      left: 274px;
-      top: 24px; 
-      color: #888;
-      font-size: 20px;
-      pointer-events: none;
-      z-index: 1;
-    }
-    &__div{
-      width: 100%;
-      .year,.month,.day{
-        width: 78px;
-        height: 48px;
-        padding: 0 16px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        line-height: 1.5;
-        outline-color: rgb(0, 149, 238);
-        outline-width: 2px;
-        -webkit-appearance: none;
-        color: gray;
-        background: 0;
-        margin: 8px 0 0;
-        margin-right: 5px;
-        margin-left: 6px;
-        display: inline-block;
-      }
+    &__date{
+      height: 48px;
+      padding: 0 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      line-height: 1.5;
+      outline-color: rgb(0, 149, 238);
+      outline-width: 2px;
+      -webkit-appearance: none;
+      color: gray;
+      width: 83%;
+      position: relative;
+      background: 0;
+      margin: 8px 0 0;
+      margin-right: 2px;
     }
   }
   &__atention{
