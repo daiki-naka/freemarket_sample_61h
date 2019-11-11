@@ -5,7 +5,8 @@
       住所入力
     .signup-form__container__main
       = form_for @user, url: signup_form4_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
-        = render 'layouts/error_messages', model: f.object
+        = render partial: 'layouts/error_messages', locals: {user: @user, column: "d_last_name"}
+        = render partial: 'layouts/error_messages', locals: {user: @user, column: "d_name"}
         .signup-form__container__inner__form
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
@@ -15,6 +16,8 @@
           = f.text_field :d_last_name, placeholder: '例）山田', class: 'signup-form__container__inner__form__field'
           = f.text_field :d_name, placeholder: '例）彩', class: 'signup-form__container__inner__form__field'
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "d_last_name_f"}
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "d_name_f"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               お名前カナ
@@ -23,6 +26,7 @@
           = f.text_field :d_last_name_f, placeholder: '例）ヤマダ', class: 'signup-form__container__inner__form__field'
           = f.text_field :d_name_f, placeholder: '例）アヤ', class: 'signup-form__container__inner__form__field'
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "postal_code"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               郵便番号
@@ -30,6 +34,7 @@
               必須
           = f.text_field :postal_code, placeholder: '例）123-4567', class: 'signup-form__container__inner__form__field'
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "prefecture"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               都道府県
@@ -37,6 +42,7 @@
               必須
           = f.collection_select :prefecture, Prefecture.all, :name, :name, class: "signup-form__container__inner__form__select__prefecture"
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "city"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               市区町村
@@ -44,6 +50,7 @@
               必須
           = f.text_field :city, placeholder: '例）横浜市緑区', class: 'signup-form__container__inner__form__field'
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "address"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               番地
@@ -51,6 +58,7 @@
               必須
           = f.text_field :address, placeholder: '例）青山1-1-1', class: 'signup-form__container__inner__form__field'
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "building_name"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text  
               建物名
@@ -58,6 +66,7 @@
               任意
           = f.text_field :building_name, placeholder: '例）柳ビル103', class: 'signup-form__container__inner__form__field'
         .signup-form__container__inner__form
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "d_phone_number"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text  
               電話

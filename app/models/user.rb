@@ -8,7 +8,8 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX =              /\A(?=.*?[a-z])(?=.*?\d)(?=.*?\W)[!-~]+\z/i
   VALID_PHONE_REGEX =                 /\A\d{10,11}\z/
   VALID_KANA_REGEX =                  /\A[ァ-ヶー－]+\z/
-  VALID_POST_REGEX =                  /\A\d{7}\z/  
+  VALID_POST_REGEX =                  /\A\d{7}\z/
+
 
   validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
@@ -35,6 +36,6 @@ class User < ApplicationRecord
   validates :city,                    presence: true, length: {maximum: 35}, on: :validates_form3
   validates :address,                 presence: true, length: {maximum: 125}, on: :validates_form3
   validates :building_name,           length: {maximum: 125}, on: :validates_form3
-  validates :d_phone_number,          format: { with: VALID_PHONE_REGEX }, on: :validates_form3
+  validates :d_phone_number,          length: {maximum: 20}, on: :validates_form3
 end
 
