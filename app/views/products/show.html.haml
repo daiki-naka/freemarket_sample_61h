@@ -20,7 +20,8 @@
                 .item__main-content__photo__frame__stage-outer__stage__item
                   .item__main-content__photo__frame__stage-outer__stage__item__inner           
                     -# = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
-                    = @image.product_id.picture
+                    - @product.images.each do |p|
+                      = image_tag p.picture.url,size:'100x100'
             .item__main-content__photo__frame__dots
               = render 'shared/product-image'
         %table.item__main-content__detail-table
@@ -28,20 +29,20 @@
             %th.item__main-content__detail-table__row__header 出品者
             %td.item__main-content__detail-table__row__data
               %div
-                = link_to "#{@product.user.nickname}",user_path, class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
+                = link_to "#{@product.user.nickname}",users_path, class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
               %div.item__main-content__detail-table__row__data__rate
                 .item__main-content__detail-table__row__data__rate__user-ratings 
                   %i.fa.fa-grin.icon-item-detail
                   %span
-                  = @product.user_id.v_good
+                  = @product.user.v_good
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-meh.icon-item-detail
                   %span 
-                  = @product.user_id.v_accept
+                  = @product.user.v_accept
                 .item__main-content__detail-table__row__data__rate__user-ratings
                   %i.fa.fa-frown.icon-item-detail
                   %span
-                  = @product.user_id.v_bad
+                  = @product.user.v_bad
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header カテゴリー
             %td.item__main-content__detail-table__row__data
@@ -174,7 +175,7 @@
     .items-in-user-profile
       %section.items-in-user-profile__container.clearfix-item-detail
         %h2.items-in-user-profile__container__head
-          = link_to "#{@product.user.nickname}さんのその他の出品", user_path, class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
+          = link_to "#{@product.user.nickname}さんのその他の出品", users_path, class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
         .items-in-user-profile__container__content.clearfix-item-detail
           = render 'shared/related-product_block'
       %section.items-in-user-profile__container.clearfix-item-detail

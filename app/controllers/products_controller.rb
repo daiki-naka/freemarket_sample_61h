@@ -15,10 +15,6 @@ class ProductsController < ApplicationController
    render controller:  "ImagesController", action: "show"
   end
 
-  def product_params
-    params.require(:product).permit(:name,:introduction,:likes_count)
-  end
-  
   def create
     @product = Product.new(product_params)
     if @product.save
