@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
+  before_action :set_product, only: [:show, :product_show, :destroy]
 
   def index
   end
 
   def show
-    @product = Product.find(params[:id])
     render controller:  "ImageController", action:  "show"
   end
 
@@ -22,6 +22,19 @@ class ProductsController < ApplicationController
     else
       render :new 
     end
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path, notice: "削除しました"
+    else
+      render :product_show
+    end
+  end
+
+  def product_show
+    @images = @product.images
+    @category = @product.category
   end
 
   def children_category
@@ -76,6 +89,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(
