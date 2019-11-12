@@ -1,7 +1,10 @@
 %html#mypage-all
   %body#mypage-show
-    -# %header
-    .main
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :pay
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user
       .l-content
         .mypage__user--card--header
           %h2.mypage__user--card--header--title
@@ -14,7 +17,7 @@
               %li
                 %form{class:'setting-card-content-list', action: '#', method: 'post'}
                   %figure
-                    = image_tag '/images/jcb-emblem-logo.svg', alt: 'JCB', height: '50px', width: '50px', class: 'setting-card-logo'
+                    = image_tag 'jcb-emblem-logo.svg', alt: 'JCB', height: '50px', width: '50px', class: 'setting-card-logo'
                   .setting-card-logo-num
                     %p
                       *****************5141

@@ -57,6 +57,8 @@ Things you may want to cover:
 - has_many :comments
 - has_many :likes
 - has_many :claims
+- has_many :cards
+
 
 ## productsテーブル
 |Column|Type|Options|
@@ -80,6 +82,8 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :category
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :grand_category
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -107,6 +111,8 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |profile|text|null: false|
+|keyword1|text|null: false|
+|keyword2|text|null: false|
 ### Association
 - has_many :products
 
@@ -136,4 +142,13 @@ Things you may want to cover:
 |comment_id|integer|null: false, foreign_key: true|
 ### Association
 - bolongs_to :comment
+- belongs_to :user
+
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
+### Association
 - belongs_to :user

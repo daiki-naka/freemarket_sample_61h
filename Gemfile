@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -72,13 +73,18 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'font-awesome-rails'
-gem 'font-awesome-sass', '~> 5.4.1'
 gem 'counter_culture'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.4.1'
+gem 'font-awesome-rails'
 gem 'active_hash'
+gem 'ancestry'
+gem 'payjp'
+gem 'gretel'
+gem 'dotenv-rails'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
