@@ -62,7 +62,7 @@
       %p.item__description-inner.p-item-detail
         = @product.introduction
   .information
-    .information__edit 商品の編集
+    = link_to '商品の編集', edit_product_path, class: "information__edit"
     %p.or or
     .information__stop  出品を一旦停止する
     .information__delete#dlt_btn この商品を削除する

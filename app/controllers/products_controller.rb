@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_product, only: [:show, :product_show, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :product_show, :destroy]
 
   def index
   end
@@ -21,6 +21,20 @@ class ProductsController < ApplicationController
       redirect_to root_path, notice: "出品が完了しました"
     else
       render :new 
+    end
+  end
+
+  def edit
+    @child = @product.category.parent
+    @parent = @product.category.parent.parent
+  end
+
+
+  def update
+    if @product.update(product_params)
+      redirect_to  product_show_product_path(@product), notice: '編集しました。'
+    else
+      render :edit
     end
   end
 

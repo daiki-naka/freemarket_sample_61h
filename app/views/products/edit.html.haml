@@ -1,0 +1,130 @@
+= render "exhibit-header"
+= form_with model: @product do |f|
+  #error
+  .exhibit
+    .exhibit__container
+      %div
+        .exhibit__container__inner
+          %h2.inner-head 商品の情報を入力
+          %form.exhibit-product
+            .exhibit-product__view
+              %h3.exhibit-product__view--title
+                出品画像
+                %span.require 必須
+              .exhibit-product__view--text 最大5枚までアップロードできます
+              .exhibit-product__view--img
+                .sell-upload-items-container
+                  .sell-upload-items.have-item-0
+                    %ul               
+                .exhibit-product__view--img__box
+                  = f.fields_for :images do |i|
+                    #image-contents.img-box
+                      .view_box
+                        = i.file_field :picture, class:"file"
+                .explanatory_text 
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックでファイルをアップロード
+                #error-log-picture.error
+            .exhibit-product__name
+              .exhibit-product__name--title
+                %label
+                  商品名
+                  %span.require 必須
+                %div
+                  = f.text_field :name, class: "input-name choosing", placeholder: "商品名（必須 40文字まで)", value: "#{@product.name}"
+              #error-log-name.error
+              .exhibit-product__name--explanation
+                %label
+                  商品の説明
+                  %span.require 必須
+                = f.text_area :introduction, class: "input-explanation choosing", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",  rows: "5", value: "#{@product.introduction}"
+              #error-log-introduction.error
+            .exhibit-product__detail.clearfix
+              %h3.exhibit-product__detail--head 商品の詳細
+              .exhibit-product__detail__box
+                .exhibit-product__detail__box--form
+                  %label
+                    カテゴリー
+                    %span.require 必須
+                  #category-form
+                    .select-box
+                      %i.icon-deco.fa.fa-angle-down.fa-2x
+                      = f.collection_select :category, Category.all.order("id ASC").limit(13), :name, :name,{selected: "#{@parent.name}"}, class: "select-box--menu choosing", id: "parent-form"
+                  #children_wrapper.listing-select-wrapper__added
+                    .select-box
+                      %i.fa.fa-angle-down.fa-2x.icon-deco
+                      %select#child_category.select-box--menu.choosing
+                        %option{data:{category: "#{@child.id}"}, value: "#{@child.name}"} #{@child.name}
+                        - @parent.children.each do |child|
+                          %option{"data-category" => "#{child.id}", :value => "#{child.name}"} #{child.name}
+                    #cc-error.error
+                  #grandchildren_box.listing-select-wrapper__added
+                    .select-box
+                      %i.fa.fa-angle-down.fa-2x.icon-deco
+                      %select#grandchild_category.select-box--menu.choosing{name: "product[category_id]", value: "#{@product.category.id}"}
+                        %option{data:{category: "#{@product.category.id}"}, value: "#{@product.category.name}"} #{@product.category.name}
+                        - @child.children.each do |grand|
+                          %option{"data-category" => "#{grand.id}", :value => "#{grand.name}"} #{grand.name}
+                    #gc-error.error
+                #error-log-category.error
+                .exhibit-product__detail__box--group.margin-top-40
+                  %label
+                    商品の状態
+                    %span.require 必須
+                  .select-box
+                    %i.icon-deco.fa.fa-angle-down.fa-2x
+                    = f.select :status, [['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'],['目立った傷や汚れなし', '目立った傷や汚れなし'], ['やや傷や汚れあり', 'やや傷や汚れあり'],['傷や汚れあり', '傷や汚れあり'], ['全体的に状態が悪い', '全体的に状態が悪い']], {prompt: "---"}, { id: "input-status", class: "select-box--menu choosing" }
+                #error-log-status.error
+            .exhibit-product__delivery.clearfix
+              %h3.exhibit-product__delivery--head 配送について
+              = link_to "?", "https://www.mercari.com/jp/help_center/article/68/", class: "question"
+              .exhibit-product__delivery__box
+                .exhibit-product__delivery__box__delivery
+                  %label
+                    配送料の負担
+                    %span.require 必須
+                  .select-box
+                    %i.icon-deco.fa.fa-angle-down.fa-2x
+                    = f.select :d_charge, [['送料込み(出品者負担)', '送料込み(出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {prompt: "---"}, { id: "delivery_form", class: "select-box--menu choosing" }
+                #error-log-d_charge.error
+                .exhibit-product__delivery__box__group.margin-top-40
+                  %label
+                    発送元の地域
+                    %span.require 必須
+                  .select-box
+                    %i.icon-deco.fa.fa-angle-down.fa-2x
+                    = f.collection_select :d_origin, Prefecture.all, :name, :name, {prompt: "---"}, { id: "input-origin", class: "select-box--menu choosing" }
+                #error-log-d_origin.error
+                .exhibit-product__delivery__box__group.margin-top-40
+                  %label
+                    発送までの日数
+                    %span.require 必須
+                  .select-box
+                    %i.icon-deco.fa.fa-angle-down.fa-2x
+                    = f.select :d_interval, [['1~2日で発送', '1~2日で発送'], ['2~3日で発送', '2~3日で発送'], ['4~7日で発送', '4~7日で発送']], {prompt: "---"}, { id: "input-interval", class: "select-box--menu choosing" }
+                #error-log-d_interval.error
+            .exhibit-product__price.clearfix
+              %h3.exhibit-product__price--head 販売価格(300〜9,999,999)
+              = link_to "?", "https://www.mercari.com/jp/help_center/article/64/", class: "question"
+              .exhibit-product__price__box
+                %ul.product-price
+                  %li.product-price--form.clearfix
+                    %label.product-price--form--head
+                      価格
+                      %span.require 必須
+                    .product-price--form--mark
+                      ¥
+                      %div
+                        = f.text_field :price, class: "choosing input-price", placeholder: "例）300",value: "#{@product.price}", id: "price-form"
+                  #error-log-price.error
+                  %li.product-price--fee.clearfix
+                    .p-left 販売手数料 (10%)
+                    #fee.p-right -
+                  %li.product-price--profit.clearfix
+                    .p-left 販売利益
+                    #profit.p-right -
+            .exhibit-product__confirmation
+              = f.submit "変更する", class: "btn-submit", id: "product-create-btn"
+              = link_to "キャンセル", product_show_product_path, class: "btn-return"
+= render "exhibit-footer"
