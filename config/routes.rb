@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :new, :create, :destroy]
   resources :products
 
-  get 'users/product_show/:id', to: 'products#product_show'
-
   resources :products do
+    member do
+      get 'product_show'
+    end
+    
     collection do
       get 'buy'
       post 'pay'

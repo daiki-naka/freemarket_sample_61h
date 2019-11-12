@@ -7,7 +7,7 @@
     .item__main-content.clearfix-item-detail
       .item__main-content__photo.width-335
         .item__main-content__photo__detail
-          - @image.each do |p|
+          - @images.each do |p|
             = image_tag p.picture.url ,size:'100x100'
         .item__main-content__photo__details
           詳細画像
