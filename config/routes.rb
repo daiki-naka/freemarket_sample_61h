@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :new, :create, :destroy]
   resources :products
 
+  get 'users/product_show/:id', to: 'products#product_show'
+
   resources :products do
     collection do
       get 'buy'
@@ -23,8 +25,5 @@ Rails.application.routes.draw do
       get 'card'
     end
   end
-  
-  # # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :pages, only: [:index, :new]
 
 end

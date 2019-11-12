@@ -1,0 +1,89 @@
+= render partial: 'header_index'
+.exhibit
+  .item.margin-left-37.width-775
+    %h1.item__name
+      = @product.name
+    %p.item__wording.p-item-detail
+    .item__main-content.clearfix-item-detail
+      .item__main-content__photo.width-335
+        .item__main-content__photo__detail
+          - @image.each do |p|
+            = image_tag p.picture.url ,size:'100x100'
+        .item__main-content__photo__details
+          詳細画像
+      %table.item__main-content__detail-table.width-335.height-465
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header 出品者
+          %td.item__main-content__detail-table__row__data
+            %div
+              = @product.user.nickname
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header カテゴリー
+          %td.item__main-content__detail-table__row__data
+            .link-item-detail.link-blue-color
+              = @category.parent.parent.name
+            .link-item-detail.link-blue-color
+              %i.fa.fa-chevron-right.icon-item-detail
+              = @category.parent.name
+            .link-item-detail.link-blue-color
+              %i.fa.fa-chevron-right.icon-item-detail
+              = @category.name
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header ブランド
+          %td.item__main-content__detail-table__row__data
+            = @product.brand.name if @product.brand.present?
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header 商品の状態
+          %td.item__main-content__detail-table__row__data
+            = @product.status
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header 配送料の負担
+          %td.item__main-content__detail-table__row__data
+            = @product.d_charge
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header 配送の方法
+          %td.item__main-content__detail-table__row__data
+            = @product.d_method
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header 配送元地域
+          %td.item__main-content__detail-table__row__data
+            .link-item-detail.link-blue-color
+              = @product.d_origin
+        %tr.item__main-content__detail-table__row
+          %th.item__main-content__detail-table__row__header 発送日の目安
+          %td.item__main-content__detail-table__row__data
+            = @product.d_interval
+    .item__price-box
+      %span.item__price-box__price
+        = @product.price
+      %span.item__price-box__tax (税込)
+      %span.item__price-box__shipping-fee 送料込み
+    .item__description
+      %p.item__description-inner.p-item-detail
+        = @product.introduction
+  .information
+    .information__edit 商品の編集
+    %p.or or
+    .information__stop  出品を一旦停止する
+    .information__delete#dlt_btn この商品を削除する
+  .comment-area
+    .comment-area__message
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %textarea.textarea-default{name:"", type: "text", value: "", class: "comment-area__form"}
+    .comment-area__send コメントする
+= render partial: 'footer'
+.gray_panel#gray_panel
+.popup{style:"display: none;"}
+  .popup__message
+    %p.confirmation
+      確認
+    %p.text1
+      削除すると二度と復活できません。
+      %br
+      削除する代わりに停止することもできます。
+    %p.text2
+      本当に削除しますか？
+  .popup__btn
+    .popup__btn--cancel キャンセル
+    .popup__btn--delete
+      = link_to '削除する', product_path, method: :delete, class: "delete-alert"
