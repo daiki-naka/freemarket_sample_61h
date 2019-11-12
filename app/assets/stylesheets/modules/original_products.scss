@@ -289,7 +289,7 @@
   &__description {
     padding: 32px 0 0;
     line-height: 1.5;
-    font-size: 25px;
+    font-size: 14px;
 
     &__inner {
       white-space: pre-wrap;
@@ -299,8 +299,10 @@
   &__button-container {
     margin: 16px 0 0;
     font-size: 0;
+
     &__button-left {
       float: left;
+
       &__button-like {
         display: inline-block;
         padding: 8px 16px;
@@ -309,25 +311,21 @@
         color: #333;
         border: 1px solid #f5f5f5;
         background: #f5f5f5;
-        &__like{
-          .fa{
-            font-size: 14px;
-            vertical-align: middle;
-            color: #ccc;
-          }
-          .fas{
-            font-size: 14px;
-            vertical-align: middle;
-            color: #ccc;
-          }
-          &__letter {
-            font-size: 14px;
-            display: inline-block;
-            margin: 1px 0 0 8px;
-            vertical-align: middle;
-          } 
-        }      
+
+        .fa {
+          font-size: 14px;
+          vertical-align: middle;
+          color: #ccc;
+        }
+
+        &__letter {
+          font-size: 14px;
+          display: inline-block;
+          margin: 1px 0 0 8px;
+          vertical-align: middle;
+        }
       }
+
       &__button-report {
         display: inline-block;
         padding: 8px 16px;
@@ -618,16 +616,3 @@
     }
   }
 }
-
-// .letter2{
-//   font-size:15px;
-//   color:black;
-//   }
-  
-//   .icon-item-detail2{
-//   font-size: 14px;
-//   vertical-align: middle;
-//   color: #ccc;
-//   }
-  
-

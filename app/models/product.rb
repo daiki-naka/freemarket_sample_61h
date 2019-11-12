@@ -1,6 +1,23 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_many :images
-  has_many :users,through: :likes
+  has_many :users, through: :likes, dependent: :destroy
   has_many :likes
+  has_many :like_users, through: :likes, source: :user
+  #user にいいね！されたproductを取得。like_usersというカラムは存在しないが、
+  #既に存在するhas_many :usersと区別する必要があるため、名称を変更。
+  #末尾にsource: :userと書くことで,usersを取得できる。
+
+  def add_like(user)
+    likes.create(user_id: user.id)
+  end
+  
+  def remove_like(user)
+    likes.find_by(user_id: user.id).destroy
+  end
+
+
+  def like?(user)
+    like_users.include?(user)
+  end
 end

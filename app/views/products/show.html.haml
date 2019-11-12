@@ -116,16 +116,23 @@
       .item__button-container.clearfix-item-detail
         .item__button-container__button-left
           .item__button-container__button-left__button-like.link-item-detail
-            %i.fa.fa-heart.icon-item-detail
-            %span.item__button-container__button-left__button-like__letter いいね!
-            %span.item__button-container__button-left__button-like__letter
-              -# - user_signed_in? 
-              -# = 
-            
-            -# ログイン/していないの分岐（ここまでここに書く）
-            -# ログインしていたらpress でいいね→カウントアップ（jQuery)
-            -# ログインしていなければpress でredirect_to サインインページ。 
-            = link_to "#"
+            - if !current_user.id == @product.user_id  
+              %span.item__button-container__button-left__button-like__like
+              - if @product.like?(current_user.id)
+                = form_for(@product.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f|
+                  -# %i.far.fa-heart.faa-horizontal.animated.icon-item-detail
+                  %i.fa.fa-flag.icon-item-detail
+                  %span.item__button-container__button-left__button-like__letter いいね！ 
+                  %span.item__button-container__button-left__button-like__letter 
+                    = @product.likes_count
+              - else
+                = form_for(@product.likes.build, remote: true) do |f|
+                  = hidden_field_tag :product_id, @product.id do
+                    %i.fas.fa-heart.faa-horizontal.animated.icon-item-detail 
+                    %span.item__button-container__button-left__button-like__letter いいね！
+                    %span.item__button-container__button-left__button-like__letter 
+                      = @product.likes_count
+            -# = render 'likes/like', product: @product
           .item__button-container__button-left__button-report.link-item-detail.clearfix-item-detail
             %i.fa.fa-flag.icon-item-detail
             %span.item__button-container__button-left__button-report__letter 不適切な商品の報告
@@ -166,7 +173,7 @@
     .items-in-user-profile
       %section.items-in-user-profile__container.clearfix-item-detail
         %h2.items-in-user-profile__container__head
-          =link_to "もっちんさんのその他の出品", "#", class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
+          = link_to "#{@product.user.nickname}さんのその他の出品", user_path, class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
         .items-in-user-profile__container__content.clearfix-item-detail
           = render 'shared/related-product_block'
       %section.items-in-user-profile__container.clearfix-item-detail

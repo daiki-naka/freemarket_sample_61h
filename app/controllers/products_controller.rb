@@ -8,11 +8,10 @@ class ProductsController < ApplicationController
 
   def show
    @product = Product.find(params[:id])
-   render controller:  "ImagesController", action:  "show"
-  #  render controller:  "UsersController", action:  "show"
+   render controller:  "ImagesController", action: "show"
   end
 
   def product_params
-    params.require(:product).permit(:name,:introduction)
+    params.require(:product).permit(:name,:introduction,:likes_count)
   end
 end
