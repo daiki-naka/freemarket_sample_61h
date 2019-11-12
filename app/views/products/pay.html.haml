@@ -1,0 +1,68 @@
+%html#mypage-all
+  %body#mypage-show
+    %header.products__header--buy
+      = link_to image_tag('Mercari_logo.svg', height: '49px', width: '185px'), '/'
+    %main.products__content--buy
+      %section.products__content--buy--container
+        %header.products__content--buy--container--header
+          %h2.products__content--buy--container--header--title
+            購入内容の確認
+        .products__content--buy--item
+          -# = image_tag 'ded1780646232db305465370e1eeff4e_t.jpeg', alt: 'bag', height: '64px', width: '64px', class: 'products__content--buy--item--photo'
+          %tt.products__content--buy--item--text 
+            トートバッグ
+        .products__content--buy--form
+          .products__content--buy--price
+            .products__content--buy--price--text
+              %span.products__content--buy--price--text--main ¥1000
+              送料込み
+          .products__content--buy--point
+            %p.products__content--buy--point--text
+              ポイントはありません
+          .products__content--buy--pay
+            %span.products__content--buy--pay--left 支払い金額
+            %span.products__content--buy--pay--right ¥1000
+          .products__content--buy--no-select 購入が完了しました
+        .products__content--buy--address
+          .products__content--buy--address--inner
+            %p.products__content--buy--address--inner--title
+              配送先
+            %address.products__content--buy--address--inner--address
+              %p 〒000-0000
+              %p 東京都 中野区 5-55-15
+              %p 仲村 大貴
+            = link_to '#', class: 'products__content--buy--address--inner--address--link' do
+              .products__content--buy--address--inner--address--link--text
+                %small.address--link--small--text 変更する
+                %i.fas.fa-chevron-right
+        .products__content--buy--address
+          .products__content--buy--address--inner
+            %p.products__content--buy--address--inner--title
+              支払い方法
+            - if @card_information.present?
+              %address.products__content--buy--address--inner--address
+                %p 
+                  = "*****************" + @card_information.last4
+                %p  
+                  - exp_month = @card_information.exp_month.to_s
+                  - exp_year = @card_information.exp_year.to_s.slice(2,2)
+                  = exp_month + "/" + exp_year
+                = render 'cards/card_logo'
+              = link_to '#', class: 'products__content--buy--address--inner--address--link' do
+                .products__content--buy--address--inner--address--link--text
+                  %small.address--link--small--text 変更する
+                  %i.fas.fa-chevron-right
+            - else
+              %br /
+
+      %footer.products__content--buy--footer
+        = link_to '#', class: 'products__content--buy--footer--link' do
+          %tt プライバシーポリシー
+        = link_to '#', class: 'products__content--buy--footer--link' do
+          %tt メルカリ利用規約
+        = link_to '#', class: 'products__content--buy--footer--link' do
+          %tt 特定商品に関する表記
+        .products__content--buy--footer--img
+          = link_to image_tag('mercari-footer-logo.png', height: '70px', width: '80px', class: 'products__content--buy--footer--img--photo'), '/'
+          %p.products__content--buy--footer--img--text
+            © 2019 Mercari

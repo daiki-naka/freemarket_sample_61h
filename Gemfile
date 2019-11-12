@@ -80,8 +80,11 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'font-awesome-rails'
 gem 'active_hash'
+gem 'ancestry'
+gem 'payjp'
 gem 'gretel'
 gem 'rails-i18n'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

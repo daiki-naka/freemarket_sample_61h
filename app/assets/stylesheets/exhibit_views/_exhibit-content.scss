@@ -8,9 +8,27 @@
   margin-top: 40px;
 }
 
+.width-92{
+  width: 92.5%;
+}
+
+.icon-deco{
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  z-index: 5;
+  color: #888;
+  transform: translate(0, -50%);
+  pointer-events: none;
+}
 
 select{
   -webkit-appearance: none;
+}
+
+.choosing:focus{
+  outline: none;
+  box-shadow: 0 0 0 1px rgb(87, 188, 255);
 }
 
 
@@ -22,6 +40,16 @@ select{
   font-size: 15px;
   vertical-align: top;
   background: #ea352d;
+}
+
+@mixin any{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: $white;
+  font-size: 15px;
+  vertical-align: top;
+  background: #ccc;
 }
 
 @mixin head-title{
@@ -81,9 +109,8 @@ select{
       font-weight: bold;
     }
     .exhibit-product{
-      border-top: 1px solid #eee;
       &__view{
-        width: 620px;
+        border-top: 1px solid #eee;
         padding: 40px;
         &--title{
           font-size: 19px;
@@ -93,33 +120,17 @@ select{
           }
         }
         &--text{
+          font-size: 15px;
           margin: 8px 0 0;
           line-height: 1.5;
         }
         &--img{
           display: block;
-          width: 113%;
           margin: 16px auto 0;
           &__box{
-            padding: 40px;
+            height: 180px;
+            display: flex;
             position: relative;
-            min-height: 180px;
-            background: $off-white;
-            border: 1px dashed #ccc;
-            text-align: center;
-            cursor: pointer;
-            box-sizing: border-box;
-            .visible-pc{
-              position: absolute;
-              top: 50%;
-              left: 16px;
-              right: 16px;
-              text-align: center;
-              font-size: 17px;
-              line-height: 1.5;
-              -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%);
-            }
           }
         }
       }
@@ -132,7 +143,7 @@ select{
             @include require;
           }
           .input-name{
-            width: 95%;
+            width: 100%;
             margin: 8px 0 0;
             height: 48px;
             padding: 10px 16px 8px;
@@ -148,7 +159,7 @@ select{
           }
           .input-explanation{           
             display: block;
-            width: 97%;
+            width: 100%;
             min-height: 104px;
             padding: 10px;
             @include text-form;
@@ -165,6 +176,47 @@ select{
           float: right;
           width: 450px;
           margin: 0;
+          &--form{
+            label{
+              font-weight: 600;
+              display: inline-block;
+              .require{
+                @include require;
+              }
+              .any{
+                @include any;
+              }
+            }
+            .select-box{
+              margin: 8px 0 0;
+              position: relative;
+              background: $white;
+              &--icon{
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 8px;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+              }
+              &--menu{
+                background-color: $white;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 55px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                font-weight: initial;
+              }
+            }
+          }
           &--group{
             label{
               font-weight: 600;
@@ -188,6 +240,7 @@ select{
                 transform: translate(0, -50%);
               }
               &--menu{
+                background-color: $white;
                 width: 100%;
                 position: relative;
                 z-index: 2;
@@ -213,20 +266,51 @@ select{
         .question{
           @include question
         }
+        .question:hover{
+          background-color: #65b4db;
+          text-decoration: underline;
+        }
         &__box{
           float: right;
           width: 450px;
           margin: 0;
-          &__group{
+          &__delivery{
             font-weight: 600;
-
             .require{
               @include require;
             }
             .select-box{
               margin: 8px 0 0;
               position: relative;
-              background: $white;
+              &--menu{
+                background-color: $white;
+              }
+              select{
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 55px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                font-weight: initial;
+              }
+            }
+          }
+          &__group{
+            font-weight: 600;
+            .require{
+              @include require;
+            }
+            .select-box{
+              margin: 8px 0 0;
+              position: relative;
+              &--menu{
+                background-color: $white;
+              }
               select{
                 width: 100%;
                 position: relative;
@@ -247,11 +331,20 @@ select{
       &__price{
         padding: 40px;
         border-top: 1px solid #eee;
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
         &--head{
           @include head-title;
         }
         .question{
           @include question
+        }
+        .question:hover{
+          background-color: #65b4db;
+          text-decoration: underline;
         }
         &__box{
           float: right;
@@ -331,6 +424,10 @@ select{
             color: #0099e8;
             text-decoration: none;
           }
+          a:hover{
+            color: #65b4db;
+            text-decoration: underline;
+          }
         }
         .btn-submit{   
           width: 100%;
@@ -343,7 +440,117 @@ select{
           margin: 24px auto 0;
           @include btn-form(#aaa, #aaa);
         }
+        .btn-return:hover{
+          background-color: rgb(200, 200, 200);
+          border: 1px solid rgb(200, 200, 200);
+        }
       }
     }
   }
 }
+
+#brands-search-result{
+  width: 108%;
+  max-height: 280px;
+  display: none;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+  background: #fff;
+  overflow: auto;
+  position: absolute;
+  z-index: 10;
+  .brand-form{
+    width: 100%;
+    height: 50px;
+    padding: 16px 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .brand-form:hover{
+    color: #fff;
+    background-color: rgb(0, 127, 212);
+  }
+}
+
+.explanatory_text{
+  padding:0 10px;
+  pointer-events: none;
+  text-align: center;
+  font-size: 17px;
+  width: 700px;
+  background-color: #00000000;
+  position: absolute;
+  z-index: 10;
+  bottom:44%;
+  right:455px;
+}
+
+
+.img-box{
+  width: 700px;
+  margin: 0;
+  background-color: #f5f5f5;
+  border: 1px dashed #ccc;
+  box-sizing: border-box;
+  margin: 0 0 0 10px;
+  .view_box{
+    .file{
+      height: 130px;
+      width: 100%;
+      opacity: 0;
+      cursor: pointer;
+      position: relative;
+    }
+  }
+}
+
+.img_view{
+  width: 100%;
+  .img {
+    height: 130px;
+    width: 126px;
+    object-fit: cover;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    padding: 15px 2px;
+  }
+  .view_option{
+    float: flex;
+    &--edit{
+      color: #0099e8;
+      float: left;
+      height: 50px;
+      width: 63px;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+    }
+    &--edit:hover{
+      color: #3fb3ec;
+    }
+    &--delete{
+      color: #0099e8;
+      float: right;
+      height: 50px;
+      width: 63px;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      border-left: 1px solid #eee;
+    }
+    &--delete:hover{
+      color: #3fb3ec;
+    }
+  }
+}
+
+.error{
+  color: #ea352d;
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: 100;
+}
+

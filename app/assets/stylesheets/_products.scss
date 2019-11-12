@@ -64,7 +64,6 @@
   padding: 24px 40px 40px;
   margin: 40px auto 0;
   box-sizing: border-box;
-
   &__name {
     font-size: 24px;
     text-align: center;
@@ -75,21 +74,17 @@
     margin-inline-end: 0px;
     font-weight: bold;
   }
-
   &__wording {
     margin: 8px 0 0;
     font-size: 14px;
     color: #888;
     line-height: 1.5;  
-
     &__link {
       color: currentColor;
     }
   }
-
   &__main-content {
     margin: 16px 0 0;
-
     &__photo {
       float: left;
       position: relative;
@@ -97,32 +92,26 @@
       height: 375px;
       margin: 0 auto;
       background: #fafafa;
-
       &__frame {
         position: relative;
-
         &__stage-outer {
           position: relative;
           overflow: hidden;
-
           &__stage {
             left: 0px;
             width: 1200px;
             position: relative;
-
             &__item {
               width: 300px;
               min-height: 1px;
               float: left;
               user-select: none;
-            
               &__inner {
                 height: 300px;
                 position: relative;
                 width: 100%;
                 height: 0;
                 padding: 0 0 100%;
-
                 &__image {
                   opacity: 1;
                   position: absolute;
@@ -141,7 +130,6 @@
 
         &__dots {
           line-height: 0;
-
           &__dot {
             opacity: 1;
             cursor: default;
@@ -151,11 +139,9 @@
             position: relative;
             overflow: hidden;
             display: inline-block;
-    
             span {
               display: none;
             }
-
             &__inner {
               position: static;
               width: auto;
@@ -163,7 +149,6 @@
               padding: 0;
               overflow: hidden;
               pointer-events: none;
-
               &__image {
                 position: absolute;
                 top: 0;
@@ -178,7 +163,6 @@
         }
       }
     }
-    
     &__detail-table {
       float: right;
       display: table;
@@ -188,45 +172,38 @@
       border-collapse: collapse;
       border: 1px solid #f5f5f5;
       border-spacing: 0;
-
       &__row {
+        border-top: 1px solid #f5f5f5;
         display: table-row;
         vertical-align: inherit;
         border-color: inherit;
-
         &__header {
+          padding: 8px;
           width: 39%;
           text-align: left;
           font-weight: 400;
           background: #fafafa;  
         }
-
         &__data {
           width: 61%;
           background: #fff;
           border-collapse: collapse;
-          border: 1px solid #f5f5f5;
           padding: 8px;
           box-sizing: border-box;
-
-            .fa {
-              color: #0099e8;
-            }
-
+          .fa {
+            color: #0099e8;
+          }
           &__user {
             display: block;
           }
-
           &__rate {
             margin-top: 9px;
-
             &__user-ratings:first-child {
               margin: 0;
             }
             &__user-ratings {
               display: inline-block;
               margin: 8px 0 0 16px;
-
               .fa {
                 font-size: 16px;
                 vertical-align: middle;
@@ -249,23 +226,19 @@
   &__price-box {
     margin: 24px 0 0;
     text-align: center;
-
     &__price {
       margin: 0 8px 0 0;
       font-size: 32px;
       font-weight: 600;
     }
-
     &__tax {
       font-size: 10px;
     }
-
     &__shipping-fee {
       display: inline-block;
       font-size: 16px;
     }
   } 
-  
   &__buy-btn {
     display: block;
     margin-top: 16px;
@@ -277,7 +250,6 @@
     line-height: 60px;
     transition: all;
   }
-
   &__shipping-not-allowed-message {
     margin-top: 16px;
     color: #ea352d;
@@ -285,24 +257,19 @@
     font-size: 14px;
     text-align: center;
   }
-
   &__description {
     padding: 32px 0 0;
     line-height: 1.5;
     font-size: 14px;
-
     &__inner {
       white-space: pre-wrap;
     }
   }
-
   &__button-container {
     margin: 16px 0 0;
     font-size: 0;
-
     &__button-left {
       float: left;
-
       &__button-like {
         display: inline-block;
         padding: 8px 16px;
@@ -311,13 +278,11 @@
         color: #333;
         border: 1px solid #f5f5f5;
         background: #f5f5f5;
-
         .fa {
           font-size: 14px;
           vertical-align: middle;
           color: #ccc;
         }
-
         &__letter {
           font-size: 14px;
           display: inline-block;
@@ -325,7 +290,6 @@
           vertical-align: middle;
         }
       }
-
       &__button-report {
         display: inline-block;
         padding: 8px 16px;
@@ -334,12 +298,10 @@
         margin: 0 0 0 16px;
         color: #333;
         background: #f5f5f5;
-
         .fa {
           font-size: 14px;
           vertical-align: middle;
         }
-
         &__letter {
           font-size: 14px;
           display: inline-block;
@@ -348,20 +310,16 @@
         }
       }
     }
-
     &__button-right {
       margin: 8px 0 0;
       float: right;
-
       &__link-safety {
         display: inline-block;
         color: #0099e8;
-
         .fa {
           font-size: 14px;
           vertical-align: middle;
         }
-
         &__letter {
           font-size: 14px;
           display: inline-block;
@@ -383,19 +341,16 @@
   margin: 24px auto 0;
   list-style: none;
   display: block;
-
   &__prev {
     width: 45%;
     position: relative;
     word-wrap: break-word;
     float: left;
     padding: 0 0 0 14px;
-
     &__blue-link {
       color: #0099e8;
     }
   }
-
   &__next {
     width: 45%;
     position: relative;
@@ -403,7 +358,6 @@
     float: right;
     padding: 0 14px 0 0;
     text-align: right;
-    
     &__blue-link {
       color: #0099e8;
     }
@@ -416,27 +370,22 @@
   padding: 32px 0 24px;
   width: 700px;
   background: #fff;
-
   &__text {
     height: 14px;
   }
-
   &__box {
     margin: 16px 0 0;
     text-align: center;
     font-size: 0;
     list-style: none;
     display: block;
-
     &__list {
       display: inline-block;
       margin: 0 8px 8px 0;
       vertical-align: middle;
       text-align: center;
-
       &__share-btn {
         display: block;
-
         .fab {
           width: 44px;
           height: 44px;
@@ -468,42 +417,34 @@
 .items-in-user-profile {
   width: 700px;
   margin: 0 auto;
-
   &__container {
     width: 700px;
     margin: 0 auto;
-
     &__head {
       font-size: 22px;
       margin: 24px 0 8px;
       line-height: 1.4;
       font-weight: bold;
-
       &__link {
         color: #0099e8;
       }
     }
-
     &__content {
       width: auto;
       margin: 0 auto;
-
       &__block:nth-child(3n) {
         margin-right: 0;
       }
-      
       &__block {
         width: 220px;
         margin: 0 20px 20px 0;
         position: relative;
         float: left;
         background: #fff;
-  
         &__link {
           display: block;
           color: #333;
           height: 330px;
-
           &__photo {
             width: 220px;
             overflow: hidden;
@@ -511,7 +452,6 @@
             padding: 0 0 100%;
             display: block;
             margin: 0;
-
             &__image {
               width: auto;
               left: 50%;
@@ -527,11 +467,9 @@
               vertical-align: middle;
             }
           }
-
           &__body {
             padding: 16px;
             height: 110px;
-
             &__name {
               overflow: hidden;
               position: relative;
@@ -544,7 +482,6 @@
               color: #333;
               display: block;
             }
-
             &__num {
               display: flex;
               -webkit-box-align: center;
@@ -552,18 +489,15 @@
               -webkit-box-pack: justify;
               justify-content: space-between;
               margin: 8px 0 0;
-
               &__price {
                 font-size: 17px;
                 font-weight: 600;
                 color: #333;
               }
-
               &__mark {
                 font-size: 16px;
                 font-weight: 400;
                 color: #333;
-                
                 .fa {
                   color: #ccc;
                 }
@@ -582,7 +516,6 @@
   position: relative;
   border-top: 1px solid #eee;
   display: block;
-  
   &__list {
     width: 1020px;
     overflow: visible;
@@ -591,21 +524,18 @@
     white-space: normal;
     font-size: 0;
     list-style: none;
-
     &__left-part {
       text-overflow: ellipsis;
       white-space: nowrap;
       display: inline-block;
       font-size: 14px;
       line-height: 1.2;
-
       .fa {
         margin: 0 8px;
         font-size: 9px;
         color: #888;
       }
     }
-
     &__right-part {
       font-weight: 600;
       text-overflow: ellipsis;
