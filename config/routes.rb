@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :card] do
     collection do
       get 'card'
-      get 'signup/form1'
-      get 'signup/form2'
-      get 'signup/form3'
-      get 'signup/form4'
+      get 'signup/step1'
+      get 'signup/step2'
+      get 'signup/step3'
+      get 'signup/step4'
       get 'signup/complete'
     end
   end

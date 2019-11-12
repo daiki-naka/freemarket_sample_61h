@@ -1,13 +1,13 @@
 class SignupController < ApplicationController
-  before_action :validates_form1, only: :form2
-  before_action :validates_form2, only: :form3
-  before_action :validates_form3, only: :form4
+  before_action :validates_step1, only: :step2
+  before_action :validates_step2, only: :step3
+  before_action :validates_step3, only: :step4
 
-  def form1
+  def step1
     @user = User.new
   end
 
-  def form2
+  def step2
     birthday                        = birthday_join(params[:birthday])
     session[:nickname]              = user_params[:nickname]
     session[:email]                 = user_params[:email]
@@ -21,12 +21,12 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  def form3
+  def step3
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
   end
 
-  def form4
+  def step4
     session[:d_last_name]     = user_params[:d_last_name]
     session[:d_name]          = user_params[:d_name]
     session[:d_last_name_f]   = user_params[:d_last_name_f]
@@ -40,7 +40,7 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  def validates_form1
+  def validates_step1
     birthday                        =  birthday_join(params[:birthday])
     session[:nickname]              = user_params[:nickname]
     session[:email]                 = user_params[:email]
@@ -62,10 +62,10 @@ class SignupController < ApplicationController
       name_f:                 session[:name_f],
       birthday:               session[:birthday]
     )
-    render :form1 unless @user.valid?(:validates_form1)
+    render :step1 unless @user.valid?(:validates_step1)
   end
 
-  def validates_form2
+  def validates_step2
     session[:phone_number] = user_params[:phone_number]
     @user = User.new(
       phone_number:          session[:phone_number],
@@ -73,10 +73,10 @@ class SignupController < ApplicationController
       password_confirmation: "1234567",
       email:                 "123@gmail.com"
     )
-    render :form2 unless @user.valid?(:validates_form2)
+    render :step2 unless @user.valid?(:validates_step2)
   end
 
-  def validates_form3
+  def validates_step3
     session[:d_last_name]     = user_params[:d_last_name]
     session[:d_name]          = user_params[:d_name]
     session[:d_last_name_f]   = user_params[:d_last_name_f]
@@ -102,7 +102,7 @@ class SignupController < ApplicationController
       password_confirmation: "1234567",
       email:                 "123@gmail.com"
     )
-    render :form3 unless @user.valid?(:validates_form3)
+    render :step3 unless @user.valid?(:validates_step3)
   end
 
   def complete

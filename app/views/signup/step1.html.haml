@@ -4,7 +4,7 @@
     %h2.signup-form__container__title
       会員情報入力
     .signup-form__container__main
-      = form_for @user, url: signup_form2_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
+      = form_for @user, url: signup_step2_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
         .signup-form__container__inner__form
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text

@@ -4,7 +4,7 @@
     %h2.signup-form__container__title
       住所入力
     .signup-form__container__main
-      = form_for @user, url: signup_form4_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
+      = form_for @user, url: signup_step4_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
         .signup-form__container__inner__form
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
@@ -31,7 +31,7 @@
               郵便番号
             %span.signup-form__container__inner__form__pack-label__required-i 
               必須
-          = f.text_field :postal_code, placeholder: '例）123-4567', class: 'signup-form__container__inner__form__field'
+          = f.text_field :postal_code, placeholder: '例）1234567', class: 'signup-form__container__inner__form__field'
           = render partial: 'layouts/error_messages', locals: {user: @user, column: "postal_code"}
         .signup-form__container__inner__form
           .signup-form__container__inner__form__pack-label
