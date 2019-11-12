@@ -10,13 +10,10 @@ class User < ApplicationRecord
   VALID_KANA_REGEX =                  /\A[ァ-ヶー－]+\z/
   VALID_POST_REGEX =                  /\A\d{7}\z/
 
-
-  validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-
   #ユーザー登録
   #form1のバリデーション
   validates :nickname,                presence: true, length: {maximum: 20}, on: :validates_form1
-  validates :email,                   presence: true, format: { with: VALID_EMAIL_REGEX }, on: :validates_form1
+  validates :email,                   format: { with: VALID_EMAIL_REGEX }, on: :validates_form1
   validates :last_name,               presence: true, length: {maximum: 35}, on: :validates_form1
   validates :name,                    presence: true, length: {maximum: 35}, on: :validates_form1
   validates :last_name_f,             presence: true, format: { with: VALID_KANA_REGEX }, length: {maximum: 35}, on: :validates_form1
