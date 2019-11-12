@@ -1,4 +1,4 @@
-.signup-header{
+.signup-header1{
   &__wrapper{
     text-align: center;
     background: $off_white;
@@ -22,24 +22,22 @@
       color: $dark_gray;
       &__ol{
         position: relative;
+        &__li--1{
+          color: $mercari_red;
+          @include pointer-logo;
+          &--point{
+            @include pointer;
+            background: $mercari_red;
+            z-index: 4;
+          }
+        }
         &__li{
-          font-weight: 600;
           color: #888;
-          display: inline-block;
-          min-width: 40px;
-          margin: 0 5% 0 0;
-          position: relative;
+          @include pointer-logo;
           &--point{
             @include pointer;
             background: #ccc;
             z-index: 4;
-          }
-          .point--1{
-            &::after{
-              @include pointer_line;
-              background: #ccc;
-              left: 30px;
-            }
           }
           .point--2,.point--3,.point--4{
             &::before{
@@ -50,14 +48,7 @@
             &::after{
               @include pointer_line;
               background: #ccc;
-              left: 30px;
-            }
-          }
-          .point--5{
-            &::before{
-              @include pointer_line;
-              background: #ccc;
-              right: 24px;
+              left: 20px;
             }
           }
         }

@@ -10,35 +10,55 @@
     }
   }
   &__select__birthday{
-    width: 31%;
+    width: 100%;
     display: inline-block;
-    padding:2px;
+    padding: 2px;
     position: relative;
     &__icon{
       position: absolute;
-      left:60px;
-      top: 24px; 
-      color: #888;
-      font-size: 20px;
-      pointer-events: none;
+      left: 70px;
+      top: 26px; 
+      @include arrow_icon;
       z-index: 1;
     }
-    &__date{
-      height: 48px;
-      padding: 0 16px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      line-height: 1.5;
-      outline-color: rgb(0, 149, 238);
-      outline-width: 2px;
-      -webkit-appearance: none;
-      color: gray;
-      width: 83%;
-      position: relative;
-      background: 0;
-      margin: 8px 0 0;
-      margin-right: 2px;
+    &__icon2{
+      position: absolute;
+      left: 168px;
+      top: 26px; 
+      @include arrow_icon;
+      z-index: 1;
+    }
+    &__icon3{
+      position: absolute;
+      left: 265px;
+      top: 26px; 
+      @include arrow_icon;
+      z-index: 1;
+    }
+    &__div{
+      width: 100%;
+      .year{
+        width: 30%;
+        height: 48px;
+        padding: 0 16px;
+        font-size: 16px;
+        @include field;
+        color: gray;
+        background: 0;
+        margin: 8px 0 0;
+        display: inline-block;
+      }
+      .month,.day{
+        width: 25%;
+        height: 48px;
+        padding: 0 10px;
+        font-size: 16px;
+        @include field;
+        color: gray;
+        background: 0;
+        margin: 8px 0 0;
+        display: inline-block;
+      }
     }
   }
   &__atention{

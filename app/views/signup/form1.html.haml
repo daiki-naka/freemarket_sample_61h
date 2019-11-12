@@ -5,7 +5,6 @@
       会員情報入力
     .signup-form__container__main
       = form_for @user, url: signup_form2_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
-        = render partial: 'layouts/error_messages', locals: {user: @user, column: "nickname"}
         .signup-form__container__inner__form
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text
@@ -13,38 +12,37 @@
             %span.signup-form__container__inner__form__pack-label__required-i 
               必須
           = f.text_field :nickname, placeholder: '例）メルカリ太郎', class: 'signup-form__container__inner__form__field'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "nickname"}
         .signup-form__container__inner__form
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "email"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text
               メールアドレス
             %span.signup-form__container__inner__form__pack-label__required-i 
               必須
           = f.email_field :email, placeholder: '例）メールアドレス', class: 'signup-form__container__inner__form__field'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "email"}
         .signup-form__container__inner__form
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "password"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               パスワード
             %span.signup-form__container__inner__form__pack-label__required-i
               必須
           = f.password_field :password, placeholder: '例）７文字以上', class: 'signup-form__container__inner__form__field'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "password"}
         .signup-form__container__inner__form
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "password_confirmation"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text  
               パスワード(確認)
             %span.signup-form__container__inner__form__pack-label__required-i 
               必須
           = f.password_field :password_confirmation, placeholder: '例）７文字以上', class: 'signup-form__container__inner__form__field'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "password_confirmation"}
           %span.signup-form__container__inner__form__identification 
             %h3.signup-form__container__inner__form__identification--h3
               本人確認
             %p.signup-form__container__inner__form__identification--p
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .signup-form__container__inner__form
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "last_name"}
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "name"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text 
               お名前(全角)
@@ -52,9 +50,9 @@
               必須
           = f.text_field :last_name, placeholder: '例）山田', class: 'signup-form__container__inner__form__field'
           = f.text_field :name, placeholder: '例）彩', class: 'signup-form__container__inner__form__field'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "last_name"}
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "name"}
         .signup-form__container__inner__form
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "last_name_f"}
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "name_f"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text
               お名前カナ(全角)
@@ -62,8 +60,9 @@
               必須
           = f.text_field :last_name_f, placeholder: '例）ヤマダ', class: 'signup-form__container__inner__form__field'
           = f.text_field :name_f, placeholder: '例）アヤ', class: 'signup-form__container__inner__form__field'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "last_name_f"}
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "name_f"}
         .signup-form__container__inner__form
-          = render partial: 'layouts/error_messages', locals: {user: @user, column: "birthday"}
           .signup-form__container__inner__form__pack-label
             %span.signup-form__container__inner__form__pack-label__text
               生年月日
@@ -75,6 +74,7 @@
             = fa_icon 'chevron-down', class: 'signup-form__container__inner__form__select__birthday__icon3'
             .signup-form__container__inner__form__select__birthday__div
               != sprintf(f.date_select(:birthday, prefix:'birthday', with_css_classes: true, prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+            = render partial: 'layouts/error_messages', locals: {user: @user, column: "birthday"}
           .signup-form__container__inner__form__atention
             ※ 本人情報は正しく入力してください。会員登録後、
             %br 修正するにはお時間を頂く場合があります。

@@ -8,7 +8,7 @@ class SignupController < ApplicationController
   end
 
   def form2
-    birthday = birthday_join(params[:birthday])
+    birthday                        = birthday_join(params[:birthday])
     session[:nickname]              = user_params[:nickname]
     session[:email]                 = user_params[:email]
     session[:password]              = user_params[:password]
@@ -41,7 +41,7 @@ class SignupController < ApplicationController
   end
 
   def validates_form1
-    birthday = birthday_join(params[:birthday])
+    birthday                        =  birthday_join(params[:birthday])
     session[:nickname]              = user_params[:nickname]
     session[:email]                 = user_params[:email]
     session[:password]              = user_params[:password]
