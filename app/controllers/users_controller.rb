@@ -8,5 +8,8 @@ class UsersController < ApplicationController
   
   def card
   end
+
+  def logout
+  end
   
 end
