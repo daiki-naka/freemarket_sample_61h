@@ -1,0 +1,117 @@
+*{
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.signup-form{
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+  height: auto;
+  &__container{
+    width: 700px;
+    margin: 0 auto;
+    display: block;
+    background-color: #fff;
+    padding-bottom: 24px;
+    &__title{
+      text-align: center;
+      font-size: 22px;
+      padding: 32px;
+      line-height: 1.5;
+    }
+    &__main{
+      border-top: 1px solid #f5f5f5;
+      .signup-form__container__inner{
+        padding: 24px 16px 40px;
+        margin-left: 25%;
+        width: 50%;
+        border-top: 1px;
+        border-top-style: solid;
+        border-top-color: #f5f5f5;
+        max-width: 343px;
+        &__form{
+          margin-bottom: 20px;
+          &__pack-label{
+            &__text{
+              font-weight: 600;
+              font-size: 14px;
+              color: #333;
+            }
+            &__required-i{
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              color: #fff;
+              font-size: 12px;
+              border-radius: 2px;
+              vertical-align: center;
+              background: #ea352d;
+            }
+            &__required-i--gray{
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              color: #fff;
+              font-size: 12px;
+              border-radius: 2px;
+              vertical-align: center;
+              background: #ccc;
+            }
+          }
+          &__field{
+            height: 48px;
+            padding: 10px 16px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            line-height: 1.5;
+            font-size: 16px;
+            min-height: 1.5em;
+            margin: 8px 0 0;
+            width: 100%;
+            outline-color: rgb(0, 149, 238);
+            outline-width: 2px;
+          }
+          .error_message{
+            color: $mercari_red;
+            margin: 8px 0 0;
+            font-size: 14px;
+          }
+          &__select{
+            position: relative;
+            width: 100%;
+            &__icon{
+              position: absolute;
+              left: 300px;
+              top: 24px; 
+              color: #888;
+              font-size: 20px;
+              pointer-events: none;
+            }
+            &__prefecture{
+              @include field;
+              height: 48px;
+              width: 100%;
+              background: 0;
+              color: #888;
+              padding: 10px 16px 8px;
+            }
+          }
+          &__done{
+            font-size: 16px;
+            text-align: center;
+          }
+        }
+        &__submit{
+          margin: 24px 0 0;
+          border-style: none;
+          background-color: #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+          outline-color: rgb(0, 149, 238);
+          outline-width: 2px;
+          -webkit-appearance: none;
+        }
+      }
+    }
+  }
+}

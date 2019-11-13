@@ -1,0 +1,24 @@
+= render "form-header"
+.signup-form
+  .form2__container
+    .signup-form__container
+      %h2.signup-form__container__title
+        電話番号の確認
+      .signup-form__container__main
+        = form_for @user, url: signup_step3_users_path, method: :get, html: {class: 'signup-form__container__inner'} do |f|
+          .signup-form__container__inner__form
+            .signup-form__container__inner__form__pack-label
+              %span.signup-form__container__inner__form__pack-label__text 
+                携帯電話の番号
+            = f.text_field :phone_number, placeholder: '携帯電話の番号を入力', class: 'signup-form__container__inner__form__field'
+            = render partial: 'layouts/error_messages', locals: {user: @user, column: "phone_number"}
+            %p.signup-form__container__inner__form__text 
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = f.submit '次へ進む', class: 'signup-form__container__inner__submit'
+          %p.signup-form__container__inner__privacy
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .signup-form__container__inner__confirmation
+            = link_to "電話番号の確認が必要な理由＞", "#", class: "signup-form__container__inner__confirmation__link" 
+= render 'form-footer'
+
+
