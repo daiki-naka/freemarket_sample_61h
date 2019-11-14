@@ -1,9 +1,11 @@
 @mixin pointer-logo{
   font-weight: 600;
+  font-size: 12px;
   display: inline-block;
   min-width: 40px;
   margin: 0 5% 0 0;
   position: relative;
+  z-index: 1;
 }
 
 @mixin pointer{
@@ -11,15 +13,16 @@
   height: 12px;
   margin: 8px auto 0;
   border-radius: 50%;
+  display: block;
 }
 
 @mixin pointer_line{
   position: absolute;
   bottom: 5px;
-  z-index: 3;
+  z-index: -1;
   display: block;
   content: '';
-  width: 135px;
+  width: 130%;
   height: 2px;
 }
 
