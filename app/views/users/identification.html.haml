@@ -1,0 +1,59 @@
+= render 'products/header_index'
+%html#mypage-all
+  %body#mypage-show
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :users
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-identification.clearfix
+      .main-identification__content
+        %h2.main-identification__content--title 本人情報の登録
+        .main-identification__content__form
+          %p
+            お客さまの本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.text-right
+            = link_to "本人確認書類のアップロードについて>", "https://www.mercari.com/jp/help_center/article/495/", class:"text-right--info"
+          .main-identification__content__form--group
+            .main-identification__content__form--group--label お名前
+            = @user.last_name
+            = @user.name
+          .main-identification__content__form--group
+            .main-identification__content__form--group--label お名前カナ
+            = @user.d_last_name_f
+            = @user.d_name_f
+          .main-identification__content__form--group
+            .main-identification__content__form--group--label 生年月日
+            = @user.birthday
+          .main-identification__content__form--group
+            %label.main-identification__content__form--group--label 郵便番号
+            %span.any 任意
+          %input.select-box--menu.choosing{placeholder: "例）1234567", type: "text", value: "#{@user.postal_code}"}
+          .main-identification__content__form--group
+            %label.main-identification__content__form--group--label 都道府県
+            %span.any 任意
+          .select-box
+            %i.icon-deco.fa.fa-angle-down.fa-2x
+            %select.select-box--menu.choosing{value: "#{@user.prefecture}"}
+              - Prefecture.all.each do |f|
+                %option{value:"f.name"} #{f[:name]}
+          .main-identification__content__form--group
+            %label.main-identification__content__form--group--label 市区町村
+            %span.any 任意
+          %input.select-box--menu.choosing{placeholder: "例) 横浜市緑区", type: "text", value: "#{@user.city}"}
+          .main-identification__content__form--group
+            %label.main-identification__content__form--group--label 番地
+            %span.any 任意
+          %input.select-box--menu.choosing{placeholder: "例) 青山1−1−1", type: "text", value: "#{@user.address}"}
+          .main-identification__content__form--group
+            %label.main-identification__content__form--group--label 建物名
+            %span.any 任意
+          %input.select-box--menu.choosing{placeholder: "例) 柳ビル103", type: "text", value: "#{@user.building_name}"}
+          %button.btn-submit.choosing{type: "submit"} 登録する
+          .main-identification__content__form--group.text-right
+            = link_to "本人情報の登録について>", "https://www.mercari.com/jp/help_center/article/423/", class:"main-identification__content__form--group--info"
+      = render 'shared/user-mypage-lsidebar'
+  = render 'products/footer'
+
+
