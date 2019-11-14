@@ -1,0 +1,87 @@
+.signup-header2__wrapper__root{
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+  color: $dark_gray;
+  &__ol{
+    &__li1{
+      @include pointer-logo;
+      color: #888;
+      &--point{
+        @include pointer;
+        background: $mercari_red;
+        &::after{
+          @include pointer_line;
+          left: 50%;
+          background: $mercari_red;
+        }
+      }
+    }
+    &__li2{
+      @include pointer-logo;
+      color: $mercari_red;
+      &--point{
+        @include pointer;
+        background: $mercari_red;
+        &::before{
+          right: 50%;
+          @include pointer_line;
+          background: $mercari_red;
+        }
+        &::after{
+          left: 50%;
+          @include pointer_line;
+          background: #ccc;
+        }
+      }
+    }
+    &__li3{
+      @include pointer-logo;
+      color: #888;
+      &--point{
+        @include pointer;
+        background: #ccc;
+        &::before{
+          right: 50%;
+          @include pointer_line;
+          background: #ccc;
+        }
+        &::after{
+          left: 50%;
+          @include pointer_line;
+          background: #ccc;
+        }
+      }
+    }
+    &__li4{
+      @include pointer-logo;
+      color: #888;
+      &--point{
+        @include pointer;
+        background: #ccc;
+        &::before{
+          right: 50%;
+          @include pointer_line;
+          background: #ccc;
+        }
+        &::after{
+          left: 50%;
+          @include pointer_line;
+          background: #ccc;
+        }
+      }
+    }
+    &__li5{
+      @include pointer-logo;
+      color: #888;
+      &--point{
+        @include pointer;
+        background: #ccc;
+        &::before{
+          right: 50%;
+          @include pointer_line;
+          background: #ccc;
+        }
+      }
+    }
+  }
+}
