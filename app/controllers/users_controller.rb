@@ -11,5 +11,9 @@ class UsersController < ApplicationController
 
   def logout
   end
+
+  def identification
+    @user = User.find(params[:id])
+  end
   
 end

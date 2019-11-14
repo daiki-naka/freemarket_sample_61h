@@ -1,5 +1,6 @@
 class AddNicknameToUser < ActiveRecord::Migration[5.2]
   def change
+    add_column :users, :nickname, :string, null: false
     add_column :users, :name, :string, null: false
     add_column :users, :name_f, :string, null: false
     add_column :users, :last_name, :string, null: false
