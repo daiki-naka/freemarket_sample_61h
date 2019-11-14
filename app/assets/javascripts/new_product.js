@@ -364,6 +364,7 @@ $(function(){
     var front_img = $(this).parent().parent();
     var img_num = (($('.exhibit-product__view--img__box').children().length) + 1);
     var num = 0;
+    var left = 0;
     var display = "";
     var fileprop = $(this).prop('files')[0];
     var find_img = $(this).parent().find('img');
@@ -374,17 +375,21 @@ $(function(){
     }
     if ( img_num == 2 ){
       num = 542
+      left = 140
     }else if  ( img_num == 3 ){
       num = 404
+      left = 290
     }else if  ( img_num == 4 ){
       num = 266 
+      left = 425
     }else if  ( img_num == 5 ){
       num = 128
-      $(".explanatory_text").css('bottom', "38%");
+      left = 562
+      $(".exhibit-product__view--img--text ").css('top', "35px");
     }else {
       num = 128
       display = "none";
-      $(".explanatory_text").css('display', "none");
+      $(".exhibit-product__view--img--text ").css('display', "none");
     }
     var img = `<div class="img_view">
                 <img alt="" class="img">
@@ -409,7 +414,8 @@ $(function(){
                     </div>
                   </div>`;
     $(".exhibit-product__view--img__box").append(img_box);
-    $(".explanatory_text").css('width', num +"px");
+    $(".exhibit-product__view--img--text ").css('width', num +"px");
+    $(".exhibit-product__view--img--text ").css('left', left +"px");
     p_num += 1
   });
   
@@ -418,27 +424,29 @@ $(function(){
       var img_delete = ($('.exhibit-product__view--img__box').children().length);
       var parentBox = $(this).parent().parent().parent().parent().parent();
       var last_box = $('.exhibit-product__view--img__box').children().last();
-      console.log(img_delete)
-      console.log(last_box)
       if ( img_delete == 2 ){
         d_num = 700
-        $(".explanatory_text").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('left', "0px" );
       }else if  ( img_delete == 3 ){
         d_num = 542
-        $(".explanatory_text").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('left', "140px" );
       }else if  ( img_delete == 4 ){
         d_num = 404
-        $(".explanatory_text").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('left', "290px" );
       }else if  ( img_delete == 5 ){
         d_num = 266
-        $(".explanatory_text").css('width', d_num +"px");
-        $(".explanatory_text").css('bottom', "44%" );
+        $(".exhibit-product__view--img--text ").css('width', d_num +"px");
+        $(".exhibit-product__view--img--text ").css('left', "425px" );
+        $(".exhibit-product__view--img--text ").css('top', "65px" );
       }else {
-        console.log("show")
         d_num = 128
         $(last_box).css("display", "block");
-        $(".explanatory_text").css("display", "block");
-        $(".explanatory_text").css('bottom', "38%" );
+        $(".exhibit-product__view--img--text ").css("display", "block");
+        $(".exhibit-product__view--img--text ").css('left', "562px" );
+        $(".exhibit-product__view--img--text ").css('top', "35px" );
       }
       parentBox.remove();
       $(last_box).css('width', d_num);
