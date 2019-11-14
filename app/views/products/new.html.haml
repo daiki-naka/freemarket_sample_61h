@@ -1,5 +1,5 @@
 = render "exhibit-header"
-= form_with model: @product do |f|
+= form_with model: @product, local: true do |f|
   #error
   .exhibit
     .exhibit__container
