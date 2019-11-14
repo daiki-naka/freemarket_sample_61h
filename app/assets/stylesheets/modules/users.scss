@@ -45,11 +45,12 @@ body {
   }
   .main-user{
     margin-top:40px;
+    margin: 40px auto;
+    width: 1020px;
     .l-content{
       height: 1000px;
       width: 700px;
       float: right;
-      margin-right:150px;
       text-align: center;
       color: #333333;
       .mypage__user--icon{

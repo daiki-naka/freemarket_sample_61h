@@ -93,3 +93,31 @@
     }
   }
 }
+
+.exhibit-icon{
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  z-index: 100;
+  &--text{
+    line-height: 90px;
+    font-size: 22px;
+    border-radius: 50%;
+    background-color: #ea352d;
+    width: 160px;
+    height: 160px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    display: block;
+    position: relative;
+  }
+  &--icon{
+    position: absolute;
+    margin: 8px 0 0;
+    font-size: 54px;
+    color: #fff;
+    bottom: 40px;
+    left: 49px;
+  }
+}
