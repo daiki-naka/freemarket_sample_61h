@@ -1,7 +1,7 @@
 $(function(){
   $(document).on('click','#product-create-btn',function(){
-    // var picture = ($('.exhibit-product__view--img__box').children().length),
-    var name = $(".input-name").val(),
+    var picture = ($('.exhibit-product__view--img__box').children().length),
+        name = $(".input-name").val(),
         introduction = $(".input-explanation").val(),
         p_category = $("#parent-form").val(),
         c_category = $("#child_category").val(),
@@ -13,7 +13,7 @@ $(function(){
         d_origin = $("#input-origin").val(),
         d_interval = $("#input-interval").val(),
         price = $("#price-form").val(),
-        // pic = 0,
+        pic = 0,
         nam = 0,
         int = 0,
         p_cat = 0,
@@ -27,15 +27,15 @@ $(function(){
         d_i = 0,
         pri = 0;
         
-    // if (picture <= 1) {
-    //   pic = 1;
-    //   if (($("#error-log-picture").text()) == ""){
-    //     $("#error-log-picture").append("画像がありません");
-    //   }
-    // } else {
-    //   $("#error-log-picture").text("");
-    //   pic = 0;
-    // }
+    if (picture <= 1) {
+      pic = 1;
+      if (($("#error-log-picture").text()) == ""){
+        $("#error-log-picture").append("画像がありません");
+      }
+    } else {
+      $("#error-log-picture").text("");
+      pic = 0;
+    }
      if (name == "") {
       nam = 1;
       if (($("#error-log-name").text()) == ""){
@@ -144,8 +144,7 @@ $(function(){
       $("#error-log-price").text("");
       pri = 0;
     }
-    // if ((pic + nam + int + p_cat + c_cat + g_cat + pro + sta + d_c + d_m + d_o + d_i + pri) == 0 ) {
-    if ((nam + int + p_cat + c_cat + g_cat + pro + sta + d_c + d_m + d_o + d_i + pri) == 0 ) {
+    if ((pic + nam + int + p_cat + c_cat + g_cat + pro + sta + d_c + d_m + d_o + d_i + pri) == 0 ) {
       return true;
     } else {
       return false;
