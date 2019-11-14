@@ -4,7 +4,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 .header{
   background-color:white;
-  height:100px;
+  height:90px;
   width:100vw;
   list-style: none;
   .header-inner{
@@ -18,6 +18,7 @@ font-family: Arial, Helvetica, sans-serif;
       &__logo{
       font-weight:light;
       display: inline-block;
+      margin-right:-15px;
       padding-right:40px;
       }
       &__form{
@@ -37,7 +38,12 @@ font-family: Arial, Helvetica, sans-serif;
             border: 0.5px solid #999;
             border-radius: 3px;
             box-shadow: none;
-            height:40px;          
+            height:40px;  
+            padding: 10px;        
+            }
+            input[class="form_search"]:focus{
+              outline: none;
+              border-color: #1e7dd4;
             }
           label.header-inner__top__form__search-icon_r{
             font-size:20px;
@@ -66,12 +72,12 @@ font-family: Arial, Helvetica, sans-serif;
       height:50px;
       display: flex;
       justify-content:space-between;
-      font-size:15px; 
+      font-size:12px; 
       font-weight:900;
-      color:black;
       align-items: center;
       &__category{
-        width:16%; 
+        // width:16%; 
+        font-weight: bold;
         position:absolute;
         top:12px;
         } 
@@ -79,11 +85,12 @@ font-family: Arial, Helvetica, sans-serif;
           color:red;
         }
       &__brand{
-        width:24%;
-        margin-left:12px;
+        // width:24%;
+        margin-left:15px;
         position:absolute;
+        font-weight: bold;
         top:12px;
-        left:160px;
+        left:140px;
         &__tag-icon_r{
           position:relative;
           span.h{
@@ -96,77 +103,36 @@ font-family: Arial, Helvetica, sans-serif;
           }  
         }
       }   
-  }
-    &__right{
-      width:60%;
-      height:50px;
-      display: flex;
-      justify-content: flex-end;
-      font-size: 15px;
-      align-items: center;
-      &__favitems{
-        width:22%;
-        display:flex;
-        justify-content: flex-end;
-        @import "listsetstyle";
-        }
-      &__notice{
-        display:flex;
-        justify-content: flex-end;
-        width: 20%;
-        @import "listsetstyle";
+    &__like{
+      margin-left:12px;
+      position:absolute;
+      font-weight: normal;
+      top:12px;
+      left: 400px;
       }
-      &__todolist{
-        display:flex;
-        justify-content: flex-end;
-        width:28%;
-        @import "listsetstyle";
-        }
-      &__mypage{
-        width:30%;
-        display:flex;
-        justify-content: flex-start;
-        position:relative;
-        padding-left:55px;
-        &__icon{
-          .hm{
-          position:absolute;
-          top:10px;
-          padding-left:10px;
-          color: black;
-          font-weight: normal;
-          font-size: 15px;
-          }
-          .hm:hover{
-          opacity: 0.7;
-          color:blue;
-          }
-        }
-        }
-      }
+    &__news{
+      margin-left:5px;
+      position:absolute;
+      font-weight: normal;
+      top:12px;
+      left: 550px;
+    }
+    &__todo{
+      margin-left:12px;
+      position:absolute;
+      font-weight: normal;
+      top:12px;
+      left: 650px;
+    }
+    &__user{
+      margin-left:15px;
+      position:absolute;
+      font-weight: normal;
+      top:2px;
+      left: 800px;
+    }
     }
   }
+  }
 }
 
-
-.h-link-icon{
-color:red; 
-}
-
-
-.h-link{
-color:black;
-text-decoration: none;
-font-weight: bold;
-font-size:15px;
-}
-
-.h-link:hover{
-opacity: 0.7;
-color:blue;
-}
-
-
-.h-deco{
-text-decoration: none;
-}

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'products/brand_search', defaults: { format: 'json' }
     end
   end
-  resources :users, only: [:index, :edit] do
+  resources :users, only: [:index, :edit,:card, :new] do
     collection do
       get 'card'
       get 'signup/step1'
