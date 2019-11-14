@@ -17,7 +17,8 @@
             = link_to "本人確認書類のアップロードについて>", "https://www.mercari.com/jp/help_center/article/495/", class:"text-right--info"
           .main-identification__content__form--group
             .main-identification__content__form--group--label お名前
-            = @user.nickname
+            = @user.last_name
+            = @user.name
           .main-identification__content__form--group
             .main-identification__content__form--group--label お名前カナ
             = @user.d_last_name_f
@@ -55,4 +56,4 @@
       = render 'shared/user-mypage-lsidebar'
   = render 'products/footer'
 
-  
+
