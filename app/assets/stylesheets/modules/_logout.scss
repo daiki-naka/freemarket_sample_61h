@@ -1,0 +1,43 @@
+.l-side{
+  margin-left: 0;
+}
+
+.main-user-form{
+  margin: 40px auto;
+  width: 1020px;
+  &__box{
+    width: 700px;
+    padding: 75px;
+    background-color: white;
+    float: right;
+    &--btn{
+      max-width: 330px;
+      margin: 0 auto;
+      .btn-logout{
+        opacity: 0.95;
+        text-decoration: none;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 55px;
+        font-size: 16px;
+        text-align: center;
+        -webkit-transition: 0.3s ease-in-out;
+        -moz-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+      }
+      .btn-logout:hover{
+        opacity: 1;
+        filter: alpha(opacity=80);
+        -moz-opacity: 0.7;
+        -webkit-transition: 0.3s ease-in-out;
+        -moz-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+      }
+    } 
+  }
+}

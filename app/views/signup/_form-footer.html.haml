@@ -1,0 +1,13 @@
+.signup-footer
+  .signup-footer__section
+    %ul.signup-footer__section__ul
+      %li.signup-footer__section__ul__li 
+        = link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/", class: "signup-footer__section__ul__li__link"
+      %li.signup-footer__section__ul__li2 
+        = link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/", class: "signup-footer__section__ul__li__link"
+      %li.signup-footer__section__ul__li2 
+        = link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/", class: "signup-footer__section__ul__li__link"
+    = link_to root_path, class: "signup-footer__section__homepage" do
+      = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?465897195', class: 'signup-footer__section__homepage__image'
+    .signup-footer__section__copyright
+      %p ©︎2019 Mercari

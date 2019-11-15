@@ -1,0 +1,75 @@
+.signup-form__container__inner__form{
+  &__identification{
+    &--h3{
+      font-size: 16px;
+      font-weight: bold;
+      margin: 24px 0 0;
+    }
+    &--p{
+      font-size: 14px;
+    }
+  }
+  &__select__birthday{
+    width: 100%;
+    display: inline-block;
+    padding: 2px;
+    position: relative;
+    &__icon{
+      position: absolute;
+      left: 70px;
+      top: 26px; 
+      @include arrow_icon;
+      z-index: 1;
+    }
+    &__icon2{
+      position: absolute;
+      left: 168px;
+      top: 26px; 
+      @include arrow_icon;
+      z-index: 1;
+    }
+    &__icon3{
+      position: absolute;
+      left: 265px;
+      top: 26px; 
+      @include arrow_icon;
+      z-index: 1;
+    }
+    &__div{
+      width: 100%;
+      .year{
+        width: 30%;
+        height: 48px;
+        padding: 0 16px;
+        font-size: 16px;
+        @include field;
+        color: black;
+        background: 0;
+        margin: 8px 0 0;
+        display: inline-block;
+      }
+      .month,.day{
+        width: 25%;
+        height: 48px;
+        padding: 0 10px;
+        font-size: 16px;
+        @include field;
+        color: black;
+        background: 0;
+        margin: 8px 0 0;
+        display: inline-block;
+      }
+    }
+  }
+  &__atention{
+    color: #888;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+}
+.signup-form__container__inner__agree{
+  line-height: 1.5;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+}

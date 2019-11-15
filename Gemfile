@@ -83,6 +83,7 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'payjp'
 gem 'gretel'
+gem 'rails-i18n'
 gem 'dotenv-rails'
 
 group :production do

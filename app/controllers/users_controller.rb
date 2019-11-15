@@ -12,6 +12,13 @@ class UsersController < ApplicationController
 
   def card
   end
+
+  def logout
+  end
+
+  def identification
+    @user = User.find(params[:id])
+  end
   
   def user_params
     params.require(:user).permit(:nickname,:v_good,:v_accept,:v_bad)

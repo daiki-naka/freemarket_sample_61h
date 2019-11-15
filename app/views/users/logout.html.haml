@@ -1,0 +1,14 @@
+= render 'products/header_index'
+%html#mypage-all
+  %body#mypage-show
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :users
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user-form.clearfix
+      .main-user-form__box
+        .main-user-form__box--btn
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-logout'
+      = render 'shared/user-mypage-lsidebar'
+= render 'shared/exhibit-icon'
+= render 'products/footer'
