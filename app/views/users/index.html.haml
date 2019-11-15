@@ -1,10 +1,11 @@
+= render 'products/header_index'
 %html#mypage-all
   %body#mypage-show
     %nav.bread-crumbs
       %ul.bread-crumbs-list
         - breadcrumb :users
         = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
-    .main-user
+    .main-user.clearfix
       .l-content
         .mypage__user--icon
           = link_to "#", class: "mypage__user--icon--content" do 
@@ -109,33 +110,30 @@
                   .active-text-right-after
                     過去の取引
       = render 'shared/user-mypage-lsidebar'
-    :javascript
-      $('.active-text-right').on('click',function(){
-      $('.tab-content').hide();
-      $('.box').hide();
-      $('.active-right').hide();
-      $('.active').show();
-      $('.tab-content-after').show();
-      });
-      $('.active-text-left-after').on('click',function(){
-      $('.active').hide();
-      $('.tab-content-after').hide();
-      $('.tab-content').show();
-      $('.box').show();
-      $('.active-right').show();
-      });
-      $('.active-text-right-under').on('click',function(){
-      $('.box-under').hide();
-      $('.active-right-under').hide();
-      $('.active-under').show();
-      });
-      $('.active-text-left-after').on('click',function(){
-      $('.active-under').hide();
-      $('.box-under').show();
-      $('.active-right-under').show();
-      });
-
-
-
-
-
+= render 'shared/exhibit-icon'
+= render 'products/footer'
+:javascript
+  $('.active-text-right').on('click',function(){
+  $('.tab-content').hide();
+  $('.box').hide();
+  $('.active-right').hide();
+  $('.active').show();
+  $('.tab-content-after').show();
+  });
+  $('.active-text-left-after').on('click',function(){
+  $('.active').hide();
+  $('.tab-content-after').hide();
+  $('.tab-content').show();
+  $('.box').show();
+  $('.active-right').show();
+  });
+  $('.active-text-right-under').on('click',function(){
+  $('.box-under').hide();
+  $('.active-right-under').hide();
+  $('.active-under').show();
+  });
+  $('.active-text-left-after').on('click',function(){
+  $('.active-under').hide();
+  $('.box-under').show();
+  $('.active-right-under').show();
+  });

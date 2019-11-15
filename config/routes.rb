@@ -16,7 +16,11 @@ Rails.application.routes.draw do
       get 'products/brand_search', defaults: { format: 'json' }
     end
   end
-  resources :users, only: [:index, :edit,:card, :new] do
+  resources :users, only: [:index, :edit, :new] do
+    member do
+      get 'identification'
+      get 'logout'
+    end
     collection do
       get 'card'
       get 'signup/step1'
@@ -24,7 +28,6 @@ Rails.application.routes.draw do
       get 'signup/step3'
       get 'signup/step4'
       get 'signup/complete'
-      get 'logout'
     end
   end
 end

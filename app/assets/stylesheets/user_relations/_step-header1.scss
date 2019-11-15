@@ -1,0 +1,147 @@
+.signup-header{
+  &__wrapper{
+    text-align: center;
+    background: $off_white;
+    font-size: 12px;
+    &__logo{
+      padding: 11px 0 12px;
+      background-repeat: no-repeat;
+      &__link{
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        display: inline-block;
+        margin: 0 8px 0 0;
+        &__image{
+          width: 185px;
+          height: 49px;
+          display: inline-block;
+        }
+      }
+    }
+    .signup-header1__wrapper__root{
+      padding: 16px 0;
+      border-top: 1px solid #eee;
+      color: $dark_gray;
+      &__ol{
+        &__li1{
+          @include pointer-logo;
+          color: $mercari_red;
+          &--point{
+            @include pointer;
+            background: $mercari_red;
+            &::after{
+              @include pointer_line;
+              left: 50%;
+              background: #ccc;
+            }
+          }
+        }
+        &__li2{
+          @include pointer-logo;
+          color: #888;
+          &--point{
+            @include pointer;
+            background: #ccc;
+            &::before{
+              right: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+            &::after{
+              left: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+          }
+        }
+        &__li3{
+          @include pointer-logo;
+          color: #888;
+          &--point{
+            @include pointer;
+            background: #ccc;
+            &::before{
+              right: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+            &::after{
+              left: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+          }
+        }
+        &__li4{
+          @include pointer-logo;
+          color: #888;
+          &--point{
+            @include pointer;
+            background: #ccc;
+            &::before{
+              right: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+            &::after{
+              left: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+          }
+        }
+        &__li5{
+          @include pointer-logo;
+          color: #888;
+          &--point{
+            @include pointer;
+            background: #ccc;
+            &::before{
+              right: 50%;
+              @include pointer_line;
+              background: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.signup-footer{
+  height: 270px;
+  position: absolute;
+  width: 100%;
+  padding: 40px 0;
+  background: $off_white;
+  &__section{
+    text-align: center;
+    &__ul{
+      text-decoration: none;
+      &__li{
+        font-size: 12px;
+        &__link{
+          text-decoration: none;
+          color: $dark_gray;
+          display: block;
+        }
+      }
+      &__li2{
+        font-size: 12px;
+        margin: 16px 0 0;
+      }
+    }
+    &__homepage{
+      &__image{
+        margin: 40px auto 0;
+        width: 80px;
+        height: 65px;
+      }
+    }
+    &__copyright{
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: $dark_gray;
+    }
+  }
+}
