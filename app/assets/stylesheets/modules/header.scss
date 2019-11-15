@@ -76,7 +76,6 @@ font-family: Arial, Helvetica, sans-serif;
       font-weight:900;
       align-items: center;
       &__category{
-        // width:16%; 
         font-weight: bold;
         position:absolute;
         top:12px;
@@ -85,7 +84,6 @@ font-family: Arial, Helvetica, sans-serif;
           color:red;
         }
       &__brand{
-        // width:24%;
         margin-left:15px;
         position:absolute;
         font-weight: bold;

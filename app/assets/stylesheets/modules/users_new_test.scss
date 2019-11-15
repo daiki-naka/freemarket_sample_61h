@@ -87,7 +87,7 @@
 }
 
 .gnav__category-news li ul{
-  margin-top:8px;
+  margin-top:7px;
   width: 300px;
   font-size: 12px;
   font-weight: normal;
@@ -188,7 +188,7 @@
 }
 
 .gnav__category-todo li ul{
-  margin-top:8px;
+  margin-top:7px;
   margin-left: 100px;
   width: 280px;
   font-size: 12px;
@@ -447,7 +447,7 @@
 }
 
 .gnav__category-top li ul{
-  margin-top:8px;
+  margin-top:7px;
   margin-right: 10px;
   width: 200px;
   font-size: 12px;
@@ -455,8 +455,6 @@
   background: white;
   box-shadow: 2px 0px 5px  #bfc5c9;
 }
-
-
 
 
 .gnav__category-top li ul li a {
@@ -472,7 +470,6 @@
 }
 
 
-
 .gnav__category-top li ul li {
   height: 0;
   opacity: 0;
@@ -480,7 +477,6 @@
   transition: opacity .3s;
   border-color: rgba(191, 197, 197, 0.2);
 }
-
 
 
 .gnav__category-top  li:hover > ul> li {
@@ -491,7 +487,6 @@
 .gnav__category-top li ul li:hover > ul > li{
   height: 1.8rem;
   opacity: 1;
-  // overflow: auto;
 }
 
 .gnav__category-top li ul li .gnav__category-top__child {
@@ -499,7 +494,7 @@
   position: absolute;
   top: -8px;
   width: 100%;
-  height: 200px;
+  height: 561px;
 }
 
 .gnav__category-top li ul li ul li .gnav__category-top__groundchild {
@@ -507,7 +502,7 @@
   position: absolute;
   top: -8px;
   width: 300px;
-  height: 200px;
+  height: 561px;
 }
 
 .gnav__category-top li ul li ul .gnav__category-top__child--list{
@@ -549,36 +544,31 @@
   width: 300px;
 }
 
-// .gnav__category-top > li:nth-child(5) ul li ul {
-//   left: -100%;
-//   height: 1.8rem
-// }
-
-.gnav__category-top > li:hover > a {/*親階層*/
+.gnav__category-top > li:hover > a {
   color: #1e7dd4;
 }
 
-.gnav__category-top > li:hover > a tt {/*親階層*/
+.gnav__category-top > li:hover > a tt {
   color: #1e7dd4;
 }
 
-.gnav__category-news > li:hover > a  {/*親階層*/
+.gnav__category-news > li:hover > a  {
   color: #1e7dd4;
 }
 
-.gnav__category-news > li:hover > a  tt{/*親階層*/
+.gnav__category-news > li:hover > a  tt{
   color: #1e7dd4;
 }
 
-.gnav__category-todo > li:hover > a {/*親階層*/
+.gnav__category-todo > li:hover > a {
   color: #1e7dd4;
 }
 
-.gnav__category-todo > li:hover > a tt {/*親階層*/
+.gnav__category-todo > li:hover > a tt {
   color: #1e7dd4;
 }
 
-.gnav__category-mypage > li:hover > a {/*親階層*/
+.gnav__category-mypage > li:hover > a {
   color: #1e7dd4;
 }
 
@@ -598,13 +588,11 @@
 }
 
 .gnav__category-top > li ul li ul li:hover{
-  overflow:visible;
+  overflow:visible ;
 }
 
-
-.gnav__category-top li ul li ul li ul li > a {/*ひ孫階層*/
-  // background:white;
-  height: 1.8rem
+.gnav__category-top li ul li ul li ul li > a {
+  height: 1.8rem;
 }
 .gnav__category-top li ul li ul li ul li:hover > a {
   color: #000;

@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :product_show, :destroy]
 
   def index
+    parents = Category.all.order("id ASC").limit(13)
+    ladies = parents.find(1)
+    @ladies_child = ladies.children
   end
 
   def show
