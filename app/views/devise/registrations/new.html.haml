@@ -1,21 +1,20 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+= render "signup/form-header"
+.registration-contents
+  .registration-contents__section
+    .registration-contents__section--title
+      %h2 新規会員登録
+    .registration-contents__section--maine
+      .registration-contents__section--maine--btn
+        .registration-contents__section--maine--btn--mail
+          .registration-contents__section--maine--btn--mail--box.clearfix
+            %i.far.fa-envelope.fa-lg.mail
+            = link_to "メールアドレスで登録する", signup_step1_users_path, class:"mail-text"
+        .registration-contents__section--maine--btn--facebook
+          .registration-contents__section--maine--btn--facebook--box.clearfix
+            %i.fab.fa-facebook-square.fa-2x.facebook
+            = link_to "Facebookで登録する", "#", class:"facebook-text"
+        .registration-contents__section--maine--btn--google
+          .registration-contents__section--maine--btn--google--box.clearfix
+            %i.fab.fa-google.fa-lg.google
+            = link_to "Googleで登録する", "#", class:"google-text"
+= render 'signup/form-footer'
