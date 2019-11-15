@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
   before_action :set_product, only: [:show, :product_show, :destroy]
+  before_action :authenticate_user!, only: :new
 
   def index
     parents = Category.all.order("id ASC").limit(13)
