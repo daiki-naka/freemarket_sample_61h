@@ -16,14 +16,17 @@
         .item__main-content__photo
           .item__main-content__photo__frame
             .item__main-content__photo__frame__stage-outer
-              .item__main-content__photo__frame__stage-outer__stage
-                .item__main-content__photo__frame__stage-outer__stage__item
-                  .item__main-content__photo__frame__stage-outer__stage__item__inner           
-                    -# = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
-                    - @product.images.each do |p|
-                      = image_tag p.picture.url,size:'100x100'
-            .item__main-content__photo__frame__dots
-              = render 'shared/product-image'
+              %ul.item__main-content__photo__frame__stage-outer__stage
+                - @product.images.each.with_index do |p,i|
+                  %li.item__main-content__photo__frame__stage-outer__stage__item                   
+                    = image_tag p.picture.url, class: "item__main-content__photo__frame__stage-outer__stage__item__image"
+                                  
+          %ul.item__main-content__photo__frame__dots
+            - @product.images.each.with_index do |p,i|
+              %li.item__main-content__photo__frame__dots__dot 
+                = image_tag p.picture.url,class: "item__main-content__photo__frame__dots__dot__image"
+
+
         %table.item__main-content__detail-table
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header 出品者
@@ -155,7 +158,6 @@
         %div.item-link__next__blue-link         
           =link_to "オークリー EV XS OJ9001-0731 YOUTH", "#", class: "link-item-detail link-current-color"
           %i.fa.fa-chevron-right
-
     .social-media-content
       .social-media-content__text
       %ul.social-media-content__box
@@ -192,10 +194,14 @@
           %i.fa.fa-chevron-right.icon-item-detail
         %li.pos-bottom__list__right-part
           %span ARMANI/CASA アルマーニカーザ ARPA カトラリーセット
-
     %footer
 
+-# .item__main-content__photo__frame__dots__dot
+-#   = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__dots__dot__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
+
+.test_image
+  = image_tag "maru.png"
 
 
 
-  
+

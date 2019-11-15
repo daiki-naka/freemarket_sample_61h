@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def show
    @product = Product.find(params[:id])
-   render controller:  "ImagesController", action: "show"
+  #  render controller:  "ImagesController", action: "show"
   end
 
   def create

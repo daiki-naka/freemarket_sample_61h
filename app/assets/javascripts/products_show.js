@@ -13,8 +13,5 @@ $(function () {
       processData: false,
       contentType: false
   })  
-
-
-
-
-}
+  })
+})
