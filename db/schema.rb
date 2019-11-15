@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_053928) do
-
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_11_14_103934) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -55,18 +48,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_053928) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.text "introduction", null: false
-    t.string "status", null: false
-    t.string "d_charge", null: false
-    t.string "d_method", null: false
-    t.string "d_origin", null: false
-    t.string "d_interval", null: false
-    t.integer "price", null: false
-    t.integer "category_id", null: false
-    t.integer "user_id", null: false
-    t.integer "brand_id"
-    t.string "product_size"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_053928) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname", null: false
     t.string "name", null: false
     t.string "name_f", null: false
     t.string "last_name", null: false
@@ -98,6 +80,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_053928) do
     t.integer "v_bad"
     t.string "avatar"
     t.text "profile"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
