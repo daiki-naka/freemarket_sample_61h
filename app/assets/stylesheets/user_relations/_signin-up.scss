@@ -118,10 +118,6 @@ $white: #fff;
   margin-left: 80px;
 }
 
-label{
-  display: none;
-}
-
 input[class="sign-in-mail"] {
   @include form-btn;
 }
