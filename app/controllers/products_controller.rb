@@ -8,6 +8,44 @@ class ProductsController < ApplicationController
     parents = Category.all.order("id ASC").limit(13)
     ladies = parents.find(1)
     @ladies_child = ladies.children
+
+    @categories = Category.find(1,2,8,6)
+    @ladies_products = []
+    @categories[0].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @ladies_products += grandchild_category.products
+      end
+    end
+    @ladies_products.sort_by!{|ladies_product|ladies_product.created_at}.reverse!
+
+    @mens_products = []
+    @categories[1].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @mens_products += grandchild_category.products
+      end
+    end
+    @mens_products.sort_by!{|mens_product|mens_product.created_at}.reverse!
+
+    @electric_products = []
+    @categories[2].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @electric_products += grandchild_category.products
+      end
+    end
+    @electric_products.sort_by!{|electric_product|electric_product.created_at}.reverse!
+
+    @hobby_products = []
+    @categories[3].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @hobby_products += grandchild_category.products
+      end
+    end
+    @hobby_products.sort_by!{|hobby_product|hobby_product.created_at}.reverse!
+
+    @chanel_products = Product.where(brand_id: 249).order("created_at DESC")
+    @ruiviton_products = Product.where(brand_id: 250).order("created_at DESC")
+    @shupurimu_products = Product.where(brand_id: 251).order("created_at DESC")
+    @naiki_products = Product.where(brand_id: 252).order("created_at DESC")
   end
 
   def show

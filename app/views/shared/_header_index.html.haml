@@ -195,3 +195,35 @@
                     %tt.mypage__nav--list--top--content--text いいね！一覧
                     %i.fas.fa-chevron-right.icon-index.mypage--content--icon
   
+      .header-inner__bottom__left
+        %li.header-inner__bottom__left__category 
+          = render partial: 'shared/categories'
+           
+        %li.header-inner__bottom__left__brand
+          %h2
+            .header-inner__bottom__left__brand__tag-icon_r
+              = link_to root_path, alt: "タグ",class:'h-deco' do
+                = image_tag "tag-icon.png", size: "30x18"
+                %span.h-link ブランドから探す
+      .header-inner__bottom__right
+        .header-inner__bottom__right__favitems
+          = link_to root_path,class:"h-deco" do
+            .listset
+              %i.far.fa-heart.h-link_r.fa-lg
+                %span.h-link_r いいね！一覧
+        .header-inner__bottom__right__notice  
+          = link_to root_path, class:"h-deco" do
+            .listset
+              %i.fa.fa-bell.h-link_r.fa-lg
+                %span.h-link_r お知らせ
+        .header-inner__bottom__right__todolist
+          = link_to root_path, class:"h-deco" do
+            .listset2
+              %i.fas.fa-check.h-link_r.fa-lg
+                %span.h-link_r2 やることリスト
+        .header-inner__bottom__right__mypage
+          .header-inner__bottom__right__mypage__icon
+            %li
+              = link_to root_path, alt: "マイページアイコン",class:'h-deco' do
+                = image_tag "mypage.png",size: "35x35"
+                %span.hm マイページ

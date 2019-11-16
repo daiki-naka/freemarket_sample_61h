@@ -439,7 +439,11 @@ others_9.children.create([{name: "すべて"}])
   ["アルベルトフェルマーニ","あるべるとふぇるまーに","aruberutofuerumani","profile"],
   ["アルベロベロ","あるべろべろ","aruberobero","profile"],
   ["アルページュ","あるぺーじゅ","arupeju","profile"],
-  ["アンワインダ","あんわいんだ","anwainda","profile"]
+  ["アンワインダ","あんわいんだ","anwainda","profile"],
+  ["シャネル","しゃねる","shaneru","profile"],
+  ["ルイヴィトン","るいゔぃとん","ruiviton","profile"],
+  ["シュプリーム","しゅぷりーむ","shupurimu","profile"],
+  ["ナイキ","ないき","naiki","profile"]
 ].each do |name, keyword1, keyword2, profile|
   Brand.create!([{name: name, keyword1: keyword1, keyword2: keyword2, profile: profile}])
 end
