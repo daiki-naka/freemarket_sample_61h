@@ -2,9 +2,13 @@
   = link_to "#", class: "product__block__li__link" do
     .product__block__li__link__image
       - product.images.first(1).each do |image|
-        = image_tag image.picture.to_s, size: "188x188", alt: "picture", class: "product__block__li__link__image__picture"
+        = image_tag image.picture.to_s, size: "188x188", alt: "picture"
       .product__block__li__link__price
         = "¥#{product.price.to_s(:delimited, delimiter: ',')}"
     .product__block__li__link__title
       .product__block__li__link__title__name
         = product.name
+      .product__block__li__link__title__num
+        .product__block__li__link__title__num__font
+          %i.far.fa-heart.product__block__li__link__title__num__font__heart-mark
+          %span.product__block__li__link__title__num__font__lank 
