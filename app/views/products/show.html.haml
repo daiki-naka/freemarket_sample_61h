@@ -50,13 +50,13 @@
             %th.item__main-content__detail-table__row__header カテゴリー
             %td.item__main-content__detail-table__row__data
               %div
-                = link_to 'インテリア・住まい・小物', "#", class: "link-item-detail link-blue-color"
+                = link_to "#{@parent_category_name}", "#", class: "link-item-detail link-blue-color"
               %div
                 %i.fa.fa-chevron-right.icon-item-detail
-                = link_to 'キッチン/食器', "#", class: "link-item-detail link-blue-color"
+                = link_to "#{@child_category_name}","#", class: "link-item-detail link-blue-color"
               %div
                 %i.fa.fa-chevron-right.icon-item-detail
-                = link_to 'カトラリー(スプーン等)', "#", class: "link-item-detail link-blue-color"
+                = link_to "#{@product.category.name}", "#", class: "link-item-detail link-blue-color"
           %tr.item__main-content__detail-table__row
             %th.item__main-content__detail-table__row__header ブランド
             %td.item__main-content__detail-table__row__data
@@ -189,12 +189,13 @@
                 .items-in-user-profile__container__content__block__link__body
                   %h3.items-in-user-profile__container__content__block__link__body__name 
                     = product.name
-                    .items-in-user-profile__container__content__block__link__body__num
-                      .items-in-user-profile__container__content__block__link__body__num__price
-                        = "￥#{product.price.to_s(:delimited, delimiter:',')}"
-                        .items-in-user-profile__container__content__block__link__body__num__mark
-                          %i.fa.fa-heart.icon-item-detail
-                          %span.items-in-user-profile__container__content__block__link__body__num__mark__lank 1     
+                  .items-in-user-profile__container__content__block__link__body__num
+                    .items-in-user-profile__container__content__block__link__body__num__price
+                      = "￥#{product.price.to_s(:delimited, delimiter:',')}"
+                    .items-in-user-profile__container__content__block__link__body__num__mark
+                      %i.fa.fa-heart.icon-item-detail
+                      %span.items-in-user-profile__container__content__block__link__body__num__mark__lank
+                        = product.likes_count
       %section.items-in-user-profile__container.clearfix-item-detail
         %h2.items-in-user-profile__container__head
           =link_to "カトラリー(スプーン等) （インテリア・住まい・小物） その他の商品", "#", class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
@@ -215,7 +216,7 @@
 -#   = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__dots__dot__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
 
 .test_image
-  = image_tag "maru.png"
+  = image_tag "maru.png",class: 'test_image_image'
 
 
 

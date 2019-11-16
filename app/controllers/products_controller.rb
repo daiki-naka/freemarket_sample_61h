@@ -21,9 +21,11 @@ class ProductsController < ApplicationController
     @user = @product.user
     @other_products = @user.products.all
     @ordered_other_products = @other_products.order('id DESC').limit(6)
+    @parent_category_id = @product.category.ancestry[/.*\//, 0].sub(/\//,"")
+    @parent_category_name = Category.find(@parent_category_id).name
+    @child_category_id = @product.category.ancestry[/\/.*/, 0].sub(/\//,"")
+    @child_category_name = Category.find(@child_category_id).name
   end
-  
- 
 
   def create
     @product = Product.new(product_params)

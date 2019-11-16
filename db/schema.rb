@@ -75,9 +75,9 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.integer "price", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
-    t.integer "brand_id", null: false
     t.string "product_size"
     t.integer "likes_count", default: 0, null: false
+    t.integer "brand_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

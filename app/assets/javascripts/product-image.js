@@ -23,7 +23,7 @@ $(document).on('turbolinks:load',function(){
     $('.item__main-content__photo__frame__stage-outer__stage').animate({"left":"-1200px"});
   });
   $(".test_image").hover(function(){
-     $(".test_image").animate({'left':'-100px'}, 200);
+     $(".test_image_image").animate({'top':'1000px'}, 1000);
      console.log("hello")
     });
 });

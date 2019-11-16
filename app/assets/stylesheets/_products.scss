@@ -28,7 +28,7 @@
 }
 
 .link-item-detail:hover {
-  text-decoration:underline;
+  text-decoration: none;
 }
 
 .link-current-color {
@@ -471,8 +471,10 @@
           &__body {
             padding: 16px;
             height: 110px;
+            text-decoration: none;
             &__name {
               overflow: hidden;
+              text-overflow: ellipsis;
               position: relative;
               font-weight: 400;
               height: 3em;
