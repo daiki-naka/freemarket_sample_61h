@@ -22,6 +22,10 @@ $(document).on('turbolinks:load',function(){
   $(document).on("mouseover",'.item__main-content__photo__frame__dots__dot:eq(4)',function(){
     $('.item__main-content__photo__frame__stage-outer__stage').animate({"left":"-1200px"});
   });
+  $(".test_image").hover(function(){
+     $(".test_image").animate({'left':'-100px'}, 200);
+     console.log("hello")
+    });
 });
 
 

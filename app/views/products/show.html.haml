@@ -84,7 +84,8 @@
               = @product.d_interval
       .item__price-box
         %span.item__price-box__price
-          = number_to_currency(@product.price,unit: "￥",strip_insignificant_zeros: true)
+          -# = number_to_currency(@product.price,unit:"￥",strip_insignificant_zeros: true)
+          = "￥#{@product.price}"
         %span.item__price-box__tax (税込)
         %span.item__price-box__shipping-fee
           = @product.d_charge.sub!(/\(.*/, "")
@@ -179,7 +180,21 @@
         %h2.items-in-user-profile__container__head
           = link_to "#{@product.user.nickname}さんのその他の出品", users_path, class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
         .items-in-user-profile__container__content.clearfix-item-detail
-          = render 'shared/related-product_block'
+          - @ordered_other_products.each do|product|
+            -# = render 'shared/related-product_block', product: product 
+            %section.items-in-user-profile__container__content__block
+              %a.items-in-user-profile__container__content__block__link.link-item-detail{:href => "https://item.mercari.com/jp/m71195863532/"}    
+                %figure.items-in-user-profile__container__content__block__link__photo   
+                  = image_tag product.images[0].picture.url,class:'items-in-user-profile__container__content__block__link__photo__image'
+                .items-in-user-profile__container__content__block__link__body
+                  %h3.items-in-user-profile__container__content__block__link__body__name 
+                    = product.name
+                    .items-in-user-profile__container__content__block__link__body__num
+                      .items-in-user-profile__container__content__block__link__body__num__price
+                        = "￥#{product.price.to_s(:delimited, delimiter:',')}"
+                        .items-in-user-profile__container__content__block__link__body__num__mark
+                          %i.fa.fa-heart.icon-item-detail
+                          %span.items-in-user-profile__container__content__block__link__body__num__mark__lank 1     
       %section.items-in-user-profile__container.clearfix-item-detail
         %h2.items-in-user-profile__container__head
           =link_to "カトラリー(スプーン等) （インテリア・住まい・小物） その他の商品", "#", class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"

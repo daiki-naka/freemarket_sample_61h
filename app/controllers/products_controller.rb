@@ -6,19 +6,20 @@ class ProductsController < ApplicationController
   def index
   end
 
-  def show
-    render controller:  "ImageController", action:  "show"
-  end
-
   def new
     @product = Product.new
     @product.images.build
   end
 
   def show
-   @product = Product.find(params[:id])
-  #  render controller:  "ImagesController", action: "show"
+    @product = Product.find(params[:id])
+   #  render controller:  "ImagesController", action: "show"
+    @user = @product.user
+    @other_products = @user.products.all
+    @ordered_other_products = @other_products.order('id DESC').limit(6)
   end
+  
+ 
 
   def create
     @product = Product.new(product_params)
