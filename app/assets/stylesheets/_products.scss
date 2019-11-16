@@ -130,12 +130,7 @@
         }
 
         &__dots {
-          line-height: 0;
           &__dot {
-            opacity: 1;
-            cursor: default;
-            width: 60px;
-            height: 60px;
             max-height: none;
             position: relative;
             overflow: hidden;
