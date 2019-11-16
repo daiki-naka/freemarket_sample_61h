@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get 'products/brand_search', defaults: { format: 'json' }
     end
   end
-  resources :users, only: [:index,:edit,:show] do
+  resources :users, only: [:index,:edit,:show,:new] do
     member do
       get 'identification'
       get 'logout'

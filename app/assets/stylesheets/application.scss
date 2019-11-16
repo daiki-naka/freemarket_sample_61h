@@ -14,10 +14,12 @@
 @import "./modules/users_creditcard.scss";
 @import "./modules/pages.scss";
 @import "./modules/products_new_html_haml.scss";
+@import "./modules/users_new_test.scss";
 @import "./exhibit_views/_exhibit-header_footer.scss";
 @import "./exhibit_views/_exhibit-content.scss";
-@import "./_products";
 @import "modules/_like.scss";
+@import "./products";
+@import "./user_relations/signin-up";
 @import "./user_relations/step1";
 @import "./user_relations/step2";
 @import "./user_relations/step3";
