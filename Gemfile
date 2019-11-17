@@ -85,6 +85,7 @@ gem 'payjp'
 gem 'gretel'
 gem 'rails-i18n'
 gem 'dotenv-rails'
+gem 'jquery-turbolinks'
 
 group :production do
   gem 'unicorn', '5.4.1'

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
   before_action :set_product, only: [:show, :product_show, :destroy]
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
     parents = Category.all.order("id ASC").limit(13)
@@ -18,6 +18,24 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.build
   end
+
+  def edit
+    @products = Product.find_by(id: params[:id])
+    @default_size = @products.product_size
+    @category_id = @products.category_id
+    @g_category = Category.find(@category_id)
+    @c_category = @g_category.parent
+    @p_category = @c_category.parent
+    @Categories = @p_category.children
+    @clothe_default_size = @default_size.is_a? String
+    @brand_id = @products.brand_id
+    @brand = Brand.find(@brand_id)
+    @brand_name = @brand.name
+    @all_brands = Brand.all
+    # @all_brands_name = Brand.all.name
+    # binding.pry
+  end
+
 
   def create
     @product = Product.new(product_params)
@@ -62,6 +80,7 @@ class ProductsController < ApplicationController
     else
       @size_form = 0
     end
+    binding.pry
   end
 
   def brand_search
