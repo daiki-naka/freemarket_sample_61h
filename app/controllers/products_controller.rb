@@ -57,12 +57,13 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
    #  render controller:  "ImagesController", action: "show"
     @user = @product.user
-    @other_products = @user.products.all
+    @other_products = @user.products.where.not(id: @product.id)
     @ordered_other_products = @other_products.order('id DESC').limit(6)
     @parent_category_id = @product.category.ancestry[/.*\//, 0].sub(/\//,"")
     @parent_category_name = Category.find(@parent_category_id).name
     @child_category_id = @product.category.ancestry[/\/.*/, 0].sub(/\//,"")
     @child_category_name = Category.find(@child_category_id).name
+    @same_category_products = Product.where(category_id: "#{@product.category_id}").where.not(id: @product.id).order('id DESC').limit(6)
   end
 
   def create
