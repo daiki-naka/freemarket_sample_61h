@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'products/grandchild_category', defaults: { format: 'json' }
       get 'products/product_size_brand', defaults: { format: 'json' }
       get 'products/brand_search', defaults: { format: 'json' }
+      get 'products/brand_edit', defaults: { format: 'json' }
     end
   end
   resources :users, only: [:index, :edit, :new] do

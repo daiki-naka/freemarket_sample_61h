@@ -4,76 +4,76 @@ $(function(){
     var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
   }
-  //子カテゴリフォーム
-  function appendChidrenBox(insertHTML){
-    var childSelectHtml = '';
-    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
-                        <div class='select-box'>
-                        <i class='fa fa-angle-down fa-2x icon-deco'></i>
-                          <select class="select-box--menu choosing" id="child_category" >
-                            <option value="---" data-category="---">---</option>
-                            ${insertHTML}
-                          <select>           
-                        </div>
-                        <div id="cc-error" class="error"></div>
-                      </div>`;
-    $('.exhibit-product__detail__box--form').append(childSelectHtml);
-  }
-  //孫カテゴリフォーム
-  function appendGrandchidrenBox(insertHTML){
-    var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_box'>
-                              <div class='select-box'>
-                                <i class='fa fa-angle-down fa-2x icon-deco'></i>
-                                <select class="select-box--menu choosing" id="grandchild_category" name="product[category_id]">
-                                  <option value="---" data-category="---">---</option>
-                                  ${insertHTML}
-                                </select>
-                              </div>
-                              <div id="gc-error" class="error"></div>
-                            </div>`;
-    $('.exhibit-product__detail__box--form').append(grandchildSelectHtml);
-  }
+  // //子カテゴリフォーム
+  // function appendChidrenBox(insertHTML){
+  //   var childSelectHtml = '';
+  //   childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
+  //                       <div class='select-box'>
+  //                       <i class='fa fa-angle-down fa-2x icon-deco'></i>
+  //                         <select class="select-box--menu choosing" id="child_category" >
+  //                           <option value="---" data-category="---">---</option>
+  //                           ${insertHTML}
+  //                         <select>           
+  //                       </div>
+  //                       <div id="cc-error" class="error"></div>
+  //                     </div>`;
+  //   $('.exhibit-product__detail__box--form').append(childSelectHtml);
+  // }
+  // //孫カテゴリフォーム
+  // function appendGrandchidrenBox(insertHTML){
+  //   var grandchildSelectHtml = '';
+  //   grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_box'>
+  //                             <div class='select-box'>
+  //                               <i class='fa fa-angle-down fa-2x icon-deco'></i>
+  //                               <select class="select-box--menu choosing" id="grandchild_category" name="product[category_id]">
+  //                                 <option value="---" data-category="---">---</option>
+  //                                 ${insertHTML}
+  //                               </select>
+  //                             </div>
+  //                             <div id="gc-error" class="error"></div>
+  //                           </div>`;
+  //   $('.exhibit-product__detail__box--form').append(grandchildSelectHtml);
+  // }
   //服サイズフォーム
-  function appendClothesizeBox(){
-    var sizefomeHtml = '';
-    sizefomeHtml = `<div class= 'sizeform-box margin-top-40' id= 'size_box'>
-                      <label>サイズ
-                        <span class="require">必須
-                        </span>
-                      </label>
-                      <div class='select-box margin-top-40'>
-                        <i class='fa fa-angle-down fa-2x icon-deco'></i>
-                        <select class="select-box--menu choosing" id="size" name="product[product_size]">
-                          <option value="---">---</option>
-                          <option value="XXL以下">XXL以下</option>
-                          <option value="XS(SS)">XS(SS)</option>
-                          <option value="S">S</option>
-                          <option value="M">M</option>
-                          <option value="L">L</option>
-                          <option value="XL(LL)">XL(LL)</option>
-                          <option value="2XL(3L)">2XL(3L)</option>
-                          <option value="3XL(4L)">3XL(4L)</option>
-                          <option value="4XL(5L以上)">4XL(5L以上)</option>
-                          <option value="FREE SIZE">FREE SIZE</option>
-                        </select>
-                      </div>
-                      <div id="error-log-product_size" class="error"></div>
-                      <div class ='margin-top-40 width-92'>
-                        <label>ブランド
-                          <span class="any">任意
-                          </span>
-                        </label>
-                        <div class='select-box'>            
-                          <input type="hidden" value="" id="input_brand" name="product[brand_id]">
-                          <input class="select-box--menu choosing" value="" placeholder="例）シャネル"  id="brands-search-form">
-                          <div id="brands-search-result">
-                          </div>
-                        </div>
-                      </div>
-                    </div>`;
-    $('.exhibit-product__detail__box--form').append(sizefomeHtml);
-  }
+  // function appendClothesizeBox(){
+  //   var sizefomeHtml = '';
+  //   sizefomeHtml = `<div class= 'sizeform-box margin-top-40' id= 'size_box'>
+  //                     <label>サイズ
+  //                       <span class="require">必須
+  //                       </span>
+  //                     </label>
+  //                     <div class='select-box margin-top-40'>
+  //                       <i class='fa fa-angle-down fa-2x icon-deco'></i>
+  //                       <select class="select-box--menu choosing" id="size" name="product[product_size]">
+  //                         <option value="---">---</option>
+  //                         <option value="XXL以下">XXL以下</option>
+  //                         <option value="XS(SS)">XS(SS)</option>
+  //                         <option value="S">S</option>
+  //                         <option value="M">M</option>
+  //                         <option value="L">L</option>
+  //                         <option value="XL(LL)">XL(LL)</option>
+  //                         <option value="2XL(3L)">2XL(3L)</option>
+  //                         <option value="3XL(4L)">3XL(4L)</option>
+  //                         <option value="4XL(5L以上)">4XL(5L以上)</option>
+  //                         <option value="FREE SIZE">FREE SIZE</option>
+  //                       </select>
+  //                     </div>
+  //                     <div id="error-log-product_size" class="error"></div>
+  //                     <div class ='margin-top-40 width-92'>
+  //                       <label>ブランド
+  //                         <span class="any">任意
+  //                         </span>
+  //                       </label>
+  //                       <div class='select-box'>            
+  //                         <input type="hidden" value="" id="input_brand" name="product[brand_id]">
+  //                         <input class="select-box--menu choosing" value="" placeholder="例）シャネル"  id="brands-search-form">
+  //                         <div id="brands-search-result">
+  //                         </div>
+  //                       </div>
+  //                     </div>
+  //                   </div>`;
+  //   $('.exhibit-product__detail__box--form').append(sizefomeHtml);
+  // }
   //靴サイズフォーム
   function appendShoessizeBox(){
     var sizefomeHtml = '';
@@ -298,7 +298,7 @@ $(function(){
     var input = $("#brands-search-form").val();
     if (input !== preWord){
       $.ajax({
-        url: "products/brand_search",
+        url: "products/brand_edit",
         type: 'GET',
         data: {keyword: input},
         dataType: 'json'
@@ -349,8 +349,6 @@ $(function(){
       });
     };
   });
-
- 
 
   var p_num = 1
   $(document).on("change", ".file", function () {

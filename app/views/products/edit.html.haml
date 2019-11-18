@@ -90,9 +90,9 @@
                           %span.any
                             任意
                         .select-box
-                          %input#input_brand{:name => "product[brand_id]", :type => "hidden", :value => ""}/
-                          %input#brands-search-form.select-box--menu.choosing{:placeholder => "例）シャネル", :value => ""}/                        #brands-search-result
-                #error-log-category.error
+                          %input#input_brand{ name:"product[brand_id]", type:"hidden", value: ""}/
+                          %input#brands-search-form.select-box--menu.choosing{ value: @brand_name, class: "product_brand_name", placeholder: "例）シャネル"}/
+                          #brands-search-result
                 .exhibit-product__detail__box--group.margin-top-40
                   %label
                     商品の状態

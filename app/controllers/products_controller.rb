@@ -32,8 +32,6 @@ class ProductsController < ApplicationController
     @brand = Brand.find(@brand_id)
     @brand_name = @brand.name
     @all_brands = Brand.all
-    # @all_brands_name = Brand.all.name
-    # binding.pry
   end
 
 
@@ -80,10 +78,23 @@ class ProductsController < ApplicationController
     else
       @size_form = 0
     end
-    binding.pry
   end
 
   def brand_search
+    @brand_name = Brand.where('name LIKE ?', "%#{params[:keyword]}%")
+    @brand_key1 = Brand.where('keyword1 LIKE ?', "%#{params[:keyword]}%")
+    @brand_key2 = Brand.where('keyword2 LIKE ?', "%#{params[:keyword]}%")
+    if @brand_name != []
+      @brands = @brand_name
+    elsif @brand_key1 != []
+      @brands = @brand_key1
+    else
+      @brands = @brand_key2
+    end
+  end
+
+  def brand_edit
+    binding.pry
     @brand_name = Brand.where('name LIKE ?', "%#{params[:keyword]}%")
     @brand_key1 = Brand.where('keyword1 LIKE ?', "%#{params[:keyword]}%")
     @brand_key2 = Brand.where('keyword2 LIKE ?', "%#{params[:keyword]}%")
@@ -102,7 +113,6 @@ class ProductsController < ApplicationController
 
   def pay # 決済処理
     set_card_information
-
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     Payjp::Charge.create(
       amount: 1000, # 値段
