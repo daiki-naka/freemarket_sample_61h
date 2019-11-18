@@ -290,60 +290,218 @@ font-family: Arial, Helvetica, sans-serif;
           color:#0099e8;
           @include transition;
         }
-        .todo{
-          display: block;
-          height: 100%;
-          cursor: pointer;
-          color: #333;
-          text-decoration: none;
-          font-size: 14px;
-          padding: 0px 14px;
-          @include transition;
-          &--icon{
-            color: rgb(204, 204, 204);
-            margin-right: 5px;
-            height: 30px;
+        &--todo{
+          .todo{
+            display: block;
+            height: 100%;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 0px 14px;
+            position: relative;
+            @include transition;
+            &--icon{
+              color: rgb(204, 204, 204);
+              margin-right: 5px;
+              height: 30px;
+              @include transition;
+            }
+          }
+          .todo:hover{
+            color:#0099e8;
             @include transition;
           }
-        }
-        .todo:hover{
-          color:#0099e8;
-          @include transition;
-        }
-        .todo:hover .todo--icon{
-          color:#0099e8;
-          @include transition;
-        }
-        .mypage{
-          display: block;
-          height: 100%;
-          cursor: pointer;
-          color: #333;
-          text-decoration: none;
-          font-size: 14px;
-          padding: 0px 14px;
-          @include transition;
-          &--icon{
-            color: rgb(204, 204, 204);
-            margin-right: 5px;
-            height: 30px;
-            vertical-align:middle;
+          .todo:hover .todo--icon{
+            color:#0099e8;
+            @include transition;
+          }
+          &--box{
+            height: 240px;
+            width: 300px;
+            position: absolute;
+            top: 100px;
+            right: 250px;
+            z-index: 10;
+            visibility: hidden;
+            box-shadow: 0px 2px 2px 0px #999;
           }
         }
-        .mypage:hover{
-          color:#0099e8;
-          @include transition;
+        &--todo:hover .header-inner__bottom__info--todo--box{
+          visibility: visible;
+        }
+        &--mypage{
+          position: relative;
+          .mypage{
+            display: block;
+            height: 100%;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 0px 14px;
+            @include transition;
+            &--icon{
+              color: rgb(204, 204, 204);
+              margin-right: 5px;
+              height: 30px;
+              vertical-align:middle;
+            }
+          }
+          .mypage:hover{
+            color:#0099e8;
+            @include transition;
+          }
+          .mypage-contents{
+            position: absolute;
+            top:100%;
+            right: 10px;
+            width: 330px;
+            background-color: #fff;
+            z-index: 10;
+            box-shadow: 0px 2px 2px 0px #999;
+            visibility: hidden;
+            pointer-events: none;
+            &--icon{
+              height: 60px;
+              position: absolute;
+              top: 30px;
+              right: 135px;
+            }
+            &__bgimage{
+              height: 80px;
+              width: 100%;
+              background: url(/images/mypage_image.jpg);
+              background-position: bottom;
+            }
+            &__main{
+              height: 200px;
+              width: 100%;
+              padding: 0 10px 20px;
+              &--name{
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 17px;
+              }
+              &--info{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                &--evaluation{
+                  width: 46%;
+                  float: left;
+                  text-align: right;
+                  margin-right: 16px;
+                  font-size: 14px;
+                  cursor: pointer;
+                }
+                &--exhibit{
+                  float: left;
+                  font-size: 14px;
+                  cursor: pointer;
+                }
+              }
+              &--sales{
+                margin-top: 10px;
+                height: 45px;
+                width: 100%;
+                background-color:rgb(245, 245, 245);
+                padding: 0 25px 0 10px;
+                border: 0.5px solid rgb(230, 230, 230);
+                font-size: 14px;
+                font-weight: 100;
+                position: relative;
+                cursor: pointer;
+                &--text{
+                  float: left;
+                  line-height: 45px;
+                }
+                &--value{
+                  float: right;
+                  line-height: 45px;
+                }
+                &--icon{
+                  position: absolute;
+                  right: 7px;
+                  top: 18px;
+                  color: rgb(204, 204, 204);
+                }
+              }
+              &--sales:hover{
+                opacity: 0.8;
+              }
+              &--point{
+                height: 45px;
+                width: 100%;
+                background-color:rgb(245, 245, 245);
+                padding: 0 25px 0 10px;
+                border: 0.5px solid rgb(230, 230, 230);
+                font-size: 14px;
+                font-weight: 100;
+                position: relative;
+                cursor: pointer;
+                &--text{
+                  float: left;
+                  line-height: 45px;
+                }
+                &--value{
+                  float: right;
+                  line-height: 45px;
+                }
+                &--icon{
+                  position: absolute;
+                  right: 7px;
+                  top: 18px;
+                  color: rgb(204, 204, 204);
+                }
+              }
+              &--point{
+                opacity: 0.8;
+              }
+            }
+            &__form{
+              width: 100%;
+              padding-left: 20px;
+              border-top: 0.5px solid rgb(230, 230, 230);
+              position: relative;
+              cursor: pointer;
+              .mypage-form--content{
+                height: 50px;
+                line-height: 50px;
+                display: block;
+                width: 100%;
+                text-decoration: none;
+                font-size: 14px;
+                color: #333;
+              }
+              &--icon{
+                @include transition;
+                position: absolute;
+                right: 18px;
+                top: 18px;
+                color: rgb(204, 204, 204);
+              }
+            }
+            &__form:hover{
+              background-color:rgb(245, 245, 245);
+              .mypage-contents__form--icon{
+                @include transition;
+                color: #333;
+                position: absolute;
+                right: 15px;
+              }
+            }
+          }
+        }
+        &--mypage:hover .mypage-contents{
+          visibility: visible;
+          pointer-events: auto;
         }
       }
     }
   }
 }
-
-
-
-
-
-
 
 
 

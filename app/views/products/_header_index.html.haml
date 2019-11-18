@@ -53,7 +53,43 @@
           = link_to '#', class: 'todo' do
             %i.fas.fa-check.fa-lg.todo--icon
             やることリスト
+          = image_tag '/images/todo_image.png', class:"header-inner__bottom__info--todo--box"
         %li.header-inner__bottom__info--mypage
           = link_to '#', class: 'mypage' do
             = image_tag 'mypage.png', class: 'mypage--icon'
             マイページ
+          .mypage-contents
+            = image_tag 'mypage.png', class: 'mypage-contents--icon'
+            .mypage-contents__bgimage
+            .mypage-contents__main
+              .mypage-contents__main--name  
+                あの
+              .mypage-contents__main--info.clearfix
+                .mypage-contents__main--info--evaluation
+                  評価：０
+                .mypage-contents__main--info--exhibit
+                  出品数：０
+              .mypage-contents__main--sales.clearfix
+                .mypage-contents__main--sales--text
+                  売上金
+                .mypage-contents__main--sales--value
+                  ¥0
+                %i.fas.fa-chevron-right.mypage-contents__main--sales--icon
+              .mypage-contents__main--point.clearfix
+                .mypage-contents__main--point--text
+                  ポイント
+                .mypage-contents__main--point--value
+                  P0
+                %i.fas.fa-chevron-right.mypage-contents__main--sales--icon
+            .mypage-contents__form
+              = link_to "いいね！一覧", "#", class: "mypage-form--content"
+              %i.fas.fa-chevron-right.mypage-contents__form--icon
+            .mypage-contents__form
+              = link_to "出品した商品 - 出品中", "#", class: "mypage-form--content"
+              %i.fas.fa-chevron-right.mypage-contents__form--icon
+            .mypage-contents__form
+              = link_to "出品した商品 - 取引中", "#", class: "mypage-form--content"
+              %i.fas.fa-chevron-right.mypage-contents__form--icon
+            .mypage-contents__form
+              = link_to "出品した商品 - 売却済み", "#", class: "mypage-form--content"
+              %i.fas.fa-chevron-right.mypage-contents__form--icon
