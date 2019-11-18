@@ -195,6 +195,7 @@ font-family: Arial, Helvetica, sans-serif;
           margin-left: 20px;
           height: 100%;
           cursor: pointer;
+          position: relative;
           .brand{
             color: #333;
             text-decoration: none;
@@ -202,9 +203,40 @@ font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             vertical-align: baseline;
           }
+          .brands{
+            width: 220px;
+            position: absolute;
+            z-index: 10;
+            top: 37px;
+            background-color: #fff;
+            visibility: hidden;
+            pointer-events: none;
+            box-shadow: 0px 2px 2px 0px #999;
+            .brands-list{
+              height: 45px;
+              width: 100%;
+              padding: 0 10px;
+              &--name{
+                text-decoration: none;
+                line-height: 45px;
+                font-size: 14px;
+                color: #333;
+              }
+            }
+            .brands-list:hover{
+              background-color: rgb(234, 53, 45);
+              .brands-list--name{
+                color: #fff;
+              }
+            }
+          }
         }
         &--brands:hover .brand{
           color:#0099e8;
+        }
+        &--brands:hover .brands{
+          visibility: visible;
+          pointer-events: auto;
         }
       }
       &__info{
