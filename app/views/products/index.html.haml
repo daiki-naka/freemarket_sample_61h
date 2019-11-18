@@ -1,4 +1,19 @@
-= render partial: 'header_index', locals: {ladies_child:  @ladies_child}
+%head
+  %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js", :type => "text/javascript"}
+  :javascript
+    $(function(){
+      $('a[href^=#]').click(function() {
+          var speed = 400; 
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+      });
+    });
+
+
+= render partial: 'shared/header_index', locals: {ladies_child:  @ladies_child}
 .contents
   .contents__wrapper
     .contents__header
@@ -12,19 +27,99 @@
       .contents__middle__category
         %ul.contents__middle__category__names
           %li.contents__middle__category__names__list
-            = link_to "レディース", root_path, class: "contents__middle__category__names__list"
+            = link_to "レディース", '#section1', class: "contents__middle__category__names__list"
           %li.contents__middle__category__names__list
-            = link_to "メンズ", root_path, class: "contents__middle__category__names__list"
+            = link_to "メンズ", '#section2', class: "contents__middle__category__names__list"
           %li.contents__middle__category__names__list
-            = link_to "家電・スマホ・カメラ", root_path, class: "contents__middle__category__names__list"
+            = link_to "家電・スマホ・カメラ", '#section3', class: "contents__middle__category__names__list"
           %li.contents__middle__category__names__list
-            = link_to "おもちゃ・ホビー・グッズ", root_path, class: "contents__middle__category__names__list"
+            = link_to "おもちゃ・ホビー・グッズ", '#section4', class: "contents__middle__category__names__list"
     .contents__main
-      .contents__main__logo
-        カテゴリーネーム
-      %a.contents__main__more{href: "#"}
-        もっとみる ＞
+      .contents__main__logo#section1
+        レディース新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/categories/1', class: "contents__main__more"
       .contents__main__product
-        = render 'shared/product_block'
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @ladies_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+      .contents__main__logo#section2
+        メンズ新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/categories/2', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @mens_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+      .contents__main__logo#section3
+        家電・スマホ・カメラ新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/categories/8', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @electric_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+      .contents__main__logo#section4
+        おもちゃ・ホビー・グッズ新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/categories/6', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @hobby_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+    .contents__middle.brand-field
+      %h2.contents__middle__logo      
+        人気のブランド
+      .contents__middle__category
+        %ul.contents__middle__category__names
+          %li.contents__middle__category__names__list
+            = link_to "シャネル", '#section5', class: "contents__middle__category__names__list"
+          %li.contents__middle__category__names__list
+            = link_to "ルイヴィトン", '#section6', class: "contents__middle__category__names__list"
+          %li.contents__middle__category__names__list
+            = link_to "シュプリーム", '#section7', class: "contents__middle__category__names__list"
+          %li.contents__middle__category__names__list
+            = link_to "ナイキ", '#section8', class: "contents__middle__category__names__list"
+    .contents__main
+      .contents__main__logo#section5
+        シャネル新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/brands/249', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @chanel_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+      .contents__main__logo#section6
+        ルイヴィトン新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/brands/250', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @ruiviton_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+      .contents__main__logo#section7
+        シュプリーム新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/brands/251', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @shupurimu_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
+      .contents__main__logo#section8
+        ナイキ新着アイテム
+      .contents__main__more       
+        = link_to "もっとみる ＞", '/brands/252', class: "contents__main__more"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @naiki_products.first(10).each do |product|
+              = render partial: 'shared/product_block', locals: {product: product}
 = render 'shared/exhibit-icon'
-= render partial: 'footer'
+= render partial: 'shared/footer'
