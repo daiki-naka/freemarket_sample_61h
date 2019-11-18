@@ -2,135 +2,326 @@
 font-family: Arial, Helvetica, sans-serif; 
 }
 
+@mixin transition{
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
 .header{
   background-color:white;
-  height:90px;
+  height:100px;
   width:100vw;
   list-style: none;
   .header-inner{
+    width: 1020px;
+    height:100%;
+    margin: 0  auto;
+    padding: 8px 0px 0px;
     &__top{
-      height:50px;
-      width: 100%;
-      padding:6px 6px;
+      height:40px;
+      width:100%;
       display: flex;
-      justify-content: center;
       box-sizing:border-box;
       &__logo{
-      font-weight:light;
-      display: inline-block;
-      margin-right:-15px;
-      padding-right:40px;
+        float: left;
       }
       &__form{
-        display: inline-block;
-        width: 60%;
-        height: 50px;
-        margin-left:12px;
+        float: right;
+        width: 100%;
+        margin-left: 42px;
         form{
           background-color: rgb(250, 234, 236);
           width:100%;
           position: relative;
-          }    
-          input[class="form_search"]{
-            font-size:16px;
-            width:100%;
-            background-color: #f5f5f5;
-            border: 0.5px solid #999;
-            border-radius: 3px;
-            box-shadow: none;
-            height:40px;  
-            padding: 10px;        
-            }
-            input[class="form_search"]:focus{
-              outline: none;
-              border-color: #1e7dd4;
-            }
-          label.header-inner__top__form__search-icon_r{
-            font-size:20px;
+        }    
+        input[class="form_search"]{
+          font-size:16px;
+          width:100%;
+          background-color: #f5f5f5;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          border-radius: 4px;
+          box-shadow: none;
+          height:40px;  
+          padding: 10px;        
+        }
+        input[class="form_search"]:focus{
+          outline: none;
+          border-color: #1e7dd4;
+        }
+        label.header-inner__top__form__search-icon_r{
+          font-size:20px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+        }
+      }
+    }
+    &__bottom{
+      height: 52px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__search{
+        display: flex;
+        margin-top: 15px;
+        &--categories{
+          height: 100%;
+          width: 145px;
+          cursor: pointer;
+          position: relative;
+          .category{
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            vertical-align: baseline;
+          }
+          #parents{
+            width: 700px;
             position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
+            top: 37px;
+            z-index: 10;
+            visibility: hidden;
+            pointer-events: none;
+            .parent{
+              width: 220px;
+              line-height: 50px;
+              padding: 0 10px;
+              background-color: #fff;
+              box-shadow: 0px 2px 2px 0px #999;
+              &--text{
+                display: block;
+                color: #333;
+                text-decoration: none;
+                font-size: 14px;
+                height: 50px;
+                width: 220px;
+              }
+            }
+            #children {
+              height: 100%;
+              width: 220px;
+              position: absolute;
+              top: 0;
+              left: 200px;
+              background-color: #fff;
+              z-index: 15;
+              visibility: hidden;
+              pointer-events: none;
+              box-shadow: 0px 2px 2px 0px #999;
+              .child{
+                line-height: 30px;
+                padding: 0 10px;
+                &--text{
+                  height: 30px;
+                  width: 220px;
+                  display: block;
+                  color: #333;
+                  text-decoration: none;
+                  font-size: 14px;
+                }
+              }
+              #grand_children{
+                height: 100%;
+                width: 280px;
+                position: absolute;
+                top: 0;
+                left: 220px;
+                background-color: #fff;
+                z-index: 20;
+                visibility: hidden;
+                pointer-events: none;
+                box-shadow: 0px 2px 2px 0px #999;
+                .grand_child{
+                  line-height: 30px;
+                  padding: 0 10px;
+                  &--text{
+                    height: 30px;
+                    width: 280px;
+                    display: block;
+                    color: #333;
+                    text-decoration: none;
+                    font-size: 14px;
+                  }
+                }
+              }
+              ul#grand_children li {
+                background-color: #fff;
+              }
+              ul#grand_children li.selected {
+                background-color: rgba(204, 204, 204, 0.5);
+              }
+            }
+            #children:hover #grand_children{
+              visibility: visible;
+              pointer-events: auto;
+            }
+            #children li {
+              background-color: #fff;
+            }
+            #children li.selected {
+              background-color: rgba(204, 204, 204, 0.5);
+            }
+          }
+          #parents:hover #children{
+            visibility: visible;
+            pointer-events: auto;
+          }
+          #parents li {
+            background-color: #fff;
+          }
+          #parents li.selected {
+            background-color: rgb(234, 53, 45);
+            .parent--text{
+              color: #fff;
+            }
           }
         }
-    }    
-  &__bottom{
-    height:50px;
-    width:75%;
-    padding-left:13px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    position:relative;
-    &__left{
-      width:40%;
-      height:50px;
-      display: flex;
-      justify-content:space-between;
-      font-size:12px; 
-      font-weight:900;
-      align-items: center;
-      &__category{
-        font-weight: bold;
-        position:absolute;
-        top:12px;
-        } 
-        &__list-icon{
-          color:red;
+        &--categories:hover .category{
+          color:#0099e8;
         }
-      &__brand{
-        margin-left:15px;
-        position:absolute;
-        font-weight: bold;
-        top:12px;
-        left:140px;
-        &__tag-icon_r{
-          position:relative;
-          span.h{
-          color: black;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 15px;
-          position:absolute;
-          top:0;
-          }  
+        &--brands{
+          margin-left: 20px;
+          height: 100%;
+          cursor: pointer;
+          .brand{
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            vertical-align: baseline;
+          }
         }
-      }   
-    &__like{
-      margin-left:12px;
-      position:absolute;
-      font-weight: normal;
-      top:12px;
-      left: 400px;
+        &--brands:hover .brand{
+          color:#0099e8;
+        }
       }
-    &__news{
-      margin-left:5px;
-      position:absolute;
-      font-weight: normal;
-      top:12px;
-      left: 550px;
+      &__info{
+        display: flex;
+        line-height: 50px;
+        .like{
+          display: block;
+          height: 100%;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 0px 14px;
+          @include transition;
+          &--icon{
+            color: rgb(204, 204, 204);
+            margin-right: 5px;
+            height: 30px;
+            @include transition;
+          }
+        }
+        .like:hover{
+          color:#0099e8;
+          @include transition;
+        }
+        .like:hover .like--icon{
+          color:#0099e8;
+          @include transition;
+        }
+        .notice{
+          display: block;
+          height: 100%;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 0px 14px;
+          @include transition;
+          &--icon{
+            color: rgb(204, 204, 204);
+            margin-right: 5px;
+            height: 30px;
+            @include transition;
+          }
+        }
+        .notice:hover{
+          color:#0099e8;
+          @include transition;
+        }
+        .notice:hover .notice--icon{
+          color:#0099e8;
+          @include transition;
+        }
+        .todo{
+          display: block;
+          height: 100%;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 0px 14px;
+          @include transition;
+          &--icon{
+            color: rgb(204, 204, 204);
+            margin-right: 5px;
+            height: 30px;
+            @include transition;
+          }
+        }
+        .todo:hover{
+          color:#0099e8;
+          @include transition;
+        }
+        .todo:hover .todo--icon{
+          color:#0099e8;
+          @include transition;
+        }
+        .mypage{
+          display: block;
+          height: 100%;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 0px 14px;
+          @include transition;
+          &--icon{
+            color: rgb(204, 204, 204);
+            margin-right: 5px;
+            height: 30px;
+            vertical-align:middle;
+          }
+        }
+        .mypage:hover{
+          color:#0099e8;
+          @include transition;
+        }
+      }
     }
-    &__todo{
-      margin-left:12px;
-      position:absolute;
-      font-weight: normal;
-      top:12px;
-      left: 650px;
-    }
-    &__user{
-      margin-left:15px;
-      position:absolute;
-      font-weight: normal;
-      top:2px;
-      left: 800px;
-    }
-    }
-  }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

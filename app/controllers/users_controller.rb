@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_category
   
   def index
   end
@@ -16,7 +17,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-  def new
+  private
+
+  def set_category
+    parents = Category.all.order("id ASC").limit(13)
+    ladies = parents.find(1)
+    @ladies_child = ladies.children
   end
   
 end

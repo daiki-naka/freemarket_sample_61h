@@ -2,12 +2,11 @@ class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
   before_action :set_product, only: [:show, :product_show, :destroy]
+  before_action :set_category, only: [:index, :product_show, :destroy]
   before_action :authenticate_user!, only: :new
+  
 
   def index
-    parents = Category.all.order("id ASC").limit(13)
-    ladies = parents.find(1)
-    @ladies_child = ladies.children
   end
 
   def show
@@ -39,6 +38,10 @@ class ProductsController < ApplicationController
   def product_show
     @images = @product.images
     @category = @product.category
+  end
+
+  def header_category
+    @category_id = Category.find("#{params[:category_id]}").children
   end
 
   def children_category
@@ -93,6 +96,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
   def set_product
     @product = Product.find(params[:id])
