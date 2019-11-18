@@ -20,9 +20,7 @@ class UsersController < ApplicationController
   private
 
   def set_category
-    parents = Category.all.order("id ASC").limit(13)
-    ladies = parents.find(1)
-    @ladies_child = ladies.children
+    @parents = Category.all.order("id ASC").limit(13)
   end
   
 end

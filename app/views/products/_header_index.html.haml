@@ -55,7 +55,7 @@
             やることリスト
           = image_tag '/images/todo_image.png', class:"header-inner__bottom__info--todo--box"
         %li.header-inner__bottom__info--mypage
-          = link_to '#', class: 'mypage' do
+          = link_to users_path, class: 'mypage' do
             = image_tag 'mypage.png', class: 'mypage--icon'
             マイページ
           .mypage-contents
@@ -63,12 +63,12 @@
             .mypage-contents__bgimage
             .mypage-contents__main
               .mypage-contents__main--name  
-                あの
+                = current_user.nickname
               .mypage-contents__main--info.clearfix
                 .mypage-contents__main--info--evaluation
                   評価：０
                 .mypage-contents__main--info--exhibit
-                  出品数：０
+                  = "出品数：#{current_user.products.length}"
               .mypage-contents__main--sales.clearfix
                 .mypage-contents__main--sales--text
                   売上金
