@@ -101,6 +101,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right.icon-index
       %li.mypage__nav--list--index
-        = link_to "#", class: "mypage__nav--list--top--item" do
+        = link_to "/users/#{current_user.id}/logout", class: "mypage__nav--list--top--item" do
           ログアウト
           %i.fas.fa-chevron-right.icon-index

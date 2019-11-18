@@ -15,5 +15,6 @@ class UsersController < ApplicationController
   def identification
     @user = User.find(params[:id])
   end
+
   
 end

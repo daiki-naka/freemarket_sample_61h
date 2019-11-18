@@ -10,10 +10,10 @@
       .session-content__section--inner--btn
         .session-content__section--inner--btn--facebook
           %i.fab.fa-facebook-square.fa-2x.facebook
-          %a.facebook-text Facebookで登録する
+          = link_to "Facebookで登録する", "/users/auth/facebook",method: :post, class:"facebook-text"
         .session-content__section--inner--btn--google
           %i.fab.fa-google.fa-lg.google
-          %a.google-text Googleで登録する
+          = link_to "Googleで登録する", "/users/auth/google_oauth2", method: :post, class:"google-text"
     .session-content__section--form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
@@ -22,5 +22,4 @@
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class: "sign-in-pass"
         .actions
           = f.submit  "ログイン", id: "user-btn"
-      = render "devise/shared/links"
 = render 'signup/form-footer'
