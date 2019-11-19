@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_likes_on_user_id_and_product_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.integer "user_id", null: false
     t.integer "brand_id"
     t.string "product_size"
+    t.integer "likes_count", default: 0, null: false
     t.integer "brand_id"
   end
 

@@ -1,178 +1,180 @@
 %html
   %body#item-detail
-
     %header
-
+      = render partial: "shared/header_index" 
     %section.item
-      %h1.item__name ARMANI/CASA アルマーニカーザ ARPA カトラリーセット
+      %h1.item__name 
+        = @product.name
       %p.item__wording.p-item-detail
-        『ARMANI/CASA アルマーニカーザ ARPA カトラリーセット』は、45回の取引実績を持つ
-        = link_to 'もっちん', "#", class: "item__wording__link link-item-detail"
-        さんから出品されました。
-        = link_to "カトラリー(スプーン等)/インテリア・住まい・小物", "#", class: "item__wording__link link-item-detail"
-        の商品で、東京都から2~3日で発送されます。
       .item__main-content.clearfix-item-detail
         .item__main-content__photo
           .item__main-content__photo__frame
             .item__main-content__photo__frame__stage-outer
-              .item__main-content__photo__frame__stage-outer__stage
-                .item__main-content__photo__frame__stage-outer__stage__item
-                  .item__main-content__photo__frame__stage-outer__stage__item__inner
-                    = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m99446772363_4.jpg?1567144501', class: 'item__main-content__photo__frame__stage-outer__stage__item__inner__image', alt: "ARMANI/CASA アルマーニカーザ ARPA カトラリーセット"
-                    -# = @image.product_id.picture
-          .item__main-content__photo__frame__dots
-            = render 'shared/product-image'
-              
-    -#     %table.item__main-content__detail-table
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header 出品者
-    -#         %td.item__main-content__detail-table__row__data
-    -#           %div
-    -#             = link_to 'もっちん', "#", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
-    -#           %div.item__main-content__detail-table__row__data__rate
-    -#             .item__main-content__detail-table__row__data__rate__user-ratings 
-    -#               %i.fa.fa-grin.icon-item-detail
-    -#               %span
-    -#               = @product.user_id.v_good
-    -#             .item__main-content__detail-table__row__data__rate__user-ratings
-    -#               %i.fa.fa-meh.icon-item-detail
-    -#               %span 
-    -#               = @product.user_id.v_accept
-    -#             .item__main-content__detail-table__row__data__rate__user-ratings
-    -#               %i.fa.fa-frown.icon-item-detail
-    -#               %span
-    -#               = @product.user_id.v_bad
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header カテゴリー
-    -#         %td.item__main-content__detail-table__row__data
-    -#           %div
-    -#             = link_to 'インテリア・住まい・小物', "#", class: "link-item-detail link-blue-color"
-    -#           %div
-    -#             %i.fa.fa-chevron-right.icon-item-detail
-    -#             = link_to 'キッチン/食器', "#", class: "link-item-detail link-blue-color"
-    -#           %div
-    -#             %i.fa.fa-chevron-right.icon-item-detail
-    -#             = link_to 'カトラリー(スプーン等)', "#", class: "link-item-detail link-blue-color"
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header ブランド
-    -#         %td.item__main-content__detail-table__row__data
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header 商品の状態
-    -#         %td.item__main-content__detail-table__row__data 目立った傷や汚れなし
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header 配送料の負担
-    -#         %td.item__main-content__detail-table__row__data 送料込み(出品者負担)
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header 配送の方法
-    -#         %td.item__main-content__detail-table__row__data ゆうゆうメルカリ便
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header 配送元地域
-    -#         %td.item__main-content__detail-table__row__data
-    -#           %div
-    -#             = link_to '東京都', "#", class: "link-item-detail link-blue-color"
-    -#       %tr.item__main-content__detail-table__row
-    -#         %th.item__main-content__detail-table__row__header 発送日の目安
-    -#         %td.item__main-content__detail-table__row__data 2~3日で発送
-    -#   .item__price-box
-    -#     %span.item__price-box__price ¥13,000
-    -#     %span.item__price-box__tax (税込)
-    -#     %span.item__price-box__shipping-fee 送料込み
-    -#   %div
-    -#     = link_to '購入画面に進む', "#", class: "item__buy-btn link-item-detail"
-    -#   %p.item__shipping-not-allowed-message.p-item-detail
-    -#     この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-    -#   .item__description
-    -#     %p.item__description-inner.p-item-detail
-    -#       【商品説明】
-    -#       ARMANI/CASA アルマーニ/カーザのARPAシリーズのカトラリーセットです。スプーン2本、フォーク2本、ナイフ2本の計6本セットになります。定価だと29,808円になるセットです。
-    -#       それぞれの商品詳細は以下の通りです。
-          
-    -#       ・テーブルスプーン
-    -#       サイズ：20.6X4.4X2.4H CM
-    -#       価格(1本)：¥3,348
-    -#       ・ディナーフォーク
-    -#       サイズ：20.8X2.5X2.2H CM
-    -#       価格(1本)：¥3,348
-    -#       ・テーブルナイフ
-    -#       サイズ：24.4X2.2X0.6H CM
-    -#       価格(1本)：¥8,208
-          
-    -#       【状態】
-    -#       一時期、時々使用してましたが、それ以外はインテリア雑貨として、ガラス扉付きの棚の中に飾っていました。細かい傷はありますが、状態はいいです。箱等はありません。
-          
-    -#       【その他】
-    -#       中古品であることをご理解いただいた上でのご購入をお願いいたします。
-    -#       ご相談応じます。
-    -#       簡易包装にて発送予定です。
-    -#       よろしくお願いします(*^^*)
-    -#   .item__button-container.clearfix-item-detail
-    -#     .item__button-container__button-left
-    -#       .item__button-container__button-left__button-like.link-item-detail
-    -#         %i.fa.fa-heart.icon-item-detail
-    -#         %span.item__button-container__button-left__button-like__letter いいね!
-    -#         %span.item__button-container__button-left__button-like__letter 3
-    -#         = link_to "#"
-    -#       .item__button-container__button-left__button-report.link-item-detail.clearfix-item-detail
-    -#         %i.fa.fa-flag.icon-item-detail
-    -#         %span.item__button-container__button-left__button-report__letter 不適切な商品の報告
-    -#         = link_to "#"
-    -#     .item__button-container__button-right
-    -#       .item__button-container__button-right__link-safety.link-item-detail
-    -#         %i.fa.fa-lock.icon-item-detail
-    -#         %span.item__button-container__button-right__link-safety__letter あんしん・あんぜんへの取り組み
-    -#         = link_to "#"
-
-    -# .item-detail-message
-    -# %ul.item-link.clearfix-item-detail
-    -#   %li.item-link__prev
-    -#     %div.item-link__prev__blue-link
-    -#       %i.fa.fa-chevron-left
-    -#       =link_to "ザラ　ZARA　ジレ　濃紺　M", "#", class: "link-item-detail link-current-color"
-    -#   %li.item-link__next
-    -#     %div.item-link__next__blue-link         
-    -#       =link_to "オークリー EV XS OJ9001-0731 YOUTH", "#", class: "link-item-detail link-current-color"
-    -#       %i.fa.fa-chevron-right
-
-    -# .social-media-content
-    -#   .social-media-content__text
-    -#   %ul.social-media-content__box
-    -#     %li.social-media-content__box__list
-    -#       %a.social-media-content__box__list__share-btn.link-item-detail{href: "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm99446772363%2F"}
-    -#         %i.fab.fa-facebook-square.icon-item-detail
-    -#     %li.social-media-content__box__list
-    -#       %a.social-media-content__box__list__share-btn.link-item-detail{href: "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm99446772363%2F&text=ARMANI%2FCASA%20%E3%82%A2%E3%83%AB%E3%83%9E%E2%80%A6%20%28%C2%A513%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm99446772363%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89"}
-    -#         %i.fab.fa-twitter-square.icon-item-detail
-    -#     %li.social-media-content__box__list
-    -#       %a.social-media-content__box__list__share-btn{href: "http://line.me/R/msg/text/?ARMANI/CASA アルマーニカーザ ARPA カトラリーセット%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m99446772363/"}
-    -#         %i.fab.fa-line.icon-item-detail
-    -#     %li.social-media-content__box__list
-    -#       %a.social-media-content__box__list__share-btn.link-item-detail{href: "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm99446772363%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm99446772363_1.jpg%3F1567144501&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20ARMANI%2FCASA%20%E3%82%A2%E3%83%AB%E3%83%9E%E3%83%BC%E3%83%8B%E3%82%AB%E3%83%BC%E3%82%B6%20ARPA%20%E3%82%AB%E3%83%88%E3%83%A9%E3%83%AA%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA"}
-    -#         %i.fab.fa-pinterest-square.icon-item-detail
-
-    -# .items-in-user-profile
-    -#   %section.items-in-user-profile__container.clearfix-item-detail
-    -#     %h2.items-in-user-profile__container__head
-    -#       =link_to "もっちんさんのその他の出品", "#", class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
-    -#     .items-in-user-profile__container__content.clearfix-item-detail
-    -#       = render 'shared/related-product_block'
-    -#   %section.items-in-user-profile__container.clearfix-item-detail
-    -#     %h2.items-in-user-profile__container__head
-    -#       =link_to "カトラリー(スプーン等) （インテリア・住まい・小物） その他の商品", "#", class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
-    -#     .items-in-user-profile__container__content.clearfix-item-detail
-    -#       = render 'shared/related-product_block'
-          
-    -# %nav.pos-bottom
-    -#   %ul.pos-bottom__list
-    -#     %li.pos-bottom__list__left-part
-    -#       %span
-    -#         =link_to "メルカリ", "#", class: "link-item-detail link-current-color"
-    -#       %i.fa.fa-chevron-right.icon-item-detail
-    -#     %li.pos-bottom__list__right-part
-    -#       %span ARMANI/CASA アルマーニカーザ ARPA カトラリーセット
-
-    -# %footer
-
-
-
-
-  
+              %ul.item__main-content__photo__frame__stage-outer__stage
+                - @product.images.each.with_index do |p,i|
+                  %li.item__main-content__photo__frame__stage-outer__stage__item                   
+                    = image_tag p.picture.url, class: "item__main-content__photo__frame__stage-outer__stage__item__image"                                
+          %ul.item__main-content__photo__frame__dots
+            - @product.images.each.with_index do |p,i|
+              %li.item__main-content__photo__frame__dots__dot 
+                = image_tag p.picture.url,class: "item__main-content__photo__frame__dots__dot__image"
+        %table.item__main-content__detail-table
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header 出品者
+            %td.item__main-content__detail-table__row__data
+              %div
+                = link_to "#{@product.user.nickname}","/users", class: "item__main-content__detail-table__row__data__user link-item-detail link-blue-color"
+              %div.item__main-content__detail-table__row__data__rate
+                .item__main-content__detail-table__row__data__rate__user-ratings 
+                  %i.fa.fa-grin.icon-item-detail
+                  %span
+                  = @product.user.v_good
+                .item__main-content__detail-table__row__data__rate__user-ratings
+                  %i.fa.fa-meh.icon-item-detail
+                  %span 
+                  = @product.user.v_accept
+                .item__main-content__detail-table__row__data__rate__user-ratings
+                  %i.fa.fa-frown.icon-item-detail
+                  %span
+                  = @product.user.v_bad
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header カテゴリー
+            %td.item__main-content__detail-table__row__data
+              %div
+                = link_to "#{@parent_category_name}", category_path(@parent_category_id), class: "link-item-detail link-blue-color"
+              %div
+                %i.fa.fa-chevron-right.icon-item-detail
+                = link_to "#{@child_category_name}",category_path(@child_category_id), class: "link-item-detail link-blue-color"
+              %div
+                %i.fa.fa-chevron-right.icon-item-detail
+                = link_to "#{@product.category.name}", category_path(@product.category_id), class: "link-item-detail link-blue-color"
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header ブランド
+            %td.item__main-content__detail-table__row__data
+              - if @product.brand_id.present?
+                = link_to "#{@product.brand.name}", brand_path(@product.brand_id),class:'link-item-detail link-blue-color'
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header 商品の状態
+            %td.item__main-content__detail-table__row__data
+              = @product.status
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header 配送料の負担
+            %td.item__main-content__detail-table__row__data
+              = @product.d_charge
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header 配送の方法
+            %td.item__main-content__detail-table__row__data 
+              = @product.d_method
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header 配送元地域
+            %td.item__main-content__detail-table__row__data
+              %div
+                = link_to "#{@product.d_origin}",'#', class: "link-item-detail link-blue-color"
+          %tr.item__main-content__detail-table__row
+            %th.item__main-content__detail-table__row__header 発送日の目安
+            %td.item__main-content__detail-table__row__data
+              = @product.d_interval
+      .item__price-box
+        %span.item__price-box__price
+          = "￥#{@product.price.to_s(:delimited, delimiter:',')}"
+        %span.item__price-box__tax (税込)
+        %span.item__price-box__shipping-fee
+          = @product.d_charge.sub!(/\(.*/, "")
+      %div
+        = link_to '購入画面に進む', buy_product_path(@product.id), class: "item__buy-btn link-item-detail"
+      %p.item__shipping-not-allowed-message
+        = @product.d_method == 'ゆうゆうメルカリ便' ? "この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。" : ""
+      .item__description
+        %p.item__description-inner.p-item-detail
+          = @product.introduction 
+      .item__button-container.clearfix-item-detail
+        .item__button-container__button-left
+          .item__button-container__button-left__button-like.link-item-detail
+            %i.fa.fa-heart.icon-item-detail
+            %span.item__button-container__button-left__button-like__letter いいね!
+            %span.item__button-container__button-left__button-like__letter 3
+            = link_to "", root_path
+          .item__button-container__button-left__button-report.link-item-detail.clearfix-item-detail
+            %i.fa.fa-flag.icon-item-detail
+            %span.item__button-container__button-left__button-report__letter 不適切な商品の報告
+            = link_to "", root_path
+        .item__button-container__button-right
+          .item__button-container__button-right__link-safety.link-item-detail
+            %i.fa.fa-lock.icon-item-detail
+            %span.item__button-container__button-right__link-safety__letter あんしん・あんぜんへの取り組み
+            = link_to "", root_path
+    .item-detail-message
+    %ul.item-link.clearfix-item-detail
+      %li.item-link__prev
+        %div.item-link__prev__blue-link
+          %i.fa.fa-chevron-left
+          =link_to "#{@previous_product.name}", product_path(@previous_product.id), class: "link-item-detail link-current-color"
+      %li.item-link__next
+        %div.item-link__next__blue-link         
+          =link_to "#{@next_product.name}", product_path(@next_product.id), class: "link-item-detail link-current-color"
+          %i.fa.fa-chevron-right
+    .social-media-content
+      .social-media-content__text
+      %ul.social-media-content__box
+        %li.social-media-content__box__list
+          %a.social-media-content__box__list__share-btn.link-item-detail
+            %i.fab.fa-facebook-square.icon-item-detail
+        %li.social-media-content__box__list
+          %a.social-media-content__box__list__share-btn.link-item-detail
+            %i.fab.fa-twitter-square.icon-item-detail
+        %li.social-media-content__box__list
+          %a.social-media-content__box__list__share-btn
+            %i.fab.fa-line.icon-item-detail
+        %li.social-media-content__box__list
+          %a.social-media-content__box__list__share-btn.link-item-detail
+            %i.fab.fa-pinterest-square.icon-item-detail
+    .items-in-user-profile
+      %section.items-in-user-profile__container.clearfix-item-detail
+        %h2.items-in-user-profile__container__head
+          = link_to "#{@product.user.nickname}さんのその他の出品", "/users", class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
+        .items-in-user-profile__container__content.clearfix-item-detail
+          - @ordered_other_products.each do|product|
+            %section.items-in-user-profile__container__content__block                 
+              = link_to product_path(product.id), class:'items-in-user-profile__container__content__block__link link-item-detail' do
+                %figure.items-in-user-profile__container__content__block__link__photo   
+                  = image_tag product.images[0].picture.url,class:'items-in-user-profile__container__content__block__link__photo__image'
+                .items-in-user-profile__container__content__block__link__body
+                  %h3.items-in-user-profile__container__content__block__link__body__name 
+                    = product.name
+                  .items-in-user-profile__container__content__block__link__body__num
+                    .items-in-user-profile__container__content__block__link__body__num__price
+                      = "￥#{product.price.to_s(:delimited, delimiter:',')}"
+                    .items-in-user-profile__container__content__block__link__body__num__mark
+                      %i.fa.fa-heart.icon-item-detail
+                      %span.items-in-user-profile__container__content__block__link__body__num__mark__lank
+                        = product.likes_count
+      %section.items-in-user-profile__container.clearfix-item-detail
+        %h2.items-in-user-profile__container__head
+          =link_to "#{@product.category.name} その他の商品",category_path(@product.category_id),class: "items-in-user-profile__container__head__link link-item-detail link-blue-color"
+        .items-in-user-profile__container__content.clearfix-item-detail
+          - @same_category_products.each do|product|
+            %section.items-in-user-profile__container__content__block
+              = link_to product_path(product.id),class:'items-in-user-profile__container__content__block__link link-item-detail' do
+                %figure.items-in-user-profile__container__content__block__link__photo   
+                  = image_tag product.images[0].picture.url,class:'items-in-user-profile__container__content__block__link__photo__image'
+                .items-in-user-profile__container__content__block__link__body
+                  %h3.items-in-user-profile__container__content__block__link__body__name 
+                    = product.name
+                  .items-in-user-profile__container__content__block__link__body__num
+                    .items-in-user-profile__container__content__block__link__body__num__price
+                      = "￥#{product.price.to_s(:delimited, delimiter:',')}"
+                    .items-in-user-profile__container__content__block__link__body__num__mark
+                      %i.fa.fa-heart.icon-item-detail
+                      %span.items-in-user-profile__container__content__block__link__body__num__mark__lank
+                        = product.likes_count
+    %nav.pos-bottom
+      %ul.pos-bottom__list
+        %li.pos-bottom__list__left-part
+          %span
+            =link_to "メルカリ", root_path, class: "link-item-detail link-current-color"
+          %i.fa.fa-chevron-right.icon-item-detail
+        %li.pos-bottom__list__right-part
+          %span
+            = "#{@product.name}" 
+    %footer
+      = render partial: "shared/footer"
