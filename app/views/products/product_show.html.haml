@@ -1,4 +1,4 @@
-= render partial: 'header_index'
+= render partial: 'shared/header_index'
 .exhibit
   .item.margin-left-37.width-775
     %h1.item__name
@@ -71,7 +71,7 @@
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %textarea.textarea-default{name:"", type: "text", value: "", class: "comment-area__form"}
     .comment-area__send コメントする
-= render partial: 'footer'
+= render partial: 'shared/footer'
 .gray_panel#gray_panel
 .popup{style:"display: none;"}
   .popup__message
