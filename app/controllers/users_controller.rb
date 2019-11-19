@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   def edit
   end
   
+  def show
+    @user = User.find(params[:id]) 
+  end
+
   def card
   end
 
@@ -16,6 +20,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def user_params
+    params.require(:user).permit(:nickname,:v_good,:v_accept,:v_bad)
+  end
+
+
   def new
   end
   
