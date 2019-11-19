@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'products#index'
+  root to: 'products#show'
+  resources :likes, only: [:create, :destroy]
   resources :pages, only: [:index, :new]
   resources :cards, only: [:index, :new, :create, :destroy]
   resources :categories, only: [:show]
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
       get 'products/brand_search', defaults: { format: 'json' }
     end
   end
-  resources :users, only: [:index, :edit, :new] do
+  resources :users, only: [:index,:edit,:show,:new] do
     member do
       get 'identification'
       get 'logout'

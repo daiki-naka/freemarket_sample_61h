@@ -48,13 +48,32 @@ class ProductsController < ApplicationController
     @naiki_products = Product.where(brand_id: 252).order("created_at DESC")
   end
 
-  def show
-    render controller:  "ImageController", action:  "show"
-  end
-
   def new
     @product = Product.new
     @product.images.build
+  end
+
+  def show
+    @product = Product.find(params[:id])
+    @user = @product.user
+    @other_products = @user.products.where.not(id: @product.id)
+    @ordered_other_products = @other_products.order('id DESC').limit(6)
+    @parent_category_id = @product.category.ancestry[/.*\//, 0].sub(/\//,"")
+    @parent_category_name = Category.find(@parent_category_id).name
+    @child_category_id = @product.category.ancestry[/\/.*/, 0].sub(/\//,"")
+    @child_category_name = Category.find(@child_category_id).name
+    @same_category_products = Product.where(category_id: "#{@product.category_id}").where.not(id: @product.id).order('id DESC').limit(6)
+    @reverse_ordered_products = Product.order('id DESC')
+    if Product.where('id <?',@product.id).present?
+      @previous_product = @reverse_ordered_products.where('id < ?',@product.id).first
+    else
+      @previous_product = Product.order('id DESC').first
+    end  
+    if Product.where('id >?',@product.id).present?
+      @next_product = Product.where('id >?',@product.id).first
+    else
+      @next_product = Product.order('id ASC').first
+    end
   end
 
   def create
@@ -180,5 +199,4 @@ class ProductsController < ApplicationController
       end  
     end
   end
-  
 end
