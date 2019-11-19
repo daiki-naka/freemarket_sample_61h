@@ -23,7 +23,7 @@
             %span.products__content--buy--pay--left 支払い金額
             %span.products__content--buy--pay--right ¥1000
           - if @card_information.present?
-            = form_tag(pay_products_path, method: :post) do
+            = form_tag(pay_product_path, method: :post) do
               %button.products__content--buy--select 購入する
           - else
             .products__content--buy--no-select 購入する
