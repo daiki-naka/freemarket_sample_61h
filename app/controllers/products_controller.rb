@@ -7,10 +7,6 @@ class ProductsController < ApplicationController
   
 
   def index
-    parents = Category.all.order("id ASC").limit(13)
-    ladies = parents.find(1)
-    @ladies_child = ladies.children
-
     @categories = Category.find(1,2,8,6)
     @ladies_products = []
     @categories[0].children.each do |child_category|
@@ -70,7 +66,7 @@ class ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
-      redirect_to root_path, notice: "削除しました"
+      redirect_to exhibit_list_user_path(id: current_user.id), notice: "削除しました"
     else
       render :product_show
     end

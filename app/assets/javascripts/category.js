@@ -38,7 +38,7 @@ $(function(){
       if (!isNaN(parentId)){
         $('#children').css('width', '220px');
         $.ajax({
-          url: "products/header_category",
+          url: "../../products/header_category",
           type: 'GET',
           data: { category_id: parentId },
           dataType: 'json'
@@ -47,7 +47,7 @@ $(function(){
           $('#children').empty();
           $(child).each(function(index, element) {
             var cHtml = `<li class="child">
-                          <a data-category-id="${element.id}" href="#" class="child--text">${element.name}</a>
+                          <a class="child--text" data-category-id="${element.id}" href="/categories/${element.id}">${element.name}</a>
                         </li>`;
             $('#children').append(cHtml);
           })
@@ -66,7 +66,7 @@ $(function(){
       var childId = $(this).children('a').data('category-id')
       if (!isNaN(childId)){
         $.ajax({
-          url: "products/header_category",
+          url: "../../products/header_category",
           type: 'GET',
           data: { category_id: childId },
           dataType: 'json'
@@ -76,9 +76,9 @@ $(function(){
           $('#grand_children').empty();
           $(grand_child).each(function(index, element) {
             if (num != 23){
-              var gHtml = `<li class="grand_child">
-                          <a data-category-id="${element.id}" href="#" class="grand_child--text">${element.name}</a>
-                        </li>`;
+              var gHtml =`<li class="grand_child">
+                            <a class="grand_child--text" data-category-id="${element.id}" href="/categories/${element.id}">${element.name}</a>
+                          </li>`;
               $('#grand_children').append(gHtml);
               num += 1;
             } else {
@@ -93,6 +93,15 @@ $(function(){
         $('#grand_children').empty();
       }
     });
+
+    $('.contents__middle__category__names__list').click(function() {
+      var speed = 400; 
+      var href= $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      $('body,html').animate({scrollTop:position}, speed, 'swing');
+      return false;
+  });
 
   });
 });

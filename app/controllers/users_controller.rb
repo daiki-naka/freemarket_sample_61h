@@ -3,14 +3,15 @@ class UsersController < ApplicationController
   
   def index
   end
-
-  def edit
-  end
   
   def card
   end
 
   def logout
+  end
+
+  def exhibit_list
+    @products = Product.where(user_id: current_user.id)
   end
 
   def identification

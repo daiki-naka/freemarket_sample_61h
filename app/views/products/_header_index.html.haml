@@ -12,13 +12,13 @@
     .header-inner__bottom
       .header-inner__bottom__search
         .header-inner__bottom__search--categories
-          = link_to '#', class: 'category' do
+          .category
             = image_tag 'https://i.gyazo.com/a8ab7bb03ef6cd322006bffe7eb04005.png',class: ''
             カテゴリーから探す
           %ul#parents
             - parents.each do |parent|
               %li.parent
-                %a.parent--text{data:{category:{id: "#{parent.id}"}}, href: "#"} #{parent.name}
+                = link_to "#{parent.name}", category_path(parent.id), class:"parent--text", data: {"category-id" => "#{parent.id}"}
             %li.parent
               = link_to "カテゴリ一覧", "#", class: "parent--text"
             %ul#children
@@ -29,67 +29,74 @@
             ブランドから探す
           %ul.brands
             %li.brands-list
-              = link_to "シャネル", "#", class: "brands-list--name"
+              = link_to "シャネル", brand_path(id: 249), class: "brands-list--name"
             %li.brands-list
-              = link_to "ナイキ", "#", class: "brands-list--name"
+              = link_to "ナイキ", brand_path(id: 252), class: "brands-list--name"
             %li.brands-list
-              = link_to "ルイ ヴィトン", "#", class: "brands-list--name"
+              = link_to "ルイ ヴィトン", brand_path(id: 250), class: "brands-list--name"
             %li.brands-list
-              = link_to "シュプリーム", "#", class: "brands-list--name"
+              = link_to "シュプリーム", brand_path(id: 251), class: "brands-list--name"
             %li.brands-list
-              = link_to "アディダス", "#", class: "brands-list--name"
+              = link_to "アディダス", brand_path(id: 42), class: "brands-list--name"
             %li.brands-list
               = link_to "ブランド一覧", "#", class: "brands-list--name"
-      %ul.header-inner__bottom__info
-        %li.header-inner__bottom__info--like
-          = link_to '#', class: 'like' do
-            %i.far.fa-heart.fa-lg.like--icon
-            いいね！一覧
-        %li.header-inner__bottom__info--notice
-          = link_to "#", class: 'notice' do
-            %i.far.fa-bell.fa-lg.notice--icon
-            お知らせ
-        %li.header-inner__bottom__info--todo
-          = link_to '#', class: 'todo' do
-            %i.fas.fa-check.fa-lg.todo--icon
-            やることリスト
-          = image_tag '/images/todo_image.png', class:"header-inner__bottom__info--todo--box"
-        %li.header-inner__bottom__info--mypage
-          = link_to users_path, class: 'mypage' do
-            = image_tag 'mypage.png', class: 'mypage--icon'
-            マイページ
-          .mypage-contents
-            = image_tag 'mypage.png', class: 'mypage-contents--icon'
-            .mypage-contents__bgimage
-            .mypage-contents__main
-              .mypage-contents__main--name  
-                = current_user.nickname
-              .mypage-contents__main--info.clearfix
-                .mypage-contents__main--info--evaluation
-                  評価：０
-                .mypage-contents__main--info--exhibit
-                  = "出品数：#{current_user.products.length}"
-              .mypage-contents__main--sales.clearfix
-                .mypage-contents__main--sales--text
-                  売上金
-                .mypage-contents__main--sales--value
-                  ¥0
-                %i.fas.fa-chevron-right.mypage-contents__main--sales--icon
-              .mypage-contents__main--point.clearfix
-                .mypage-contents__main--point--text
-                  ポイント
-                .mypage-contents__main--point--value
-                  P0
-                %i.fas.fa-chevron-right.mypage-contents__main--sales--icon
-            .mypage-contents__form
-              = link_to "いいね！一覧", "#", class: "mypage-form--content"
-              %i.fas.fa-chevron-right.mypage-contents__form--icon
-            .mypage-contents__form
-              = link_to "出品した商品 - 出品中", "#", class: "mypage-form--content"
-              %i.fas.fa-chevron-right.mypage-contents__form--icon
-            .mypage-contents__form
-              = link_to "出品した商品 - 取引中", "#", class: "mypage-form--content"
-              %i.fas.fa-chevron-right.mypage-contents__form--icon
-            .mypage-contents__form
-              = link_to "出品した商品 - 売却済み", "#", class: "mypage-form--content"
-              %i.fas.fa-chevron-right.mypage-contents__form--icon
+      - if user_signed_in?
+        %ul.header-inner__bottom__info
+          %li.header-inner__bottom__info--like
+            = link_to '#', class: 'like' do
+              %i.far.fa-heart.fa-lg.like--icon
+              いいね！一覧
+          %li.header-inner__bottom__info--notice
+            = link_to "#", class: 'notice' do
+              %i.far.fa-bell.fa-lg.notice--icon
+              お知らせ
+          %li.header-inner__bottom__info--todo
+            = link_to '#', class: 'todo' do
+              %i.fas.fa-check.fa-lg.todo--icon
+              やることリスト
+            = image_tag '/images/todo_image.png', class:"header-inner__bottom__info--todo--box"
+          %li.header-inner__bottom__info--mypage
+            = link_to users_path, class: 'mypage' do
+              = image_tag 'mypage.png', class: 'mypage--icon'
+              マイページ
+            .mypage-contents
+              = image_tag 'mypage.png', class: 'mypage-contents--icon'
+              .mypage-contents__bgimage
+              .mypage-contents__main
+                .mypage-contents__main--name  
+                  = current_user.nickname
+                .mypage-contents__main--info.clearfix
+                  .mypage-contents__main--info--evaluation
+                    評価：０
+                  .mypage-contents__main--info--exhibit
+                    = "出品数：#{current_user.products.length}"
+                .mypage-contents__main--sales.clearfix
+                  .mypage-contents__main--sales--text
+                    売上金
+                  .mypage-contents__main--sales--value
+                    ¥0
+                  %i.fas.fa-chevron-right.mypage-contents__main--sales--icon
+                .mypage-contents__main--point.clearfix
+                  .mypage-contents__main--point--text
+                    ポイント
+                  .mypage-contents__main--point--value
+                    P0
+                  %i.fas.fa-chevron-right.mypage-contents__main--sales--icon
+              .mypage-contents__form
+                = link_to "いいね！一覧", "#", class: "mypage-form--content"
+                %i.fas.fa-chevron-right.mypage-contents__form--icon
+              .mypage-contents__form
+                = link_to "出品した商品 - 出品中", exhibit_list_user_path(id: current_user.id), class: "mypage-form--content"
+                %i.fas.fa-chevron-right.mypage-contents__form--icon
+              .mypage-contents__form
+                = link_to "出品した商品 - 取引中", "#", class: "mypage-form--content"
+                %i.fas.fa-chevron-right.mypage-contents__form--icon
+              .mypage-contents__form
+                = link_to "出品した商品 - 売却済み", "#", class: "mypage-form--content"
+                %i.fas.fa-chevron-right.mypage-contents__form--icon
+      - else  
+        %ul.header-inner__bottom__info
+          %li.header-inner__bottom__info--signup
+            = link_to '新規会員登録', new_user_registration_path, class: 'header-inner__bottom__info--signup--btn'
+          %li.header-inner__bottom__info--signin
+            = link_to 'ログイン', new_user_session_path, class: 'header-inner__bottom__info--signin--btn'

@@ -498,6 +498,42 @@ font-family: Arial, Helvetica, sans-serif;
           visibility: visible;
           pointer-events: auto;
         }
+        &--signup{
+          margin: 10px 10px 0 0;
+          &--btn{
+            display: block;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+          } 
+        }
+        &--signin{
+          margin-top: 10px;
+          &--btn{
+            display: block;
+            border: 1px solid #0099e8;
+            background: #fff;
+            color: #0099e8;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            @include transition;
+          }
+          .header-inner__bottom__info--signin--btn:hover{
+            @include transition;
+            background: #0099e8;
+            color: #fff;
+          }
+        }
       }
     }
   }

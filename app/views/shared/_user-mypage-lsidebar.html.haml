@@ -17,7 +17,7 @@
         = link_to "出品する", new_product_path, class: "mypage__nav--list--index--menu",data: {"turbolinks" => false}
         %i.fas.fa-chevron-right.mypage__nav--list--index--icon
       %li.mypage__nav--list--index
-        = link_to "出品した商品 - 出品中", "#", class: "mypage__nav--list--index--menu"
+        = link_to "出品した商品 - 出品中", exhibit_list_user_path(id: current_user.id), class: "mypage__nav--list--index--menu"
         %i.fas.fa-chevron-right.mypage__nav--list--index--icon
       %li.mypage__nav--list--index
         = link_to "出品した商品 - 取引中", "#", class: "mypage__nav--list--index--menu"
@@ -71,7 +71,7 @@
         = link_to "メール/パスワード", "#", class: "mypage__nav--list--index--menu"
         %i.fas.fa-chevron-right.mypage__nav--list--index--icon
       %li.mypage__nav--list--index
-        = link_to "本人情報", "#", class: "mypage__nav--list--index--menu"
+        = link_to "本人情報", identification_user_path(id: current_user.id), class: "mypage__nav--list--index--menu"
         %i.fas.fa-chevron-right.mypage__nav--list--index--icon
       %li.mypage__nav--list--index
         = link_to "電話番号の確認", "#", class: "mypage__nav--list--index--menu"
