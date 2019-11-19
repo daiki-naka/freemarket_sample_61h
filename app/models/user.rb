@@ -7,21 +7,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
   has_many :cards
+  has_many :sns_credentials
 
-def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
-
-    unless user
-      user = User.create(
-        uid:          auth.uid,
-        provider:     auth.provider,
-        email:        auth.info.email,
-        password:     Devise.friendly_token[0, 20]
-      )
-    end
-
-    user
-  end
 
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PASSWORD_REGEX =              /\A(?=.*?[a-z])(?=.*?\d)(?=.*?\W)[!-~]+\z/i
@@ -53,5 +40,56 @@ def self.find_for_oauth(auth)
   validates :address,                 presence: true, length: {maximum: 125}, on: :validates_step3
   validates :building_name,           length: {maximum: 125}, on: :validates_step3
   validates :d_phone_number,          length: {maximum: 20}, on: :validates_step3
+
+  def self.without_sns_data(auth)
+    user = User.where(email: auth.info.email).first
+
+      if user.present?
+        sns = SnsCredential.create(
+          uid: auth.uid,
+          provider: auth.provider,
+          user_id: user.id
+        )
+      else
+        user = User.new(
+          nickname: auth.info.name,
+          email: auth.info.email,
+          password: Devise.friendly_token.first(7)
+        )
+        sns = SnsCredential.new(
+          uid: auth.uid,
+          provider: auth.provider
+        )
+      end
+      return { user: user ,sns: sns}
+    end
+
+   def self.with_sns_data(auth, snscredential)
+    user = User.where(id: snscredential.user_id).first
+    unless user.present?
+      user = User.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
+        password: Devise.friendly_token.first(7)
+      )
+    end
+    return {user: user}
+   end
+
+   def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      user = with_sns_data(auth, snscredential)[:user]
+      sns = snscredential
+    else
+      user = without_sns_data(auth)[:user]
+      sns = without_sns_data(auth)[:sns]
+    end
+    return { user: user ,sns: sns}
+  end
+
+
 end
 

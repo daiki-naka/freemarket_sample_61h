@@ -4,9 +4,9 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email', info_fields: 'email', callback_url: "http://localhost:3000/users/auth/facebook/callback"
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], redirect_uri: "http://localhost:3000/users/auth/google_oauth2/callback"
-  OmniAuth.config.logger = Rails.logger if Rails.env.development? 
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'] #, scope: 'email' #, info_fields: 'email', callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], skip_jwt: true #, redirect_uri: "http://localhost:3000/users/auth/google_oauth2/callback"
+  # OmniAuth.config.logger = Rails.logger if Rails.env.development? 
   # config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], scope: 'email', redirect_uri: "#{ENV['HOST']}/users/auth/google_oauth2/callback"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
