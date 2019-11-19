@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   require "payjp"
+  before_action :authenticate_user!
   before_action :set_card
 
 
@@ -38,7 +39,7 @@ class CardsController < ApplicationController
   end
   
   def new   # カード登録画面
-    redirect_to action: "index" if card.present?
+    redirect_to action: "index" if @card.present?
   end
 
   def create  # カード登録処理

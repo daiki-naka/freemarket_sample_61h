@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.integer "price", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
+    t.integer "brand_id"
     t.string "product_size"
     t.integer "brand_id"
   end

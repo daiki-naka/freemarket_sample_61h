@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :pages, only: [:index, :new]
   resources :cards, only: [:index, :new, :create, :destroy]
+  resources :categories, only: [:show]
+  resources :brands, only: [:show]
+
   resources :products do
     member do
       get 'product_show'
@@ -29,6 +32,10 @@ Rails.application.routes.draw do
       get 'signup/step3'
       get 'signup/step4'
       get 'signup/complete'
+      get 'children_category', defaults: { format: 'json' }
+      get 'grandchild_category', defaults: { format: 'json' }
+      get 'product_size_brand', defaults: { format: 'json' }
+      get 'brand_search', defaults: { format: 'json' }      
     end
   end
 end

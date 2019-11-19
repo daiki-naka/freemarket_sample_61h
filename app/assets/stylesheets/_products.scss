@@ -120,6 +120,7 @@
                   right: 0;
                   bottom: 0;
                   margin: auto;
+                  height: 100%;
                   width: 100%;
                   vertical-align: bottom;
                 }
@@ -129,35 +130,19 @@
         }
 
         &__dots {
-          line-height: 0;
           &__dot {
-            opacity: 1;
-            cursor: default;
-            width: 60px;
-            height: 60px;
             max-height: none;
             position: relative;
             overflow: hidden;
             display: inline-block;
-            span {
-              display: none;
-            }
-            &__inner {
-              position: static;
+            &__image {
+              position: absolute;
+              top: 0;
+              left: 50%;
               width: auto;
-              height: auto;
-              padding: 0;
-              overflow: hidden;
-              pointer-events: none;
-              &__image {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                width: auto;
-                height: 100%;
-                transform: translate(-50%, 0);
-                vertical-align: bottom;
-              }
+              height: 100%;
+              transform: translate(-50%, 0);
+              vertical-align: bottom;
             }
           }
         }
