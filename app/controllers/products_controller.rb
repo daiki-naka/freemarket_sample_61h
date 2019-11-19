@@ -55,7 +55,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-   #  render controller:  "ImagesController", action: "show"
     @user = @product.user
     @other_products = @user.products.where.not(id: @product.id)
     @ordered_other_products = @other_products.order('id DESC').limit(6)
@@ -64,6 +63,17 @@ class ProductsController < ApplicationController
     @child_category_id = @product.category.ancestry[/\/.*/, 0].sub(/\//,"")
     @child_category_name = Category.find(@child_category_id).name
     @same_category_products = Product.where(category_id: "#{@product.category_id}").where.not(id: @product.id).order('id DESC').limit(6)
+    @reverse_ordered_products = Product.order('id DESC')
+    if Product.where('id <?',@product.id).present?
+      @previous_product = @reverse_ordered_products.where('id < ?',@product.id).first
+    else
+      @previous_product = Product.order('id DESC').first
+    end  
+    if Product.where('id >?',@product.id).present?
+      @next_product = Product.where('id >?',@product.id).first
+    else
+      @next_product = Product.order('id ASC').first
+    end
   end
 
   def create
@@ -189,5 +199,4 @@ class ProductsController < ApplicationController
       end  
     end
   end
-  
 end

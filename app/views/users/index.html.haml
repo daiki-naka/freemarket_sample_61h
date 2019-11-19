@@ -1,4 +1,4 @@
-= render 'products/header_index'
+= render 'shared/header_index'
 %html#mypage-all
   %body#mypage-show
     %nav.bread-crumbs
@@ -111,7 +111,7 @@
                     過去の取引
       = render 'shared/user-mypage-lsidebar'
 = render 'shared/exhibit-icon'
-= render 'products/footer'
+= render 'shared/footer'
 :javascript
   $('.active-text-right').on('click',function(){
   $('.tab-content').hide();
