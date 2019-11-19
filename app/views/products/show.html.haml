@@ -1,6 +1,7 @@
 %html
   %body#item-detail
     %header
+      = render partial: "shared/header_index" 
     %section.item
       %h1.item__name 
         = @product.name
@@ -175,3 +176,5 @@
         %li.pos-bottom__list__right-part
           %span
             = "#{@product.name}" 
+    %footer
+      = render partial: "shared/footer"
