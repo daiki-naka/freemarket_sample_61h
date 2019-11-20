@@ -184,14 +184,4 @@ class SignupController < ApplicationController
     return birthday
   end
 
-  def login(email, password)
-    @user = User.find_by(email: email)
-    if @userId && @userId.authenticate(password)
-      session[:user_id] = @userId.id
-      return true
-    else
-      return false
-    end
-  end
-
 end
