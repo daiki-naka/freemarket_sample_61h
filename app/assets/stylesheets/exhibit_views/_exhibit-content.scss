@@ -144,6 +144,17 @@ select{
             top: 65px;
             left: 0px;
           }
+          &--default{
+            padding:0 10px;
+            pointer-events: none;
+            text-align: center;
+            font-size: 15px;
+            width: 700px;
+            position: absolute;
+            z-index: 5;
+            top: 65px;
+            left: 80px;
+          }
         }
       }
       &__name{
@@ -484,6 +495,29 @@ select{
   }
 }
 
+#brands-search-result-edit{
+  width: 108%;
+  max-height: 280px;
+  display: none;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+  background: #fff;
+  overflow: auto;
+  position: absolute;
+  z-index: 10;
+  .brand-form{
+    width: 100%;
+    height: 50px;
+    padding: 16px 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .brand-form:hover{
+    color: #fff;
+    background-color: rgb(0, 127, 212);
+  }
+}
+
 .img-box{
   width: 700px;
   margin: 0;
@@ -496,6 +530,7 @@ select{
       height: 130px;
       width: 100%;
       opacity: 0;
+      text-align: center;
       cursor: pointer;
       position: relative;
     }
@@ -550,5 +585,24 @@ select{
   font-size: 15px;
   margin-top: 5px;
   font-weight: 100;
+}
+
+.img-box{
+  width: 700px;
+  margin: 0;
+  background-color: #f5f5f5;
+  border: 1px dashed #ccc;
+  box-sizing: border-box;
+  margin: 0 0 0 10px;
+  .view_box{
+    .file_edit{
+      height: 130px;
+      width: 100%;
+      opacity: 0;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+    }
+  }
 }
 

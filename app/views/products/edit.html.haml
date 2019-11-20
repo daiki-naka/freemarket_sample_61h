@@ -1,5 +1,5 @@
 = render "exhibit-header"
-= form_with model: @product, local: true do |f|
+= form_for (@product) do |f|
   #error
   .exhibit
     .exhibit__container
@@ -15,13 +15,22 @@
               .exhibit-product__view--img
                 .sell-upload-items-container
                   .sell-upload-items.have-item-0
-                    %ul               
+                    %ul 
                 .exhibit-product__view--img__box
                   = f.fields_for :images do |i|
-                    #image-contents.img-box
+                    #image-contents.img-box{ style:"width: 128px;"}
                       .view_box
-                        = i.file_field :picture, class:"file"
-                .exhibit-product__view--img--text 
+                        %input#product_images_attributes_0_picture.file_edit{ name: "product[images_attributes][0]",  type:"file", value: "#{@product.images[0]}"}/
+                        .img_view
+                          %img.img{ src: "#{@product.images[0].picture.url}"}/
+                          .view_option
+                            .view_option--edit 編集
+                            .view_option--delete
+                              .img_del_edit 削除
+                    #image-contents.img-box.test{ style: "width: 542px;"}
+                      .view_box
+                        = i.file_field :picture, class:"file_edit"
+                .exhibit-product__view--img--default
                   ドラッグアンドドロップ
                   %br
                   またはクリックでファイルをアップロード
@@ -32,13 +41,13 @@
                   商品名
                   %span.require 必須
                 %div
-                  = f.text_field :name, class: "input-name choosing", placeholder: "商品名（必須 40文字まで)", value: "#{@products.name}"
+                  = f.text_field :name, class: "input-name choosing", placeholder: "商品名（必須 40文字まで)", value: "#{@product.name}"
               #error-log-name.error
               .exhibit-product__name--explanation
                 %label
                   商品の説明
                   %span.require 必須
-                = f.text_area :introduction, class: "input-explanation choosing", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "#{@products.introduction}"  ,rows: "5"
+                = f.text_area :introduction, class: "input-explanation choosing", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "#{@product.introduction}"  ,rows: "5"
               #error-log-introduction.error
             .exhibit-product__detail.clearfix
               %h3.exhibit-product__detail--head 商品の詳細
@@ -50,18 +59,18 @@
                   #category-form
                     .select-box
                       %i.icon-deco.fa.fa-angle-down.fa-2x
-                      = f.collection_select :category, Category.all.order("id ASC").limit(13), :name, :name,{prompt: "---"}, class: "select-box--menu choosing", id: "parent-edit-form1"
+                      = f.collection_select :category, Category.all.order("id ASC").limit(13), :name, :name,{prompt: "---"}, class: "select-box--menu choosing parent-edit-form1", id: "parent-form"
                       %input{type: "hidden", value: @p_category.name, class: 'category-p-status' }/
-                  #category-form
+                  #children_wrapper
                     .select-box
                       %i.icon-deco.fa.fa-angle-down.fa-2x
-                      = f.collection_select :category, @p_category.children, :name, :name,{prompt: "---"}, class: "select-box--menu choosing", id: "parent-edit-form2"
-                      %input{type: "hidden", value: @c_category.name, class: 'category-c-status' }/
-                  #category-form
+                      = f.collection_select :category, @p_category.children, :id, :name,{prompt: "---"}, class: "select-box--menu choosing parent-edit-form2", id: "child_category"
+                      %input{type: "hidden", value: @c_category.id, class: 'category-c-status' }/
+                  #grandchildren_box
                     .select-box
                       %i.icon-deco.fa.fa-angle-down.fa-2x
-                      = f.collection_select :category, @c_category.children, :name, :name,{prompt: "---"}, class: "select-box--menu choosing", id: "parent-edit-form3"
-                      %input{type: "hidden", value: @g_category.name, class: 'category-g-status' }/
+                      = f.collection_select :category, @c_category.children, :id, :name,{prompt: "---"}, class: "select-box--menu choosing parent-edit-form3", id: "grandchild_category"
+                      %input{type: "hidden", value: @g_category.id, class: 'category-g-status' }/
                   - if @clothe_default_size 
                     #size_box.sizeform-box.margin-top-40>
                       %label
@@ -90,8 +99,49 @@
                           %span.any
                             任意
                         .select-box
-                          %input#input_brand{ name:"product[brand_id]", type:"hidden", value: ""}/
-                          %input#brands-search-form.select-box--menu.choosing{ value: @brand_name, class: "product_brand_name", placeholder: "例）シャネル"}/
+                          %input#input_brand{:name => "product[brand_id]", :type => "hidden", :value => ""}/
+                          - if @brand != nil
+                            %input#brands-search-form.select-box--menu.choosing{ value: @brand.name, class: "product_brand_name", placeholder: "例）シャネル"}/
+                          - else 
+                            %input#brands-search-form.select-box--menu.choosing{ value:"", class: "product_brand_name", placeholder: "例）シャネル"}/
+                          #brands-search-result
+                  - else 
+                    #size_box.sizeform-box.margin-top-40>
+                      %label
+                        サイズ
+                        %span.require
+                          必須
+                      .select-box.margin-top-40
+                        %i.fa.fa-angle-down.fa-2x.icon-deco
+                        %input{type: "hidden", value: @default_size , class: 'brand_clothe_name' }/
+                        %select#size.select-box--menu.choosing{name:"product[product_size]"}
+                          %option{value: "---"} ---
+                          %option{value: "23.5cm以下"} 23.5cm以下
+                          %option{value: "24.0cm"} 24.0cm
+                          %option{value: "24.5cm"} 24.5cm
+                          %option{value: "25.0cm"} 25.0cm
+                          %option{value: "25.0cm"} 25.0cm
+                          %option{value: "25.5cm"} 25.5cm
+                          %option{value: "26.0cm"} 26.0cm
+                          %option{value: "26.5cm"} 26.5cm
+                          %option{value: "27.0cm"} 27.0cm
+                          %option{value: "27.5cm"} 27.5cm
+                          %option{value: "28.0cm"} 28.0cm
+                          %option{value: "28.5cm"} 28.5cm
+                          %option{value: "29.0cm"} 29.0cm
+                          %option{value: "29.5cm以上"} 29.5cm以上
+                      #error-log-product_size.error
+                      .margin-top-40.width-92
+                        %label
+                          ブランド
+                          %span.any
+                            任意
+                        .select-box
+                          %input#input_brand{ name:"product[brand_id]", type:"hidden", value: "#{@brand.id}"}/
+                          - if @brand != nil
+                            %input#brands-search-form.select-box--menu.choosing{ value: @brand.name, class: "product_brand_name", placeholder: "例）シャネル"}/
+                          - else 
+                            %input#brands-search-form.select-box--menu.choosing{ value:"", class: "product_brand_name", placeholder: "例）シャネル"}/
                           #brands-search-result
                 .exhibit-product__detail__box--group.margin-top-40
                   %label
@@ -100,7 +150,7 @@
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
                     = f.select :status, [['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'],['目立った傷や汚れなし', '目立った傷や汚れなし'], ['やや傷や汚れあり', 'やや傷や汚れあり'],['傷や汚れあり', '傷や汚れあり'], ['全体的に状態が悪い', '全体的に状態が悪い']],  {prompt: "---"}, { id: "input-status", class: "select-box--menu choosing"}
-                    %input{type: "hidden", value: @products.status, class: 'product-status' }/
+                    %input{type: "hidden", value: @product.status, class: 'product-status' }/
                 #error-log-status.error
             .exhibit-product__delivery.clearfix
               %h3.exhibit-product__delivery--head 配送について
@@ -113,8 +163,8 @@
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
                     = f.select :d_charge, [['送料込み(出品者負担)', '送料込み(出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {prompt: "---"}, { id: "delivery_form", class: "select-box--menu choosing" }
-                    %input{type: "hidden", value: @products.d_charge, class: 'product-d_charge' }/
-                    %input{type: "hidden", value: @products.d_method, class: 'product-d_method' }/
+                    %input{type: "hidden", value: @product.d_charge, class: 'product-d_charge' }/
+                    %input{type: "hidden", value: @product.d_method, class: 'product-d_method' }/
                 #error-log-d_charge.error
                 .exhibit-product__delivery__box__group.margin-top-40
                   %label
@@ -123,7 +173,7 @@
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
                     = f.collection_select :d_origin, Prefecture.all, :name, :name, {prompt: "---"}, { id: "input-origin", class: "select-box--menu choosing" }
-                    %input{type: "hidden", value: @products.d_origin, class: 'product-d_origin' }/
+                    %input{type: "hidden", value: @product.d_origin, class: 'product-d_origin' }/
                 #error-log-d_origin.error
                 .exhibit-product__delivery__box__group.margin-top-40
                   %label
@@ -132,7 +182,7 @@
                   .select-box
                     %i.icon-deco.fa.fa-angle-down.fa-2x
                     = f.select :d_interval, [['1~2日で発送', '1~2日で発送'], ['2~3日で発送', '2~3日で発送'], ['4~7日で発送', '4~7日で発送']], {prompt: "---"}, { id: "input-interval", class: "select-box--menu choosing" }
-                    %input{type: "hidden", value: @products.d_interval, class: 'product-d_interval' }/
+                    %input{type: "hidden", value: @product.d_interval, class: 'product-d_interval' }/
                 #error-log-d_interval.error
             .exhibit-product__price.clearfix
               %h3.exhibit-product__price--head 販売価格(300〜9,999,999)
@@ -147,7 +197,7 @@
                       ¥
                       %div
                         = f.text_field :price, class: "choosing input-price", placeholder: "例）300",value: "", id: "price-form"
-                        %input{type: "hidden", value: @products.price, class: 'product-d_price' }/
+                        %input{type: "hidden", value: @product.price, class: 'product-d_price' }/
                   #error-log-price.error
                   %li.product-price--fee.clearfix
                     .p-left 販売手数料 (10%)
@@ -170,6 +220,6 @@
                   また、出品をもちまして
                   = link_to "加盟店規約", "https://www.mercari.com/jp/seller_terms/"
                   に同意したことになります。
-              = f.submit "出品する", class: "btn-submit", id: "product-create-btn", name: nil
+              = f.submit "変更する", class: "btn-submit", id: "product-create-btn", name: nil
               = link_to "もどる", root_path, class: "btn-return"
 = render "exhibit-footer"

@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_product, only: [:show, :product_show, :destroy]
+  before_action :set_product, only: [:show, :product_show, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
@@ -20,20 +20,28 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @products = Product.find_by(id: params[:id])
-    @default_size = @products.product_size
-    @category_id = @products.category_id
+    @product = Product.find_by(id: params[:id])
+    @default_size = @product.product_size
+    @category_id = @product.category_id
     @g_category = Category.find(@category_id)
     @c_category = @g_category.parent
     @p_category = @c_category.parent
     @Categories = @p_category.children
     @clothe_default_size = @default_size.is_a? String
-    @brand_id = @products.brand_id
-    @brand = Brand.find(@brand_id)
-    @brand_name = @brand.name
+    if @product.brand_id != nil
+      @brand_id = @product.brand_id
+      @brand = Brand.find(@product.brand_id)
+    end
     @all_brands = Brand.all
   end
 
+  def update
+    if @product.update(product_params)
+      redirect_to product_show_product_path, notice: "変更しました。"
+    else
+      render :edit
+    end
+  end
 
   def create
     @product = Product.new(product_params)
@@ -92,21 +100,7 @@ class ProductsController < ApplicationController
       @brands = @brand_key2
     end
   end
-
-  def brand_edit
-    binding.pry
-    @brand_name = Brand.where('name LIKE ?', "%#{params[:keyword]}%")
-    @brand_key1 = Brand.where('keyword1 LIKE ?', "%#{params[:keyword]}%")
-    @brand_key2 = Brand.where('keyword2 LIKE ?', "%#{params[:keyword]}%")
-    if @brand_name != []
-      @brands = @brand_name
-    elsif @brand_key1 != []
-      @brands = @brand_key1
-    else
-      @brands = @brand_key2
-    end
-  end
-    
+  
   def buy # 購入確認
     set_card_information
   end
