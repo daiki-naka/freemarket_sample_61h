@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_product, only: [:show, :product_show, :destroy]
-  before_action :set_category, only: [:index, :product_show, :destroy]
+  before_action :set_product, only: [:show, :buy, :pay, :product_show, :destroy]
+  before_action :set_category, only: [:index, :show, :product_show, :destroy]
   before_action :authenticate_user!, only: :new
   
 
@@ -145,7 +145,7 @@ class ProductsController < ApplicationController
 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     Payjp::Charge.create(
-      amount: 1000, # 値段
+      amount: @product.price, 
       customer: @card.customer_id,
       currency: 'jpy',
     )

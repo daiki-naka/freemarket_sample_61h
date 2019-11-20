@@ -1,0 +1,39 @@
+.products__content--buy--address
+  .products__content--buy--address--inner
+    %p.products__content--buy--address--inner--title
+      配送先
+    %address.products__content--buy--address--inner--address
+      %p
+        = "〒#{current_user.postal_code.to_s[0..2]}-#{current_user.postal_code.to_s[3..6]}"
+      %p 
+        = "#{current_user.prefecture} #{current_user.city} #{current_user.address}"
+      %p 
+        = "#{current_user.last_name} #{current_user.name}"
+    = link_to '#', class: 'products__content--buy--address--inner--address--link' do
+      .products__content--buy--address--inner--address--link--text
+        %small.address--link--small--text 変更する
+        %i.fas.fa-chevron-right
+.products__content--buy--address
+  .products__content--buy--address--inner
+    %p.products__content--buy--address--inner--title
+      支払い方法
+    - if @card_information.present?
+      %address.products__content--buy--address--inner--address
+        %p 
+          = "*****************" + @card_information.last4
+        %p  
+          - exp_month = @card_information.exp_month.to_s
+          - exp_year = @card_information.exp_year.to_s.slice(2,2)
+          = exp_month + "/" + exp_year
+        = render 'cards/card_logo'
+      = link_to '/cards', class: 'products__content--buy--address--inner--address--link' do
+        .products__content--buy--address--inner--address--link--text
+          %small.address--link--small--text 変更する
+          %i.fas.fa-chevron-right
+    - else
+      %address.products__content--buy--address--inner--address
+        %br /
+      = link_to '/cards/new', class: 'products__content--buy--address--inner--address--link' do
+        .products__content--buy--address--inner--address--link--text
+          %small.address--link--small--text 変更する
+          %i.fas.fa-chevron-right

@@ -1,6 +1,6 @@
 %html#mypage-all
   %body#mypage-show
-    -# %header
+    = render partial: 'products/header_index', locals: {parents:  @parents}
     .main
       .l-content
         .mypage__user--card--header
@@ -28,3 +28,5 @@
                 %small.user-card-small-text 支払い方法について
                 %i.fas.fa-chevron-right
       = render 'shared/user-mypage-lsidebar'
+    = render 'shared/exhibit-icon'
+    = render partial: 'shared/footer'
