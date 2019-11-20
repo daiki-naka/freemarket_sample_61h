@@ -11,6 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_11_18_113955) do
+ActiveRecord::Schema.define(version: 2019_11_15_065024) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +53,16 @@ ActiveRecord::Schema.define(version: 2019_11_18_113955) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_likes_on_user_id_and_product_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +76,20 @@ ActiveRecord::Schema.define(version: 2019_11_18_113955) do
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+    t.string "name", null: false
+    t.text "introduction", null: false
+    t.string "status", null: false
+    t.string "d_charge", null: false
+    t.string "d_method", null: false
+    t.string "d_origin", null: false
+    t.string "d_interval", null: false
+    t.integer "price", null: false
+    t.integer "category_id", null: false
+    t.integer "user_id", null: false
+    t.integer "brand_id"
+    t.string "product_size"
+    t.integer "likes_count", default: 0, null: false
+    t.integer "brand_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

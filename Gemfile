@@ -88,6 +88,7 @@ gem 'dotenv-rails'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn', '5.4.1'

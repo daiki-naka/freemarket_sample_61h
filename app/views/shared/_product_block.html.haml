@@ -1,18 +1,10 @@
-.product__block__wrapper
-  %ul.product__block__ul
-    %li.product__block__li
-      = link_to root_path, class: "product__block__li__link" do
-        .product__block__li__link__image
-          = image_tag 'https://i.pinimg.com/736x/8a/37/b1/8a37b165d067a5fd4fa304ebc5345f5c.jpg', class: 'product__block__li__link__image'
-          .product__block__li__link__price
-            ¥2,400
-        .product__block__li__link__title
-          冬セーター(ピンク)
-    %li.product__block__li
-      = link_to root_path, class: "product__block__li__link" do
-        .product__block__li__link__image
-          = image_tag 'https://www.rickis.com/dw/image/v2/AANE_PRD/on/demandware.static/-/Sites-product-catalog/default/dwbe4120dd/images/Rickis/general_apparel/7096ed5149jm18b_001_1.jpg?sw=635&sh=762&sm=fit', class: 'product__block__li__link__image'
-          .product__block__li__link__price
-            ¥2,400
-        .product__block__li__link__title
-          冬セーター(ピンク)
+%li.product__block__li
+  = link_to "#", class: "product__block__li__link" do
+    .product__block__li__link__image
+      - product.images.first(1).each do |image|
+        = image_tag image.picture.to_s, size: "188x188", alt: "picture", class: "product__block__li__link__image__picture"
+      .product__block__li__link__price
+        = "¥#{product.price.to_s(:delimited, delimiter: ',')}"
+    .product__block__li__link__title
+      .product__block__li__link__title__name
+        = product.name

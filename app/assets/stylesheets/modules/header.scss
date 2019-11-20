@@ -2,146 +2,537 @@
 font-family: Arial, Helvetica, sans-serif; 
 }
 
+@mixin transition{
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
 .header{
   background-color:white;
   height:100px;
   width:100vw;
   list-style: none;
   .header-inner{
+    width: 1020px;
+    height:100%;
+    margin: 0  auto;
+    padding: 8px 0px 0px;
     &__top{
-      height:50px;
-      width: 100%;
-      padding:6px 6px;
+      height:40px;
+      width:100%;
       display: flex;
-      justify-content: center;
       box-sizing:border-box;
       &__logo{
-      font-weight:light;
-      display: inline-block;
-      padding-right:40px;
+        float: left;
       }
       &__form{
-        display: inline-block;
-        width: 60%;
-        height: 50px;
-        margin-left:12px;
+        float: right;
+        width: 100%;
+        margin-left: 42px;
         form{
           background-color: rgb(250, 234, 236);
           width:100%;
           position: relative;
-          }    
-          input[class="form_search"]{
-            font-size:16px;
-            width:100%;
-            background-color: #f5f5f5;
-            border: 0.5px solid #999;
-            border-radius: 3px;
-            box-shadow: none;
-            height:40px;          
-            }
-          label.header-inner__top__form__search-icon_r{
-            font-size:20px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-          }
+        }    
+        input[class="form_search"]{
+          font-size:16px;
+          width:100%;
+          background-color: #f5f5f5;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          border-radius: 4px;
+          box-shadow: none;
+          height:40px;  
+          padding: 10px;        
         }
-    }    
-  &__bottom{
-    height:50px;
-    width:75%;
-    padding-left:13px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    position:relative;
-    &__left{
-      width:40%;
-      height:50px;
-      display: flex;
-      justify-content:space-between;
-      font-size:15px; 
-      font-weight:900;
-      color:black;
-      align-items: center;
-      &__category{
-        width:16%; 
-        position:absolute;
-        top:12px;
-        } 
-        &__list-icon{
-          color:red;
+        input[class="form_search"]:focus{
+          outline: none;
+          border-color: #1e7dd4;
         }
-      &__brand{
-        width:24%;
-        margin-left:12px;
-        position:absolute;
-        top:12px;
-        left:160px;
-        &__tag-icon_r{
-          position:relative;
-          span.h{
-          color: black;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 15px;
-          position:absolute;
-          top:0;
-          }  
+        label.header-inner__top__form__search-icon_r{
+          font-size:20px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
         }
-      }   
-  }
-    &__right{
-      width:60%;
-      height:50px;
-      display: flex;
-      justify-content: flex-end;
-      font-size: 15px;
-      align-items: center;
-      &__favitems{
-        width:22%;
-        display:flex;
-        justify-content: flex-end;
-        @import "listsetstyle";
-        }
-      &__notice{
-        display:flex;
-        justify-content: flex-end;
-        width: 20%;
-        @import "listsetstyle";
       }
-      &__todolist{
-        display:flex;
-        justify-content: flex-end;
-        width:28%;
-        @import "listsetstyle";
-        }
-      &__mypage{
-        width:30%;
-        display:flex;
-        justify-content: flex-start;
-        position:relative;
-        padding-left:55px;
-        &__icon{
-          .hm{
-          position:absolute;
-          top:10px;
-          padding-left:10px;
-          color: black;
-          font-weight: normal;
-          font-size: 15px;
+    }
+    &__bottom{
+      height: 52px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__search{
+        display: flex;
+        margin-top: 15px;
+        &--categories{
+          height: 100%;
+          width: 145px;
+          cursor: pointer;
+          position: relative;
+          .category{
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            vertical-align: baseline;
           }
-          .hm:hover{
-          opacity: 0.7;
-          color:blue;
+          #parents{
+            width: 700px;
+            position: absolute;
+            top: 37px;
+            z-index: 10;
+            visibility: hidden;
+            pointer-events: none;
+            .parent{
+              width: 220px;
+              line-height: 50px;
+              padding: 0 10px;
+              background-color: #fff;
+              box-shadow: 0px 2px 2px 0px #999;
+              &--text{
+                display: block;
+                color: #333;
+                text-decoration: none;
+                font-size: 14px;
+                height: 50px;
+                width: 220px;
+              }
+            }
+            #children {
+              height: 100%;
+              width: 220px;
+              position: absolute;
+              top: 0;
+              left: 200px;
+              background-color: #fff;
+              z-index: 15;
+              visibility: hidden;
+              pointer-events: none;
+              box-shadow: 0px 2px 2px 0px #999;
+              .child{
+                line-height: 30px;
+                padding: 0 10px;
+                &--text{
+                  height: 30px;
+                  width: 220px;
+                  display: block;
+                  color: #333;
+                  text-decoration: none;
+                  font-size: 14px;
+                }
+              }
+              #grand_children{
+                height: 100%;
+                width: 280px;
+                position: absolute;
+                top: 0;
+                left: 220px;
+                background-color: #fff;
+                z-index: 20;
+                visibility: hidden;
+                pointer-events: none;
+                box-shadow: 0px 2px 2px 0px #999;
+                .grand_child{
+                  line-height: 30px;
+                  padding: 0 10px;
+                  &--text{
+                    height: 30px;
+                    width: 280px;
+                    display: block;
+                    color: #333;
+                    text-decoration: none;
+                    font-size: 14px;
+                  }
+                }
+              }
+              ul#grand_children li {
+                background-color: #fff;
+              }
+              ul#grand_children li.selected {
+                background-color: rgba(204, 204, 204, 0.5);
+              }
+            }
+            #children:hover #grand_children{
+              visibility: visible;
+              pointer-events: auto;
+            }
+            #children li {
+              background-color: #fff;
+            }
+            #children li.selected {
+              background-color: rgba(204, 204, 204, 0.5);
+            }
+          }
+          #parents:hover #children{
+            visibility: visible;
+            pointer-events: auto;
+          }
+          #parents li {
+            background-color: #fff;
+          }
+          #parents li.selected {
+            background-color: rgb(234, 53, 45);
+            .parent--text{
+              color: #fff;
+            }
           }
         }
+        &--categories:hover .category{
+          color:#0099e8;
+        }
+        &--brands{
+          margin-left: 20px;
+          height: 100%;
+          cursor: pointer;
+          position: relative;
+          .brand{
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            vertical-align: baseline;
+          }
+          .brands{
+            width: 220px;
+            position: absolute;
+            z-index: 10;
+            top: 37px;
+            background-color: #fff;
+            visibility: hidden;
+            pointer-events: none;
+            box-shadow: 0px 2px 2px 0px #999;
+            .brands-list{
+              height: 45px;
+              width: 100%;
+              padding: 0 10px;
+              &--name{
+                text-decoration: none;
+                line-height: 45px;
+                font-size: 14px;
+                color: #333;
+              }
+            }
+            .brands-list:hover{
+              background-color: rgb(234, 53, 45);
+              .brands-list--name{
+                color: #fff;
+              }
+            }
+          }
+        }
+        &--brands:hover .brand{
+          color:#0099e8;
+        }
+        &--brands:hover .brands{
+          visibility: visible;
+          pointer-events: auto;
+        }
+      }
+      &__info{
+        display: flex;
+        line-height: 50px;
+        .like{
+          display: block;
+          height: 100%;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 0px 14px;
+          @include transition;
+          &--icon{
+            color: rgb(204, 204, 204);
+            margin-right: 5px;
+            height: 30px;
+            @include transition;
+          }
+        }
+        .like:hover{
+          color:#0099e8;
+          @include transition;
+        }
+        .like:hover .like--icon{
+          color:#0099e8;
+          @include transition;
+        }
+        .notice{
+          display: block;
+          height: 100%;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 0px 14px;
+          @include transition;
+          &--icon{
+            color: rgb(204, 204, 204);
+            margin-right: 5px;
+            height: 30px;
+            @include transition;
+          }
+        }
+        .notice:hover{
+          color:#0099e8;
+          @include transition;
+        }
+        .notice:hover .notice--icon{
+          color:#0099e8;
+          @include transition;
+        }
+        &--todo{
+          .todo{
+            display: block;
+            height: 100%;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 0px 14px;
+            position: relative;
+            @include transition;
+            &--icon{
+              color: rgb(204, 204, 204);
+              margin-right: 5px;
+              height: 30px;
+              @include transition;
+            }
+          }
+          .todo:hover{
+            color:#0099e8;
+            @include transition;
+          }
+          .todo:hover .todo--icon{
+            color:#0099e8;
+            @include transition;
+          }
+          &--box{
+            height: 240px;
+            width: 300px;
+            position: absolute;
+            top: 100px;
+            right: 250px;
+            z-index: 10;
+            visibility: hidden;
+            box-shadow: 0px 2px 2px 0px #999;
+          }
+        }
+        &--todo:hover .header-inner__bottom__info--todo--box{
+          visibility: visible;
+        }
+        &--mypage{
+          position: relative;
+          .mypage{
+            display: block;
+            height: 100%;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 0px 14px;
+            @include transition;
+            &--icon{
+              color: rgb(204, 204, 204);
+              margin-right: 5px;
+              height: 30px;
+              vertical-align:middle;
+            }
+          }
+          .mypage:hover{
+            color:#0099e8;
+            @include transition;
+          }
+          .mypage-contents{
+            position: absolute;
+            top:100%;
+            right: 10px;
+            width: 330px;
+            background-color: #fff;
+            z-index: 10;
+            box-shadow: 0px 2px 2px 0px #999;
+            visibility: hidden;
+            pointer-events: none;
+            &--icon{
+              height: 60px;
+              position: absolute;
+              top: 30px;
+              right: 135px;
+            }
+            &__bgimage{
+              height: 80px;
+              width: 100%;
+              background: url(/images/mypage_image.jpg);
+              background-position: bottom;
+            }
+            &__main{
+              height: 200px;
+              width: 100%;
+              padding: 0 10px 20px;
+              &--name{
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 17px;
+              }
+              &--info{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                &--evaluation{
+                  width: 46%;
+                  float: left;
+                  text-align: right;
+                  margin-right: 16px;
+                  font-size: 14px;
+                  cursor: pointer;
+                }
+                &--exhibit{
+                  float: left;
+                  font-size: 14px;
+                  cursor: pointer;
+                }
+              }
+              &--sales{
+                margin-top: 10px;
+                height: 45px;
+                width: 100%;
+                background-color:rgb(245, 245, 245);
+                padding: 0 25px 0 10px;
+                border: 0.5px solid rgb(230, 230, 230);
+                font-size: 14px;
+                font-weight: 100;
+                position: relative;
+                cursor: pointer;
+                &--text{
+                  float: left;
+                  line-height: 45px;
+                }
+                &--value{
+                  float: right;
+                  line-height: 45px;
+                }
+                &--icon{
+                  position: absolute;
+                  right: 7px;
+                  top: 18px;
+                  color: rgb(204, 204, 204);
+                }
+              }
+              &--sales:hover{
+                opacity: 0.8;
+              }
+              &--point{
+                height: 45px;
+                width: 100%;
+                background-color:rgb(245, 245, 245);
+                padding: 0 25px 0 10px;
+                border: 0.5px solid rgb(230, 230, 230);
+                font-size: 14px;
+                font-weight: 100;
+                position: relative;
+                cursor: pointer;
+                &--text{
+                  float: left;
+                  line-height: 45px;
+                }
+                &--value{
+                  float: right;
+                  line-height: 45px;
+                }
+                &--icon{
+                  position: absolute;
+                  right: 7px;
+                  top: 18px;
+                  color: rgb(204, 204, 204);
+                }
+              }
+              &--point{
+                opacity: 0.8;
+              }
+            }
+            &__form{
+              width: 100%;
+              padding-left: 20px;
+              border-top: 0.5px solid rgb(230, 230, 230);
+              position: relative;
+              cursor: pointer;
+              .mypage-form--content{
+                height: 50px;
+                line-height: 50px;
+                display: block;
+                width: 100%;
+                text-decoration: none;
+                font-size: 14px;
+                color: #333;
+              }
+              &--icon{
+                @include transition;
+                position: absolute;
+                right: 18px;
+                top: 18px;
+                color: rgb(204, 204, 204);
+              }
+            }
+            &__form:hover{
+              background-color:rgb(245, 245, 245);
+              .mypage-contents__form--icon{
+                @include transition;
+                color: #333;
+                position: absolute;
+                right: 15px;
+              }
+            }
+          }
+        }
+        &--mypage:hover .mypage-contents{
+          visibility: visible;
+          pointer-events: auto;
+        }
+        &--signup{
+          margin: 10px 10px 0 0;
+          &--btn{
+            display: block;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+          } 
+        }
+        &--signin{
+          margin-top: 10px;
+          &--btn{
+            display: block;
+            border: 1px solid #0099e8;
+            background: #fff;
+            color: #0099e8;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            @include transition;
+          }
+          .header-inner__bottom__info--signin--btn:hover{
+            @include transition;
+            background: #0099e8;
+            color: #fff;
+          }
         }
       }
     }
@@ -149,24 +540,14 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.h-link-icon{
-color:red; 
-}
 
 
-.h-link{
-color:black;
-text-decoration: none;
-font-weight: bold;
-font-size:15px;
-}
-
-.h-link:hover{
-opacity: 0.7;
-color:blue;
-}
 
 
-.h-deco{
-text-decoration: none;
-}
+
+
+
+
+
+
+

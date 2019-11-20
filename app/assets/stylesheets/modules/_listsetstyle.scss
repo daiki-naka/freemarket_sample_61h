@@ -1,45 +1,15 @@
 .listset{ 
-  pointer-events: none;
-    .h-link_r{
-    pointer-events: auto;
-    font-size: 15px;
-    color: black;
-    font-weight: normal;
-    }
     .fa-lg{
-    color:pink;
-    font-size:133%;
+    color:#ccc;
+    font-size:17px;
     }
-  }
-  .listset:hover{
-  opacity: 0.7;
-  .h-link_r:hover{
-  color:blue;
-  }
+    .h-link_r{
+      margin-left:5px;
+      font-size: 13px;
+      color: black;
+      font-weight: normal;
+      }
 }
 
-.listset2{ 
-  pointer-events: none;
-    .h-link_r{
-    pointer-events: auto;
-    }
-    .fa-lg{
-    color:pink;
-    font-size:133%;
-    }
-    .h-link_r2{
-    font-weight:normal;
-    color: black;
-    font-size: 15px;
-    }
-  }
-  .listset2:hover{
-  opacity: 0.7;
-   .h-link_r2:hover{
-   color:blue;
-   }
-   .h-link_r:hover{
-    color:blue;
-   }
-  }
+
 

@@ -2,18 +2,20 @@
 .session-content
   .session-content__section
     .session-content__section--registration
-      .session-content__section--registration--text
-        %a アカウントをお持ちでない方はこちら
-      .session-content__section--registration--btn
-        %a 新規会員登録
+      .session-content__section--registration--text アカウントをお持ちでない方はこちら
+      = link_to "新規会員登録", new_user_registration_path, class: "session-content__section--registration--btn"
     .session-content__section--inner
       .session-content__section--inner--btn
         .session-content__section--inner--btn--facebook
-          %i.fab.fa-facebook-square.fa-2x.facebook
-          = link_to "Facebookで登録する", "/users/auth/facebook",method: :post, class:"facebook-text"
+          .session-content__section--inner--btn--facebook--box
+            %i.fab.fa-facebook-square.fa-2x.facebook
+            = link_to "Facebookで登録する", "#", class:"facebook-text"
         .session-content__section--inner--btn--google
-          %i.fab.fa-google.fa-lg.google
-          = link_to "Googleで登録する", "/users/auth/google_oauth2", method: :post, class:"google-text"
+          .session-content__section--inner--btn--google--box
+            .google-icon
+              %i.fab.fa-google.fa-lg.google
+              %i.fab.fa-google.fa-lg.google
+            = link_to "Googleで登録する", "#", class:"google-text"
     .session-content__section--form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
@@ -23,3 +25,13 @@
         .actions
           = f.submit  "ログイン", id: "user-btn"
 = render 'signup/form-footer'
+%script{defer: "defer", src: "https://use.fontawesome.com/releases/v5.3.1/js/all.js"}
+%svg{style: "width:0;height:0;"}
+  %defs
+    %lineargradient#grad1{x1: "0%", x2: "50%", y1: "30%", y2: "0%"}
+      %stop{offset: "50%", "stop-color" => "#34a853"}
+      %stop{offset: "50%", "stop-color" => "#4285f4"}
+    %lineargradient#grad2{x1: "0%", x2: "50%", y1: "30%", y2: "0%"}
+      %stop{offset: "50%", "stop-color" => "#fbbc05"}
+      %stop{offset: "50%", "stop-color" => "#ea4335"}
+

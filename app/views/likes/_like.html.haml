@@ -1,0 +1,14 @@
+- if current_user.id != product.user_id
+  - if product.like?(current_user.id)
+    = form_for(product.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do
+      %i.fa.fa-flag.icon-item-detail2
+      %span.item__button-container__button-left__button-like__letter2 いいね！ 
+      %span.item__button-container__button-left__button-like__letter 
+        = @product.likes_count
+  - else
+    = form_for(product.likes.build, remote: true) do |f|
+      = hidden_field_tag :product_id, product.id do
+        %i.fas.fa-heart.faa-horizontal.animated.icon-item-detail 
+        %span.item__button-container__button-left__button-like__letter いいね！
+        %span.item__button-container__button-left__button-like__letter 
+          = @product.likes_count
