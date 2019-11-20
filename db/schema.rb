@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_11_20_050027) do
 ActiveRecord::Schema.define(version: 2019_11_15_065024) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count", default: 0, null: false
+    t.integer "brand_id"
     t.string "name", null: false
     t.text "introduction", null: false
     t.string "status", null: false
@@ -69,6 +72,16 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.integer "category_id", null: false
     t.integer "user_id", null: false
     t.string "product_size"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
     t.integer "brand_id"
     t.integer "likes_count", default: 0, null: false
   end
@@ -108,4 +121,5 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
   end
 
   add_foreign_key "cards", "users"
+  add_foreign_key "sns_credentials", "users"
 end

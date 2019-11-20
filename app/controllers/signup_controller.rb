@@ -18,6 +18,8 @@ class SignupController < ApplicationController
     session[:last_name_f]           = user_params[:last_name_f]
     session[:name_f]                = user_params[:name_f]
     session[:birthday]              = birthday
+    session[:provider]              = session[:provider]
+    session[:uid]                   = session[:uid]
     @user = User.new
   end
 
@@ -126,7 +128,7 @@ class SignupController < ApplicationController
       city:           session[:city],
       address:        session[:address],
       building_name:  session[:building_name],
-      d_phone_number: session[:d_phone_number]
+      d_phone_number: session[:d_phone_number],
     )
     if @user.save
       session[:id] = @user.id
@@ -136,7 +138,16 @@ class SignupController < ApplicationController
     else
       render :complete
     end
+  end
 
+  def signedIn
+    email = session[:email]
+    password = session[:password]
+    if login(email, password)
+      redirect_to root_path
+    else
+      render :complete
+    end
   end
 
 
@@ -175,7 +186,6 @@ class SignupController < ApplicationController
 
     birthday = Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
     return birthday
-    
   end
 
 

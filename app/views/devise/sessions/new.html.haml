@@ -9,13 +9,13 @@
         .session-content__section--inner--btn--facebook
           .session-content__section--inner--btn--facebook--box
             %i.fab.fa-facebook-square.fa-2x.facebook
-            = link_to "Facebookで登録する", "#", class:"facebook-text"
+            = link_to "Facebookで登録する", "/users/auth/facebook", method: :post, class:"facebook-text"
         .session-content__section--inner--btn--google
           .session-content__section--inner--btn--google--box
             .google-icon
               %i.fab.fa-google.fa-lg.google
               %i.fab.fa-google.fa-lg.google
-            = link_to "Googleで登録する", "#", class:"google-text"
+            = link_to "Googleで登録する", "/users/auth/google_oauth2", method: :post, class:"google-text"
     .session-content__section--form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
@@ -24,7 +24,6 @@
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class: "sign-in-pass"
         .actions
           = f.submit  "ログイン", id: "user-btn"
-      = render "devise/shared/links"
 = render 'signup/form-footer'
 %script{defer: "defer", src: "https://use.fontawesome.com/releases/v5.3.1/js/all.js"}
 %svg{style: "width:0;height:0;"}
