@@ -43,7 +43,7 @@ class User < ApplicationRecord
   validates :d_phone_number,          length: {maximum: 20}, on: :validates_step3
 
   def self.without_sns_data(auth)
-    user = User.where(email: auth.info.email).first
+    user = User.find_by(email: auth.info.email)
 
       if user.present?
         sns = SnsCredential.create(
@@ -66,8 +66,8 @@ class User < ApplicationRecord
     end
 
    def self.with_sns_data(auth, snscredential)
-    user = User.where(id: snscredential.user_id).first
-    unless user.present?
+    user = User.find(snscredential.user_id)
+    if user.nil?
       user = User.new(
         nickname: auth.info.name,
         email: auth.info.email,
