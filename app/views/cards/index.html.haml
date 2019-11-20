@@ -5,7 +5,7 @@
       %ul.bread-crumbs-list
         - breadcrumb :pay
         = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
-    .main-user
+    .main-user.clearfix
       .l-content
         .mypage__user--card--header
           %h2.mypage__user--card--header--title
@@ -32,3 +32,5 @@
                 %small.user-card-small-text 支払い方法について
                 %i.fas.fa-chevron-right
       = render 'shared/user-mypage-lsidebar'
+= render 'shared/exhibit-icon'
+= render 'shared/footer'
