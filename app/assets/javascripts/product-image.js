@@ -16,10 +16,10 @@ $(document).on('turbolinks:load',function(){
   $(document).on("mouseenter",'.item__main-content__photo__frame__dots__dot:eq(2)',function(){
     $('.item__main-content__photo__frame__stage-outer__stage').animate({"left":"-600px"});
   });
-  $(document).on("mouseover",'.item__main-content__photo__frame__dots__dot:eq(3)',function(){
+  $(document).on("mouseenter",'.item__main-content__photo__frame__dots__dot:eq(3)',function(){
     $('.item__main-content__photo__frame__stage-outer__stage').animate({"left":"-900px"});
   });
-  $(document).on("mouseover",'.item__main-content__photo__frame__dots__dot:eq(4)',function(){
+  $(document).on("mouseenter",'.item__main-content__photo__frame__dots__dot:eq(4)',function(){
     $('.item__main-content__photo__frame__stage-outer__stage').animate({"left":"-1200px"});
   });
   $(".test_image").hover(function(){

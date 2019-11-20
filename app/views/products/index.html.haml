@@ -1,9 +1,14 @@
 = render partial: 'header_index', locals: {parents:  @parents}
 .contents
   .contents__wrapper
-    .contents__header
-      = image_tag 'https://i.gyazo.com/d7b0084595431afdb51a69225cdb593b.jpg', class: 'contents__header__image1'
-      = image_tag 'https://i.gyazo.com/ded9b9586e150e941ebdad8f05923e36.jpg', class: 'contents__header__image2'
+    .contents__header.viewer
+      %ul
+        %li
+          = image_tag 'https://i.gyazo.com/d7b0084595431afdb51a69225cdb593b.jpg', class: 'contents__header__image1'
+        %li
+          = image_tag 'https://i.gyazo.com/ded9b9586e150e941ebdad8f05923e36.jpg', class: 'contents__header__image2'
+        %li
+          = image_tag ('/images/index-img.jpg'), class: 'contents__header__image2'
       #button.contents__header__button--left
       #button.contents__header__button--right
     .contents__middle

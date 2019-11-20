@@ -1,4 +1,4 @@
-= render partial: 'products/header_index', locals: {parents:  @parents}
+= render partial: 'header_index', locals: {parents: @parents}
 .exhibit
   .item.margin-left-37.width-775
     %h1.item__name
@@ -7,10 +7,14 @@
     .item__main-content.clearfix-item-detail
       .item__main-content__photo.width-335
         .item__main-content__photo__detail
-          - @images.each do |p|
-            = image_tag p.picture.url ,size:'100x100'
-        .item__main-content__photo__details
-          詳細画像
+          %ul.item__main-content__photo__detail__stage
+            - @images.each.with_index do |p,i|
+              %li.item__main-content__photo__detail__stage__item
+                = image_tag p.picture.url, class:'item__main-content__photo__detail__stage__item__image'
+        %ul.item__main-content__photo__details
+          - @images.each.with_index do |p,i|
+            %li.item__main-content__photo__details__dot
+              = image_tag p.picture.url, class:'item__main-content__photo__details__dot__image'  
       %table.item__main-content__detail-table.width-335.height-465
         %tr.item__main-content__detail-table__row
           %th.item__main-content__detail-table__row__header 出品者
@@ -20,18 +24,19 @@
         %tr.item__main-content__detail-table__row
           %th.item__main-content__detail-table__row__header カテゴリー
           %td.item__main-content__detail-table__row__data
-            .link-item-detail.link-blue-color
-              = @category.parent.parent.name
-            .link-item-detail.link-blue-color
+            .link-item-detail
+              = link_to "#{@category.parent.parent.name}",category_path(@category.parent.parent.id),class:"link-blue-color" 
+            .link-item-detail
               %i.fa.fa-chevron-right.icon-item-detail
-              = @category.parent.name
-            .link-item-detail.link-blue-color
+              = link_to "#{@category.parent.name}",category_path(@category.parent.id),class:"link-blue-color" 
+            .link-item-detail
               %i.fa.fa-chevron-right.icon-item-detail
-              = @category.name
+              = link_to "#{@category.name}",category_path(@category.id),class:"link-blue-color" 
         %tr.item__main-content__detail-table__row
           %th.item__main-content__detail-table__row__header ブランド
           %td.item__main-content__detail-table__row__data
-            = @product.brand.name if @product.brand.present?
+            - if @product.brand.present?
+              = link_to "#{@product.brand.name}", brand_path(@product.brand_id),class:"link-blue-color"
         %tr.item__main-content__detail-table__row
           %th.item__main-content__detail-table__row__header 商品の状態
           %td.item__main-content__detail-table__row__data
@@ -55,7 +60,7 @@
             = @product.d_interval
     .item__price-box
       %span.item__price-box__price
-        = @product.price
+        = "￥#{@product.price.to_s(:delimited, delimiter:',')}" 
       %span.item__price-box__tax (税込)
       %span.item__price-box__shipping-fee 送料込み
     .item__description
@@ -71,7 +76,7 @@
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %textarea.textarea-default{name:"", type: "text", value: "", class: "comment-area__form"}
     .comment-area__send コメントする
-= render 'shared/footer'
+= render partial: 'shared/footer'
 .gray_panel#gray_panel
 .popup{style:"display: none;"}
   .popup__message
