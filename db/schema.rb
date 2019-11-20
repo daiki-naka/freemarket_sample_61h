@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_113955) do
     t.integer "price", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
-    t.integer "brand_id"
     t.string "product_size"
+    t.integer "brand_id"
     t.integer "likes_count", default: 0, null: false
   end
 
@@ -91,7 +91,10 @@ ActiveRecord::Schema.define(version: 2019_11_18_113955) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", null: false
+    t.string "nickname"
+    t.integer "v_good"
+    t.integer "v_accept"
+    t.integer "v_bad"
     t.string "name", null: false
     t.string "name_f", null: false
     t.string "last_name", null: false
@@ -108,9 +111,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_113955) do
     t.string "address", null: false
     t.string "building_name"
     t.string "d_phone_number"
-    t.integer "v_good"
-    t.integer "v_accept"
-    t.integer "v_bad"
     t.string "avatar"
     t.text "profile"
     t.index ["email"], name: "index_users_on_email", unique: true

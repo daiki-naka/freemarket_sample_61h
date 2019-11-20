@@ -40,7 +40,8 @@
           %img_tag.signup-form__container__inner__form__image
         .signup-form__container__inner__question
           カードの裏面の番号とは？
-        = f.submit '追加する', class: 'signup-form__container__inner__submit'
+        #card_token
+        = submit_tag "追加する", id: "token_submit", class: 'signup-form__container__inner__submit'
 .signup-footer
   .signup-footer__section
     %ul.signup-footer__section__ul

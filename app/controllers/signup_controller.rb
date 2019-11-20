@@ -132,9 +132,9 @@ class SignupController < ApplicationController
     )
     if @user.save
       session[:id] = @user.id
-      sign_in @user
-      redirect_to signup_complete_users_path
       card_create
+      sign_in @user
+      # redirect_to signup_complete_users_path
     else
       render :complete
     end
@@ -204,11 +204,15 @@ class SignupController < ApplicationController
       )
       @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
     end
-    if @card.save
-      redirect_to signup_complete_users_path
-    else
+
+    unless @card.save
       redirect_to action: "card_create"
-    end             
+    end
+    # if @card.save
+      # redirect_to signup_complete_users_path
+    # else
+    #   redirect_to action: "card_create"
+    # end             
   end
 
 end
