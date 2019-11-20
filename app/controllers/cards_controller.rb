@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
+  before_action :set_category, only: [:index]
   before_action :set_card
 
 
@@ -67,6 +68,10 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  end
+
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
 end

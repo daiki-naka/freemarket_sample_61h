@@ -1,6 +1,6 @@
 %html#mypage-all
   %body#mypage-show
-    = render partial: 'shared/header_index'
+    = render partial: 'products/header_index', locals: {parents:  @parents}
     .main
       .l-content
         .mypage__user--card--header

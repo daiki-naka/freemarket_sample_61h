@@ -1,7 +1,7 @@
 %html
   %body#item-detail
     %header
-      = render partial: "shared/header_index" 
+      = render partial: "header_index", locals: {parents:  @parents}
     %section.item
       %h1.item__name 
         = @product.name
