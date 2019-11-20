@@ -10,8 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_050027) do
-ActiveRecord::Schema.define(version: 2019_11_15_065024) do
+ActiveRecord::Schema.define(version: 2019_11_18_113955) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,8 +65,6 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes_count", default: 0, null: false
-    t.integer "brand_id"
     t.string "name", null: false
     t.text "introduction", null: false
     t.string "status", null: false
@@ -71,7 +75,9 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.integer "price", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
+    t.integer "brand_id"
     t.string "product_size"
+    t.integer "likes_count", default: 0, null: false
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,8 +88,6 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
-    t.integer "brand_id"
-    t.integer "likes_count", default: 0, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,26 +98,6 @@ ActiveRecord::Schema.define(version: 2019_11_15_065024) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
-    t.integer "v_good"
-    t.integer "v_accept"
-    t.integer "v_bad"
-    t.string "name", null: false
-    t.string "name_f", null: false
-    t.string "last_name", null: false
-    t.string "last_name_f", null: false
-    t.date "birthday", null: false
-    t.string "phone_number", null: false
-    t.string "d_name", null: false
-    t.string "d_name_f", null: false
-    t.string "d_last_name", null: false
-    t.string "d_last_name_f", null: false
-    t.string "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "address", null: false
-    t.string "building_name"
-    t.string "d_phone_number"
     t.string "avatar"
     t.text "profile"
     t.index ["email"], name: "index_users_on_email", unique: true
