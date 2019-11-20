@@ -1,0 +1,29 @@
+= render partial: 'products/header_index', locals: {parents:  @parents}
+%html#mypage-all
+  %body#mypage-show
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :users
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user-form.clearfix
+      .main-user-form__exhibit
+        .main-user-form__exhibit--title
+          出品した商品
+        - if @products.length > 0
+          - @products.each do |product|
+            = link_to product_show_product_path(id: product.id), class:"main-user-form__exhibit--list",data: {"turbolinks" => false} do
+              .main-user-form__exhibit--list--image
+                = image_tag "#{product.images[0].picture.url}", class:"picture"
+              .main-user-form__exhibit--list--info
+                .main-user-form__exhibit--list--info--title
+                  = product.name
+                .main-user-form__exhibit--list--info--status
+                  出品中
+              %i.fas.fa-chevron-right.main-user-form__exhibit--list--icon
+        - else
+          .main-user-form__exhibit--list
+            .main-user-form__exhibit--list--info--title
+              現在出品中の商品はありません
+      = render 'shared/user-mypage-lsidebar'
+= render 'shared/exhibit-icon'
+= render 'shared/footer'

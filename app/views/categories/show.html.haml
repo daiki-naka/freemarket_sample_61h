@@ -1,0 +1,25 @@
+= render partial: 'products/header_index', locals: {parents:  @parents}
+.contents
+  .contents__wrapper
+    .contents__main
+      .contents__main__link-field.clearfix-product
+        %ul.contents__main__link-field__categories
+          - @category.children.first(8).each do |child_category|
+            %li.contents__main__link-field__categories__name
+              = link_to "#{child_category.name}", "/categories/#{child_category.id}", class: "contents__main__link-field__categories__name__letter"
+      .contents__main__logo.logo-category-page
+        = "#{@category.name}の商品一覧"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @products.each do |product|
+              = render partial: 'shared/categories_product_block', locals: {product: product}
+      = paginate @products
+      .contents__main__description
+        .contents__main__description__title
+          %h3.contents__main__description__title__letter
+            = @category.name
+        .contents__main__description__text
+          %p.contents__main__description__text__letter
+            = "#{@category.name}の処分、買取ならメルカリへ。#{@category.name}の商品は100万点以上あります。人気のあるカテゴリーはレディースとメンズ、家電・スマホ・カメラ、おもちゃ・ホビー・グッズです。#{@category.name}のリサイクルや売ることを検討中の方にお勧めです。"
+= render partial: 'shared/footer'

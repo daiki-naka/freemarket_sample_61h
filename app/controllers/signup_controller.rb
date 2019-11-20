@@ -18,6 +18,8 @@ class SignupController < ApplicationController
     session[:last_name_f]           = user_params[:last_name_f]
     session[:name_f]                = user_params[:name_f]
     session[:birthday]              = birthday
+    session[:provider]              = session[:provider]
+    session[:uid]                   = session[:uid]
     @user = User.new
   end
 
@@ -38,6 +40,7 @@ class SignupController < ApplicationController
     session[:building_name]   = user_params[:building_name]
     session[:d_phone_number]  = user_params[:d_phone_number]
     @user = User.new
+
   end
 
   def validates_step1
@@ -125,16 +128,28 @@ class SignupController < ApplicationController
       city:           session[:city],
       address:        session[:address],
       building_name:  session[:building_name],
-      d_phone_number: session[:d_phone_number]
+      d_phone_number: session[:d_phone_number],
     )
     if @user.save
       session[:id] = @user.id
+      sign_in @user
       redirect_to signup_complete_users_path
+      card_create
     else
       render :complete
     end
-
   end
+
+  def signedIn
+    email = session[:email]
+    password = session[:password]
+    if login(email, password)
+      redirect_to root_path
+    else
+      render :complete
+    end
+  end
+
 
 
   private
@@ -171,7 +186,29 @@ class SignupController < ApplicationController
 
     birthday = Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
     return birthday
-    
+  end
+
+
+  def card_create 
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+
+    if params['payjp-token'].blank?
+      redirect_to action: "step4"
+
+    else
+      customer = Payjp::Customer.create(
+        description: 'test', 
+        email: @user.email,
+        card: params['payjp-token'], 
+        metadata: {user_id: @user.id} 
+      )
+      @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+    end
+    if @card.save
+      redirect_to signup_complete_users_path
+    else
+      redirect_to action: "card_create"
+    end             
   end
 
 end

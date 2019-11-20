@@ -1,17 +1,49 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_product, only: [:show, :product_show, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_product, only: [:show, :buy, :pay, :product_show, :destroy]
+  before_action :set_category, only: [:index, :show, :product_show, :destroy]
+  before_action :authenticate_user!, only: :new
+  
 
   def index
-    parents = Category.all.order("id ASC").limit(13)
-    ladies = parents.find(1)
-    @ladies_child = ladies.children
-  end
+    @categories = Category.find(1,2,8,6)
+    @ladies_products = []
+    @categories[0].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @ladies_products += grandchild_category.products
+      end
+    end
+    @ladies_products.sort_by!{|ladies_product|ladies_product.created_at}.reverse!
 
-  def show
-    render controller:  "ImageController", action:  "show"
+    @mens_products = []
+    @categories[1].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @mens_products += grandchild_category.products
+      end
+    end
+    @mens_products.sort_by!{|mens_product|mens_product.created_at}.reverse!
+
+    @electric_products = []
+    @categories[2].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @electric_products += grandchild_category.products
+      end
+    end
+    @electric_products.sort_by!{|electric_product|electric_product.created_at}.reverse!
+
+    @hobby_products = []
+    @categories[3].children.each do |child_category|
+      child_category.children.each do |grandchild_category|
+        @hobby_products += grandchild_category.products
+      end
+    end
+    @hobby_products.sort_by!{|hobby_product|hobby_product.created_at}.reverse!
+
+    @chanel_products = Product.where(brand_id: 249).order("created_at DESC")
+    @ruiviton_products = Product.where(brand_id: 250).order("created_at DESC")
+    @shupurimu_products = Product.where(brand_id: 251).order("created_at DESC")
+    @naiki_products = Product.where(brand_id: 252).order("created_at DESC")
   end
 
   def new
@@ -42,6 +74,29 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+  
+  def show
+    @product = Product.find(params[:id])
+    @user = @product.user
+    @other_products = @user.products.where.not(id: @product.id)
+    @ordered_other_products = @other_products.order('id DESC').limit(6)
+    @parent_category_id = @product.category.ancestry[/.*\//, 0].sub(/\//,"")
+    @parent_category_name = Category.find(@parent_category_id).name
+    @child_category_id = @product.category.ancestry[/\/.*/, 0].sub(/\//,"")
+    @child_category_name = Category.find(@child_category_id).name
+    @same_category_products = Product.where(category_id: "#{@product.category_id}").where.not(id: @product.id).order('id DESC').limit(6)
+    @reverse_ordered_products = Product.order('id DESC')
+    if Product.where('id <?',@product.id).present?
+      @previous_product = @reverse_ordered_products.where('id < ?',@product.id).first
+    else
+      @previous_product = Product.order('id DESC').first
+    end  
+    if Product.where('id >?',@product.id).present?
+      @next_product = Product.where('id >?',@product.id).first
+    else
+      @next_product = Product.order('id ASC').first
+    end
+  end
 
   def create
     @product = Product.new(product_params)
@@ -54,7 +109,7 @@ class ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
-      redirect_to root_path, notice: "削除しました"
+      redirect_to exhibit_list_user_path(id: current_user.id), notice: "削除しました"
     else
       render :product_show
     end
@@ -63,6 +118,10 @@ class ProductsController < ApplicationController
   def product_show
     @images = @product.images
     @category = @product.category
+  end
+
+  def header_category
+    @category_id = Category.find("#{params[:category_id]}").children
   end
 
   def children_category
@@ -109,13 +168,17 @@ class ProductsController < ApplicationController
     set_card_information
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     Payjp::Charge.create(
-      amount: 1000, # 値段
+      amount: @product.price, 
       customer: @card.customer_id,
       currency: 'jpy',
     )
   end
 
   private
+
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
   def set_product
     @product = Product.find(params[:id])
@@ -165,5 +228,4 @@ class ProductsController < ApplicationController
       end  
     end
   end
-  
 end

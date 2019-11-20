@@ -12,9 +12,20 @@
         .registration-contents__section--maine--btn--facebook
           .registration-contents__section--maine--btn--facebook--box.clearfix
             %i.fab.fa-facebook-square.fa-2x.facebook
-            = link_to "Facebookで登録する", "#", class:"facebook-text"
+            = link_to "Facebookで登録する", user_facebook_omniauth_authorize_path ,method: :post, class:"facebook-text"
         .registration-contents__section--maine--btn--google
           .registration-contents__section--maine--btn--google--box.clearfix
-            %i.fab.fa-google.fa-lg.google
-            = link_to "Googleで登録する", "#", class:"google-text"
+            .google-icon
+              %i.fab.fa-google.fa-lg.google
+              %i.fab.fa-google.fa-lg.google
+            = link_to "Googleで登録する", user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-text"
 = render 'signup/form-footer'
+%script{defer: "defer", src: "https://use.fontawesome.com/releases/v5.3.1/js/all.js"}
+%svg{style: "width:0;height:0;"}
+  %defs
+    %lineargradient#grad1{x1: "0%", x2: "50%", y1: "30%", y2: "0%"}
+      %stop{offset: "50%", "stop-color" => "#34a853"}
+      %stop{offset: "50%", "stop-color" => "#4285f4"}
+    %lineargradient#grad2{x1: "0%", x2: "50%", y1: "30%", y2: "0%"}
+      %stop{offset: "50%", "stop-color" => "#fbbc05"}
+      %stop{offset: "50%", "stop-color" => "#ea4335"}

@@ -1,0 +1,25 @@
+= render partial: 'products/header_index', locals: {parents:  @parents}
+.contents
+  .contents__wrapper
+    .contents__main
+      .contents__main__link-field.clearfix-product
+        %ul.contents__main__link-field__categories
+          - @categories.first(8).each do |category|
+            %li.contents__main__link-field__categories__name
+              = link_to "#{category.name}", "/categories/#{category.id}", class: "contents__main__link-field__categories__name__letter"
+      .contents__main__logo.logo-category-page
+        = "#{@brand.name}の商品一覧"
+      .contents__main__product
+        .product__block__wrapper
+          %ul.product__block__ul
+            - @products.each do |product|
+              = render partial: 'shared/categories_product_block', locals: {product: product}
+      = paginate @products
+      .contents__main__description
+        .contents__main__description__title
+          %h3.contents__main__description__title__letter
+            = @brand.name
+        .contents__main__description__text
+          %p.contents__main__description__text__letter
+            = "#{@brand.name}のいらないものを売るならメルカリへ。#{@brand.name}の商品などブランド品は100万点以上あります。人気のあるブランドはシャネルとナイキです。#{@brand.name}のいらないものの買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。"
+= render partial: 'shared/footer'
