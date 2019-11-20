@@ -135,7 +135,16 @@ class SignupController < ApplicationController
     else
       render :complete
     end
+  end
 
+  def signedIn
+    email = session[:email]
+    password = session[:password]
+    if login(email, password)
+      redirect_to root_path
+    else
+      render :complete
+    end
   end
 
 
@@ -173,7 +182,16 @@ class SignupController < ApplicationController
 
     birthday = Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
     return birthday
-    
+  end
+
+  def login(email, password)
+    @user = User.find_by(email: email)
+    if @userId && @userId.authenticate(password)
+      session[:user_id] = @userId.id
+      return true
+    else
+      return false
+    end
   end
 
 end

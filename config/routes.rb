@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get 'signup/step3'
       get 'signup/step4'
       get 'signup/complete'
+      get 'signup/signedIn'
     end
   end
 end
