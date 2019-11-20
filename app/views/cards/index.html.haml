@@ -1,7 +1,11 @@
+= render partial: 'products/header_index', locals: {parents:  @parents}
 %html#mypage-all
   %body#mypage-show
-    = render partial: 'products/header_index', locals: {parents:  @parents}
-    .main
+    %nav.bread-crumbs
+      %ul.bread-crumbs-list
+        - breadcrumb :pay
+        = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+    .main-user
       .l-content
         .mypage__user--card--header
           %h2.mypage__user--card--header--title
@@ -28,5 +32,3 @@
                 %small.user-card-small-text 支払い方法について
                 %i.fas.fa-chevron-right
       = render 'shared/user-mypage-lsidebar'
-    = render 'shared/exhibit-icon'
-    = render partial: 'shared/footer'
