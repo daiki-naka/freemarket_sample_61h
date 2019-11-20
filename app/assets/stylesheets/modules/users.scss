@@ -1,12 +1,17 @@
-
 #mypage-all{
   background-color:#f8f9f9;
   font-family:66.66667% sans-serif;
 }
 
-h2 {
-  font-weight: bold;
-  color: #333333;
+.main-user-body{
+  background-color: #F5F5F5;
+}
+
+@mixin transition{
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 body {
@@ -56,20 +61,26 @@ body {
           height: 111px;
           width: 700px;
           text-decoration: none;
-        }
-        text{
-          font-size:12px;
+          .figure{
+            &--avater{
+              height: 60px;
+              border-radius: 50%;
+            }
+            &--name{
+              color: #333;
+              text-decoration: none;
+            }
+          }
         }
         .figure:hover{
           opacity: 0.8;
-          text:hover{
-            border-bottom: 2px solid #333333;
-            opacity: 0.8;
+          .figure--name{
+            text-decoration: underline;
           }
         }
         .mypage__number{
         color: #333333;
-        font-size:10px;
+        font-size:14px;
         }
       }
       .mypage__tab--container{
@@ -327,37 +338,38 @@ body {
       width:280px;
       .mypage__nav--list{
         cursor: pointer;
-        &--top{
-          height: 48px;
+        &--index{
           background-color: #fff;
           border-bottom: 1px solid  #eee;
-          &--item{
+          position: relative;
+          &--menu{
+            width: 100%;
+            height: 48px;
             color:  #333333;
             font-size: 14px;
             text-decoration: none;
             padding-left: 15px;
             line-height: 50px;
-            #icon-top{
-              float:right;
-              padding: 18px 18px 0 0;
-              opacity: 0.5;
-            }
-            .icon-index{
-              float: right;
-              padding: 18px 18px 0 0;
-              opacity: 0.5;
-            }
-            .icon-index:hover{
-              color:   #333333;
-              transform: scale(1.3);
-              opacity: 1;
-            }
+            display: block;
+          }
+          &--icon{
+            @include transition;
+            position: absolute;
+            right: 20px;
+            top: 17px;
+            opacity: 0.5;
+          }
+        }
+        &--index:hover{
+          background-color: rgba(255, 255, 255, 0.4);
+          .mypage__nav--list--index--icon{
+            @include transition;
+            opacity: 1.0;
+            position: absolute;
+            right: 17px;
           }
         }
       }   
-      .mypage__nav--list--top:hover{
-        background-color: rgba(238, 238, 238, 0.6);
-      }
       .mypage__nav--list--index{
         border-bottom: 1px solid  #eee;
         background-color:#ffffff;
@@ -366,7 +378,7 @@ body {
       .mypage__nav--list--index:hover{
         background-color: rgba(255, 255, 255, 0.4);
       }
-      .mypage__nav--merpay{
+      .mypage__nav--title{
         height: 48px;
         font-size:14px;
         font-weight: 600;

@@ -137,6 +137,9 @@
         width: 80px;
         height: 65px;
       }
+      &__image:hover{
+        opacity: 0.8;
+      }
     }
     &__copyright{
       margin: 8px 0 0;
