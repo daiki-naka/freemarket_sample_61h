@@ -48,7 +48,7 @@
               パスワード
             %span.signup-form__container__inner__form__pack-label__required-i
               必須
-          = f.password_field :password, placeholder: '例）７文字以上', class: 'signup-form__container__inner__form__field'
+          = f.password_field :password, placeholder: '例）７文字以上', class: 'signup-form__container__inner__form__field', autocomplete: "off"
           = render partial: 'layouts/error_messages', locals: {user: @user, column: "password"}
         .signup-form__container__inner__form
           .signup-form__container__inner__form__pack-label
