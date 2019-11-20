@@ -49,15 +49,21 @@
     margin: 0 auto;
     .products__content--buy--price{
       margin-top:10px;
+      padding: 0 80px;
       text-align: center;
       &--text{
-        font-size: 12px;
+        font-size: 14px;
         padding: 2px;
         &--main{
           font-size: 18px;
           margin-left:20px;
-          padding: 2px;
+          // padding: 2px;
           font-weight:bold;
+          float: left;
+        }
+        &__addition{
+          // float: right;
+          padding-top: 50px;
         }
       }
     }

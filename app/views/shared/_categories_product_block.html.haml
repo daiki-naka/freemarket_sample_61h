@@ -1,5 +1,5 @@
 %li.product__block__li
-  = link_to "#", class: "product__block__li__link" do
+  = link_to "/products/#{product.id}", class: "product__block__li__link" do
     .product__block__li__link__image
       - product.images.first(1).each do |image|
         = image_tag image.picture.to_s, size: "188x188", alt: "picture"
