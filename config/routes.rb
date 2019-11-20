@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'products#show'
+  root to: 'products#index'
   resources :likes, only: [:create, :destroy]
   resources :pages, only: [:index, :new]
   resources :cards, only: [:index, :new, :create, :destroy]
