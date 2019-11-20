@@ -129,6 +129,7 @@ class SignupController < ApplicationController
     )
     if @user.save
       session[:id] = @user.id
+      sign_in @user
       redirect_to signup_complete_users_path
     else
       render :complete
