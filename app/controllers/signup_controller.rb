@@ -207,11 +207,6 @@ class SignupController < ApplicationController
     unless @card.save
       redirect_to action: "card_create"
     end
-    # if @card.save
-      # redirect_to signup_complete_users_path
-    # else
-    #   redirect_to action: "card_create"
-    # end             
   end
 
 end
