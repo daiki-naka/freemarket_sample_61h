@@ -38,7 +38,6 @@ class SignupController < ApplicationController
     session[:building_name]   = user_params[:building_name]
     session[:d_phone_number]  = user_params[:d_phone_number]
     @user = User.new
-    # @user = User.create(email: session[:email])
 
   end
 
