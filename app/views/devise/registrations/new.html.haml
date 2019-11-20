@@ -18,7 +18,7 @@
             .google-icon
               %i.fab.fa-google.fa-lg.google
               %i.fab.fa-google.fa-lg.google
-            = link_to "Googleで登録する", "#", class:"google-text"
+            = link_to "Googleで登録する", "/users/auth/google_oauth2", method: :post, class:"google-text"
 = render 'signup/form-footer'
 %script{defer: "defer", src: "https://use.fontawesome.com/releases/v5.3.1/js/all.js"}
 %svg{style: "width:0;height:0;"}
