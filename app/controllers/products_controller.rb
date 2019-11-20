@@ -2,13 +2,11 @@ class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
   before_action :set_product, only: [:show, :product_show, :destroy]
+  before_action :set_category, only: [:index, :product_show, :destroy]
   before_action :authenticate_user!, only: :new
+  
 
   def index
-    parents = Category.all.order("id ASC").limit(13)
-    ladies = parents.find(1)
-    @ladies_child = ladies.children
-
     @categories = Category.find(1,2,8,6)
     @ladies_products = []
     @categories[0].children.each do |child_category|
@@ -87,7 +85,7 @@ class ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
-      redirect_to root_path, notice: "削除しました"
+      redirect_to exhibit_list_user_path(id: current_user.id), notice: "削除しました"
     else
       render :product_show
     end
@@ -96,6 +94,10 @@ class ProductsController < ApplicationController
   def product_show
     @images = @product.images
     @category = @product.category
+  end
+
+  def header_category
+    @category_id = Category.find("#{params[:category_id]}").children
   end
 
   def children_category
@@ -150,6 +152,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
   def set_product
     @product = Product.find(params[:id])

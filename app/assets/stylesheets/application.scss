@@ -9,12 +9,10 @@
 @import "modules/product_block";
 @import "modules/header";
 @import "modules/footer";
-@import "modules/categories";
 @import "./modules/users.scss";
 @import "./modules/users_creditcard.scss";
 @import "./modules/pages.scss";
 @import "./modules/products_new_html_haml.scss";
-@import "./modules/users_new_test.scss";
 @import "./exhibit_views/_exhibit-header_footer.scss";
 @import "./exhibit_views/_exhibit-content.scss";
 @import "./products";
@@ -31,3 +29,4 @@
 @import "./user_relations/complete-header";
 @import "./modules/logout.scss";
 @import "./modules/identification.scss";
+@import "./modules/exhibit_list.scss";
