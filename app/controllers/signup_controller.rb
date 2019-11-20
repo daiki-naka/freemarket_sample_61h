@@ -194,7 +194,6 @@ class SignupController < ApplicationController
 
     if params['payjp-token'].blank?
       redirect_to action: "step4"
-
     else
       customer = Payjp::Customer.create(
         description: 'test', 
