@@ -1,23 +1,20 @@
-= render 'shared/header_index'
+= render partial: 'products/header_index', locals: {parents:  @parents}
 %html#mypage-all
   %body#mypage-show
     %nav.bread-crumbs
       %ul.bread-crumbs-list
         - breadcrumb :users
         = breadcrumbs separator: " &rsaquo; ", class: 'bread-top'
+  .main-user-body
     .main-user.clearfix
       .l-content
         .mypage__user--icon
-          = link_to "#", class: "mypage__user--icon--content" do 
+          = link_to "#", class: "mypage__user--icon--content" do
             .figure
-              = image_tag '8e315ba2cbcce728cf0bf8f71f2e5818.png', height: '60px', width: '60px'
-              %h2 
-                %text daiki nakamura
+              = image_tag '8e315ba2cbcce728cf0bf8f71f2e5818.png', class:"figure--avater"
+              %h2.figure--name #{current_user.nickname}
               .mypage__number
-                評価
-                %span 0
-                出品数
-                %span 0
+                = "評価 0 出品数 #{current_user.products.length}"
         .mypage__tab--container
           %ul.mypage-tabs
             .box

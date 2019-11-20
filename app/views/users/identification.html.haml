@@ -1,4 +1,4 @@
-= render 'products/header_index'
+= render partial: 'products/header_index', locals: {parents:  @parents}
 %html#mypage-all
   %body#mypage-show
     %nav.bread-crumbs
@@ -55,6 +55,6 @@
             = link_to "本人情報の登録について>", "https://www.mercari.com/jp/help_center/article/423/", class:"main-identification__content__form--group--info"
       = render 'shared/user-mypage-lsidebar'
 = render 'shared/exhibit-icon'
-= render 'products/footer'
+= render 'shared/footer'
 
 
