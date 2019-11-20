@@ -133,7 +133,6 @@ class SignupController < ApplicationController
     if @user.save
       session[:id] = @user.id
       sign_in @user
-      redirect_to signup_complete_users_path
       card_create
     else
       render :complete
@@ -194,7 +193,6 @@ class SignupController < ApplicationController
 
     if params['payjp-token'].blank?
       redirect_to action: "step4"
-
     else
       customer = Payjp::Customer.create(
         description: 'test', 
