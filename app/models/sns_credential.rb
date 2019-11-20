@@ -1,5 +1,7 @@
 class SnsCredential < ApplicationRecord
+  validates :uid, presence: true, uniqueness: { message: "既に存在しています" }
+  validates :provider, presence: true
+  validates :user_id, presence: true
+
   belongs_to :user
-  validates_presence_of :user_id, :uid, :provider
-  validates_uniqueness_of :uid, uniqueness: {scope: :provider}
 end

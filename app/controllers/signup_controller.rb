@@ -128,8 +128,6 @@ class SignupController < ApplicationController
       address:        session[:address],
       building_name:  session[:building_name],
       d_phone_number: session[:d_phone_number],
-      uid:            session[:uid],
-      provider:       session[:provider]
     )
     if @user.save
       session[:id] = @user.id
