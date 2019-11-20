@@ -134,7 +134,6 @@ class SignupController < ApplicationController
       session[:id] = @user.id
       card_create
       sign_in @user
-      # redirect_to signup_complete_users_path
     else
       render :complete
     end
