@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_product, only: [:show, :buy, :pay, :product_show, :destroy]
+  before_action :set_product, only: [:show, :buy, :pay, :show, :edit, :update, :product_show, :destroy]
   before_action :set_category, only: [:index, :show, :product_show, :destroy]
   before_action :authenticate_user!, only: :new
   
@@ -52,7 +52,27 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
+    if @product.images.length == 1
+      @picture1 = @product.images[0].picture.url
+    elsif @product.images.length == 2
+      @picture1 = @product.images[0].picture.url
+      @picture2 = @product.images[1].picture.url
+    elsif @product.images.length == 3
+      @picture1 = @product.images[0].picture.url
+      @picture2 = @product.images[1].picture.url
+      @picture3 = @product.images[2].picture.url
+    elsif @product.images.length == 4
+      @picture1 = @product.images[0].picture.url
+      @picture2 = @product.images[1].picture.url
+      @picture3 = @product.images[2].picture.url
+      @picture4 = @product.images[3].picture.url
+    else @product.images.length == 5
+      @picture1 = @product.images[0].picture.url
+      @picture2 = @product.images[1].picture.url
+      @picture3 = @product.images[2].picture.url
+      @picture4 = @product.images[3].picture.url
+      @picture5 = @product.images[4].picture.url
+    end
     @default_size = @product.product_size
     @category_id = @product.category_id
     @g_category = Category.find(@category_id)
@@ -60,6 +80,7 @@ class ProductsController < ApplicationController
     @p_category = @c_category.parent
     @Categories = @p_category.children
     @clothe_default_size = @default_size.is_a? String
+    
     if @product.brand_id != nil
       @brand_id = @product.brand_id
       @brand = Brand.find(@product.brand_id)
@@ -202,11 +223,11 @@ class ProductsController < ApplicationController
   end
 
   def set_card
-    @card = current_user.cards.first if current_user.cards.present?
+    @card = current_user.cards.first if current_user.cards
   end  
 
   def set_card_information
-    if @card.present?
+    if @card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)

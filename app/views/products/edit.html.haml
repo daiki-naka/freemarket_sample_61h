@@ -17,12 +17,12 @@
                   .sell-upload-items.have-item-0
                     %ul 
                 .exhibit-product__view--img__box
-                  = f.fields_for :images do |i|
+                  = f.fields_for :images do |i |
                     #image-contents.img-box{ style:"width: 128px;"}
                       .view_box
-                        %input#product_images_attributes_0_picture.file_edit{ name: "product[images_attributes][0]",  type:"file", value: "#{@product.images[0]}"}/
+                        %input#product_images_attributes_0_picture.file_edit{ name: "product[images_attributes][0]",  type:"file", value: ""}/
                         .img_view
-                          %img.img{ src: "#{@product.images[0].picture.url}"}/
+                          %img.img{ src: "#{@picture1}"}/
                           .view_option
                             .view_option--edit 編集
                             .view_option--delete

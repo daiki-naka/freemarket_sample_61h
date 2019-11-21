@@ -1,5 +1,11 @@
 $(function(){
   var preWord = "";
+  var url = location.href
+  if (url.match(/new/)) {
+    url = "products/"
+  } else {
+    url = "../products/"
+  }
   function appendSelect(category){
     var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
@@ -192,7 +198,7 @@ $(function(){
     var parentCategory = document.getElementById('parent-form').value;
     if (parentCategory != ""){
       $.ajax({
-        url: "../products/children_category",
+        url: (url + "children_category"),
         type: "GET",
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -219,42 +225,11 @@ $(function(){
     }
   });
 
-  $('#child_category').on('change', function(){
-    var childId = $('#child_category').val();
-    if (childId != "---"){
-      $.ajax({
-        url: "../products/grandchild_category",
-        type: 'GET',
-        data: { child_id: childId },
-        dataType: 'json'
-      })
-      .done(function(grandchildren){
-        if (grandchildren.length != 0) {
-          $('#grandchildren_box').remove();
-          $('#size_box').remove();
-          $('#brand_box').remove();
-          var insertHTML = '';
-          grandchildren.forEach(function(grandchild){
-            insertHTML += appendSelect(grandchild);
-          });
-          appendGrandchidrenBox(insertHTML);
-        }
-      })
-      .fail(function(){
-        alert('カテゴリー取得に失敗しました');
-      })
-    }else{
-      $('#grandchildren_box').remove();
-      $('#size_box').remove();
-      $('#brand_box').remove();
-    }
-  });
-
   $('.exhibit-product__detail__box--form').on('change', '#child_category', function(){
     var childId = $('#child_category').val();
     if (childId != "---"){
       $.ajax({
-        url: "../products/grandchild_category",
+        url: (url + "grandchild_category"),
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -285,7 +260,7 @@ $(function(){
     var gcName = $('#grandchild_category option:selected').text();
     if ( gcName != "---"){
       $.ajax({
-        url: "../products/product_size_brand",
+        url: (url +"product_size_brand"),
         type: 'GET',
         data: { category_name: gcName },
         dataType: 'json'
@@ -346,7 +321,7 @@ $(function(){
     var input = $("#brands-search-form").val();
     if (input !== preWord){
       $.ajax({
-        url: "../products/brand_search",
+        url: (url + "brand_search"),
         type: 'GET',
         data: {keyword: input},
         dataType: 'json'
