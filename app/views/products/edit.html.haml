@@ -22,19 +22,11 @@
                       .view_box
                         %input#product_images_attributes_0_picture.file_edit{ name: "product[images_attributes][0]",  type:"file", value: ""}/
                         .img_view
-                          %img.img{ src: "#{@picture1}"}/
+                          %img.img{ src: "#{@product.images[0].picture.url}"}/
                           .view_option
                             .view_option--edit 編集
                             .view_option--delete
                               .img_del_edit 削除
-                    #image-contents.img-box.test{ style: "width: 542px;"}
-                      .view_box
-                        = i.file_field :picture, class:"file_edit"
-                .exhibit-product__view--img--default
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックでファイルをアップロード
-                #error-log-picture.error
             .exhibit-product__name
               .exhibit-product__name--title
                 %label
@@ -79,7 +71,7 @@
                           必須
                       .select-box.margin-top-40
                         %i.fa.fa-angle-down.fa-2x.icon-deco
-                        %input{type: "hidden", value: @default_size , class: 'brand_clothe_name' }/
+                        %input{type: "hidden", value: "#{@product.product_size}" , class: 'brand_clothe_name' }/
                         %select#size.select-box--menu.choosing{name:"product[product_size]"}
                           %option{value: "---"} ---
                           %option{value:"XXL以下"} XXL以下

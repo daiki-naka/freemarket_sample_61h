@@ -39,7 +39,6 @@ class ProductsController < ApplicationController
       end
     end
     @hobby_products.sort_by!{|hobby_product|hobby_product.created_at}.reverse!
-
     @chanel_products = Product.where(brand_id: 249).order("created_at DESC")
     @ruiviton_products = Product.where(brand_id: 250).order("created_at DESC")
     @shupurimu_products = Product.where(brand_id: 251).order("created_at DESC")
@@ -52,35 +51,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if @product.images.length == 1
-      @picture1 = @product.images[0].picture.url
-    elsif @product.images.length == 2
-      @picture1 = @product.images[0].picture.url
-      @picture2 = @product.images[1].picture.url
-    elsif @product.images.length == 3
-      @picture1 = @product.images[0].picture.url
-      @picture2 = @product.images[1].picture.url
-      @picture3 = @product.images[2].picture.url
-    elsif @product.images.length == 4
-      @picture1 = @product.images[0].picture.url
-      @picture2 = @product.images[1].picture.url
-      @picture3 = @product.images[2].picture.url
-      @picture4 = @product.images[3].picture.url
-    else @product.images.length == 5
-      @picture1 = @product.images[0].picture.url
-      @picture2 = @product.images[1].picture.url
-      @picture3 = @product.images[2].picture.url
-      @picture4 = @product.images[3].picture.url
-      @picture5 = @product.images[4].picture.url
-    end
-    @default_size = @product.product_size
-    @category_id = @product.category_id
-    @g_category = Category.find(@category_id)
+    @g_category = Category.find(@product.category_id)
     @c_category = @g_category.parent
     @p_category = @c_category.parent
     @Categories = @p_category.children
     @clothe_default_size = @default_size.is_a? String
-    
     if @product.brand_id != nil
       @brand_id = @product.brand_id
       @brand = Brand.find(@product.brand_id)
