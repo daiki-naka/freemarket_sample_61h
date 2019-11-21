@@ -198,11 +198,11 @@ class ProductsController < ApplicationController
   end
 
   def set_card
-    @card = current_user.cards.first if current_user.cards
+    @card = current_user.cards.first if current_user.cards.present?
   end  
 
   def set_card_information
-    if @card
+    if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
