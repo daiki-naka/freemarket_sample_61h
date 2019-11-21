@@ -190,6 +190,7 @@ $(function(){
 
   $('#parent-form').on('change', function(){
     var parentCategory = document.getElementById('parent-form').value;
+    console.log(location.href)
     if (parentCategory != ""){
       $.ajax({
         url: "products/children_category",

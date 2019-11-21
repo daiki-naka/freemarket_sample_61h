@@ -6,6 +6,7 @@ class CardsController < ApplicationController
 
 
   def index   # カード確認画面
+    @parents = Category.all.order("id ASC").limit(13)
     if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
       customer = Payjp::Customer.retrieve(@card.customer_id)
