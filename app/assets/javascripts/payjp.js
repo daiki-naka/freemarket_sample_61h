@@ -12,6 +12,7 @@ document.addEventListener(
         exp_month: document.getElementById("exp_month").value,
         exp_year: document.getElementById("exp_year").value
       }; 
+
       //トークン生成
       Payjp.createToken(card, (status, response) => {
         if (status === 200) { 
@@ -30,4 +31,3 @@ document.addEventListener(
       });
     });
   },false);
-
