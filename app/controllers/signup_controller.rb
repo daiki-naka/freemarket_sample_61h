@@ -132,7 +132,7 @@ class SignupController < ApplicationController
     )
     if @user.save
       session[:id] = @user.id
-      card_create
+      # card_create
       sign_in @user
     else
       render :complete
