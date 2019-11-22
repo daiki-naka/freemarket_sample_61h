@@ -67,7 +67,7 @@
       %p.item__description-inner.p-item-detail
         = @product.introduction
   .information
-    = link_to '商品編集', edit_product_path(id: params[:id]),data: {"turbolinks" => false}, class:"information__edit"
+    = link_to '商品編集', "/products/#{params[:id]}/edit",data: {"turbolinks" => false}, class:"information__edit"
     %p.or or
     .information__stop  出品を一旦停止する
     .information__delete#dlt_btn この商品を削除する
