@@ -129,8 +129,8 @@
                           %span.any
                             任意
                         .select-box
-                          %input#input_brand{ name:"product[brand_id]", type:"hidden", value: "#{@brand.id}"}/
                           - if @brand != nil
+                            %input#input_brand{ name:"product[brand_id]", type:"hidden", value: "#{@brand.id}"}/
                             %input#brands-search-form.select-box--menu.choosing{ value: @brand.name, class: "product_brand_name", placeholder: "例）シャネル"}/
                           - else 
                             %input#brands-search-form.select-box--menu.choosing{ value:"", class: "product_brand_name", placeholder: "例）シャネル"}/
