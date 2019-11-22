@@ -40,10 +40,10 @@ class ProductsController < ApplicationController
     end
     @hobby_products.sort_by!{|hobby_product|hobby_product.created_at}.reverse!
 
-    @chanel_products = Product.where(brand_id: 249).order("created_at DESC")
-    @ruiviton_products = Product.where(brand_id: 250).order("created_at DESC")
-    @shupurimu_products = Product.where(brand_id: 251).order("created_at DESC")
-    @naiki_products = Product.where(brand_id: 252).order("created_at DESC")
+    @chanel_products = Product.where(brand_id: 125).order("created_at DESC")
+    @ruiviton_products = Product.where(brand_id: 126).order("created_at DESC")
+    @shupurimu_products = Product.where(brand_id: 127).order("created_at DESC")
+    @naiki_products = Product.where(brand_id: 128).order("created_at DESC")
   end
 
   def new
