@@ -1,11 +1,5 @@
 $(function(){
   var preWord = "";
-  var url = location.href
-  if (url.match(/new/)) {
-    url = "products/"
-  } else {
-    url = "../products/"
-  }
   function appendSelect(category){
     var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
@@ -196,10 +190,9 @@ $(function(){
 
   $('#parent-form').on('change', function(){
     var parentCategory = document.getElementById('parent-form').value;
-    console.log(location.href)
     if (parentCategory != ""){
       $.ajax({
-        url: (url + "children_category"),
+        url: "products/children_category",
         type: "GET",
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -230,7 +223,7 @@ $(function(){
     var childId = $('#child_category').val();
     if (childId != "---"){
       $.ajax({
-        url: (url + "grandchild_category"),
+        url: "products/grandchild_category",
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -261,7 +254,7 @@ $(function(){
     var gcName = $('#grandchild_category option:selected').text();
     if ( gcName != "---"){
       $.ajax({
-        url: (url +"product_size_brand"),
+        url: "products/product_size_brand",
         type: 'GET',
         data: { category_name: gcName },
         dataType: 'json'
@@ -322,7 +315,7 @@ $(function(){
     var input = $("#brands-search-form").val();
     if (input !== preWord){
       $.ajax({
-        url: (url + "brand_search"),
+        url: "products/brand_search",
         type: 'GET',
         data: {keyword: input},
         dataType: 'json'
