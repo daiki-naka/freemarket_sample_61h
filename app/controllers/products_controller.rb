@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_product, only: [:show, :buy, :pay, :product_show, :destroy]
+  before_action :set_product, only: [:show, :buy, :pay, :show, :edit, :update, :product_show, :destroy]
   before_action :set_category, only: [:index, :show, :product_show, :destroy]
   before_action :authenticate_user!, only: :new
   
@@ -51,6 +51,27 @@ class ProductsController < ApplicationController
     @product.images.build
   end
 
+  def edit
+    @g_category = Category.find(@product.category_id)
+    @c_category = @g_category.parent
+    @p_category = @c_category.parent
+    @Categories = @p_category.children
+    @clothe_default_size = @default_size.is_a? String
+    if @product.brand_id != nil
+      @brand_id = @product.brand_id
+      @brand = Brand.find(@product.brand_id)
+    end
+    @all_brands = Brand.all
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to product_show_product_path, notice: "変更しました。"
+    else
+      render :edit
+    end
+  end
+  
   def show
     @product = Product.find(params[:id])
     @user = @product.user
@@ -135,14 +156,13 @@ class ProductsController < ApplicationController
       @brands = @brand_key2
     end
   end
-    
+  
   def buy # 購入確認
     set_card_information
   end
 
   def pay # 決済処理
     set_card_information
-
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     Payjp::Charge.create(
       amount: @product.price, 
