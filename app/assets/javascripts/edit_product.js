@@ -100,15 +100,6 @@ $(function(){
         }
       });
 
-    $(document).on("click", ".brand-form", function () {
-      var brandId = $(this).data("brand-id");
-      var brandName = $(this).text();
-      $("#brands-search-form").empty();
-      document.getElementById( "input_brand" ).value = brandId;
-      document.getElementById( "brands-search-form" ).value = brandName.trim();
-      $("#brands-search-result").empty();
-    });
-
       $('#method_box').remove();
       var deliveryName = document.getElementById('delivery_form').value;
       var method = "";
