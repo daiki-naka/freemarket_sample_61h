@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   require 'payjp'
+  before_action :authenticate_user!, only: [:new, :buy]
   before_action :set_card, only: [:buy, :pay]
   before_action :set_product, only: [:show, :buy, :pay, :product_show, :destroy]
   before_action :set_category, only: [:index, :show, :product_show, :destroy]
-  before_action :authenticate_user!, only: :new
   
 
   def index
