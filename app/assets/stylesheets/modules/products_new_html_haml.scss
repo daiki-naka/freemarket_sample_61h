@@ -31,6 +31,7 @@
     width: 680px;
     text-align: center;
     line-height: 30px;
+    display: flex;
   &--photo{
     margin-top:30px;
     margin-left: 220px;
@@ -38,7 +39,7 @@
   }
   &--text{
     margin-top:30px;
-    margin-right: 290px;
+    margin-left: 30px;
     font-size:15px;
     float: right;
   }
