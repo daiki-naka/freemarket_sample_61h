@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
     @c_category = @g_category.parent
     @p_category = @c_category.parent
     @Categories = @p_category.children
-    @clothe_default_size = @default_size.is_a? String
+    @clothe_default_size = @product.product_size
     if @product.brand_id != nil
       @brand_id = @product.brand_id
       @brand = Brand.find(@product.brand_id)

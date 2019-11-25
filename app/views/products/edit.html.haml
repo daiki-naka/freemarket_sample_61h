@@ -63,7 +63,7 @@
                       %i.icon-deco.fa.fa-angle-down.fa-2x
                       = f.collection_select :category_id, @c_category.children, :id, :name,{prompt: "---"}, class: "select-box--menu choosing parent-edit-form3", id: "grandchild_category"
                       %input{type: "hidden", value: @g_category.id, class: 'category-g-status' }/
-                  - if @clothe_default_size 
+                  - if @clothe_default_size !~ /\./
                     #size_box.sizeform-box.margin-top-40>
                       %label
                         サイズ
