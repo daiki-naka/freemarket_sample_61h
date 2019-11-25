@@ -2,7 +2,7 @@
   = link_to "/products/#{product.id}", class: "product__block__li__link" do
     .product__block__li__link__image
       - product.images.first(1).each do |image|
-        = image_tag image.picture.to_s, size: "188x188", alt: "picture"
+        = image_tag image.picture.to_s, size: "188x188", alt: "picture", class: "product__block__li__link__image__picture"
       .product__block__li__link__price
         = "¥#{product.price.to_s(:delimited, delimiter: ',')}"
     .product__block__li__link__title
