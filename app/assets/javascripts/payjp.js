@@ -30,4 +30,4 @@ document.addEventListener(
         }
       });
     });
-  },true);
+  },false);
