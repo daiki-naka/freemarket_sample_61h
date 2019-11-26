@@ -51,26 +51,26 @@ class ProductsController < ApplicationController
     @product.images.build
   end
 
-  # def edit
-  #   @g_category = Category.find(@product.category_id)
-  #   @c_category = @g_category.parent
-  #   @p_category = @c_category.parent
-  #   @Categories = @p_category.children
-  #   @clothe_default_size = @default_size.is_a? String
-  #   if @product.brand_id != nil
-  #     @brand_id = @product.brand_id
-  #     @brand = Brand.find(@product.brand_id)
-  #   end
-  #   @all_brands = Brand.all
-  # end
+  def edit
+    @g_category = Category.find(@product.category_id)
+    @c_category = @g_category.parent
+    @p_category = @c_category.parent
+    @Categories = @p_category.children
+    @clothe_default_size = @default_size.is_a? String
+    if @product.brand_id != nil
+      @brand_id = @product.brand_id
+      @brand = Brand.find(@product.brand_id)
+    end
+    @all_brands = Brand.all
+  end
 
-  # def update
-  #   if @product.update(product_params)
-  #     redirect_to product_show_product_path, notice: "変更しました。"
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @product.update(product_params)
+      redirect_to product_show_product_path, notice: "変更しました。"
+    else
+      render :edit
+    end
+  end
   
   def show
     @product = Product.find(params[:id])
